@@ -60,7 +60,7 @@ const Contact = ({ lang }) => {
 
             <ExternalLink
                 data-tip="LinkedIn"
-                href="https://linkedin.com/user/zaqueu1"
+                href="https://linkedin.com/in/zaqueu1"
                 target="_blank">
               <IconWrapper>
                 <FaLinkedinIn />
