@@ -72,6 +72,8 @@ export const ExternalLink = styled.a`
   }
   @media only screen and (max-width: 900px) {
     font-size: 0.85rem;
+    min-width: 70vw;
+    max-width: 70vw;
   }
 `;
 
