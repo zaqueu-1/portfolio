@@ -68,13 +68,10 @@ export const ExternalLink = styled.a`
   border-radius: 16px 0 16px 0;
   &:hover {
     background: rgba(0, 0, 0, 0.1);
-    min-width: 32.5vw;
-    max-width: 32.5vw;
+    transform: scale(0.95);
   }
   @media only screen and (max-width: 900px) {
     font-size: 0.85rem;
-    min-width: 75vw;
-    max-width: 75vw;
   }
 `;
 
