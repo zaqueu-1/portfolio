@@ -17,7 +17,7 @@ export const GoToTop = styled.button`
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
   &:hover {
-    color: rgba(0,0,0,0.1);
+    color: #999;
     transform: scale(1.05);
   }
   @media only screen and (max-width: 700px) {

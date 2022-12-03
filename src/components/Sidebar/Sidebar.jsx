@@ -7,7 +7,6 @@ import {
   SidebarItem,
   SidebarSpan,
   SidebarSpacer,
-  SidebarSubSpan,
   CloseSidebar,
   LanguageControl,
   LanguageToggler,
@@ -15,8 +14,8 @@ import {
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdLanguage } from "react-icons/md";
 import ReactTooltip from "react-tooltip";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";
+/*import { FaLinkedinIn } from "react-icons/fa";
+import { FiGithub } from "react-icons/fi";*/
 
 const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
 
@@ -68,7 +67,7 @@ const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
           </SidebarItem>
         </SidebarSection>
         <SidebarSpacer />
-        <SidebarSection>
+        {/*<SidebarSection>
           <SidebarItem>
           <FiGithub /><SidebarSubSpan>
               <a href="https://github.com/zaqueu-1" target="_blank" rel="noreferrer">
@@ -83,15 +82,15 @@ const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
               </a>{" "}
             </SidebarSubSpan>
           </SidebarItem>
-        </SidebarSection>
+        </SidebarSection>*/}
         <LanguageControl data-tip={lang ? "Mudar idioma" : "Switch language"}>
           <LanguageToggler
             onClick={() => {
               onGetLang(!lang);
             }}
           >
-            <MdLanguage style={{ marginRight: ".6rem" }} />
-            {lang ? "Change to English" : "Mudar para Português"}
+            <MdLanguage style={{ marginRight: ".5rem" }} />
+            {lang ? "View in English" : "Ver em Português"}
           </LanguageToggler>
         </LanguageControl>
       </SidebarContainer>

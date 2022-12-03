@@ -10,14 +10,14 @@ export const AboutContainer = styled.div`
   @media only screen and (max-width: 900px) {
     justify-content: center;
   }
-  @media only screen and (max-width: 416px) {
+  @media only screen and (max-width: 417px) {
     justify-content: center;
     margin-top: 16.8rem;
   }
 `;
 
 export const FlexContainer = styled.div`
-  margin-top: 30px;
+  margin-top: 1.8rem;
   display: flex;
   flex-direction: row;
   padding: 0 6rem;
@@ -27,7 +27,7 @@ export const FlexContainer = styled.div`
     justify-content: center;
     padding: 0 1rem;
   }
-  @media only screen and (max-width: 416px) {
+  @media only screen and (max-width: 417px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -52,7 +52,7 @@ margin-left: 8rem;
     margin-left: 0;
     margin-bottom: .5rem;
   }
-  @media only screen and (max-width: 416px) {
+  @media only screen and (max-width: 417px) {
     width: 25vh;
     height: 50%;
     justify-content: center;
@@ -74,10 +74,11 @@ export const DescWrapper = styled.div`
     justify-content: center;
     align-items: center;
   }
-  @media only screen and (max-width: 416px) {
+  @media only screen and (max-width: 417px) {
     padding: 0 1rem;
     justify-content: center;
     align-items: center;
+    width: 100vw;
   }
 `;
 
@@ -85,10 +86,12 @@ export const AboutTitle = styled.h2`
   font-size: 2rem;
   color: #999;
   @media only screen and (max-width: 900px) {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    display: flex;
   }
-  @media only screen and (max-width: 416px) {
-    font-size: 1.5rem;
+  @media only screen and (max-width: 417px) {
+    font-size: 1.2rem;
+    display: flex;
   }
 `;
 
@@ -98,9 +101,8 @@ export const AboutP = styled.p`
   line-height: 1.7;
   color: #dddddd;
   @media only screen and (max-width: 900px) {
-    margin: .6rem 0;
-  }
-  @media only screen and (max-width: 416px) {
-    margin: .6rem 0;
+    margin: .2rem 0;
+    font-size: 0.8rem;
+    display: flex;
   }
 `;

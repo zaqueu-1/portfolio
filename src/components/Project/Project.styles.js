@@ -5,14 +5,13 @@ export const ProjectContainer = styled.div`
   flex-direction: ${(props) => (props.id % 2 !== 0 ? "row" : "row-reverse")};
   min-height: 70vh;
   align-items: center;
-  margin: 0 1rem;
+  margin: 0 1.5rem;
+  padding: 0 .5rem;
   @media only screen and (max-width: 900px) {
     flex-direction: column;
-    padding: 0 1rem;
-  }
-  @media only screen and (max-width: 416px) {
-    flex-direction: column;
-    padding: 0 1rem;
+    padding: 0 .5rem;
+    width: 100vw;
+    margin: .5rem 1rem;
   }
 `;
 
@@ -46,9 +45,12 @@ export const ProjectInfo = styled.div`
 export const Section = styled.div``;
 
 export const ProjectH1 = styled.h1`
-  font-size: 3rem;
+  font-size: 2.2rem;
   @media only screen and (max-width: 900px) {
-    font-size: 2rem;
+    font-size: 1.7rem;
+  }
+  @media only screen and (max-width: 450px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -57,28 +59,28 @@ export const ProjectDescription = styled.p`
   line-height: 1.7;
   color: #ddd;
   @media only screen and (max-width: 900px) {
-    font-size: 16px;
+    font-size: 0.9rem;
     line-height: 1.5;
-    margin-right: 30px;
+    margin-right: 1.8rem;
   }
 `;
 
 export const StackContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  max-width: 70%;
 `;
 
 export const Tech = styled.span`
   background: rgba( 255, 255, 255, 0.1 );
   backdrop-filter: blur( 1.5px );
   -webkit-backdrop-filter: blur( 1.5px );
-  border: none;
   padding: 0.3rem 0.8rem;
   border-radius: 12px 1px 12px 1px;
   font-size: 16px;
   cursor: pointer;
-  margin: 1px 4px;
-  transition: 0.3s;
+  margin: 3px;
+  transition: all 0.3s ease-in-out;
   &:hover {
     background-color: rgba( 0, 0, 0, 0.1 );
   }

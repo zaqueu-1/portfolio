@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Poppins']
+        families: ['Poppins'],
       }
     });
     AOS.init();
@@ -54,7 +54,7 @@ function App() {
       />
       <LanguageControlMain data-tip={lang ? "English" : "Português"} onClick={() => setLang(!lang)}>
         <LanguageTogglerMain>
-          <MdLanguage style={{ marginRight: "10px" }} />
+          <MdLanguage style={{ marginRight: ".6rem" }} />
           {lang ? "View in English" : "Ver em Português"}
         </LanguageTogglerMain>
       </LanguageControlMain>

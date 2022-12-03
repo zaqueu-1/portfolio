@@ -64,6 +64,6 @@ export const LanguageTogglerMain = styled.button`
   transition: all 0.2s ease-in-out;
   &:hover {
     transform: scale(1.03);
-    color: rgba(255,255,255,0.1);
+    color: #999;
   }
 `;

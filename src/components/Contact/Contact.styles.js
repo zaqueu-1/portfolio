@@ -5,14 +5,14 @@ export const ContactContainer = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   @media only screen and (max-width: 900px) {
     margin-top: 50px;
   }
 `;
 
-export const ContactH1 = styled.h2`
+export const ContactTitle = styled.h2`
 font-size: 2.5rem;
 color: #999;
 @media only screen and (max-width: 900px) {
@@ -25,60 +25,68 @@ color: #999;
 }
 `;
 
+export const ContactSub = styled.h2`
+font-size: 1.2rem;
+color: #f5f5f5;
+@media only screen and (max-width: 450px) {
+  font-size: 0.85rem;
+}
+@media only screen and (max-width: 900px) {
+  font-size: 1rem;
+}
+`;
+
 export const FlexContainer = styled.div`
-  margin-top: 1rem;
+  margin-top: .5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @media only screen and (max-width: 900px) {
-    flex-direction: column-reverse;
-  }
-`;
-
-export const ContactP = styled.p`
-  margin: .6rem 0;
-  font-size: 1rem;
-  line-height: 1.7;
 `;
 
 export const ContactWrapper = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
 align-items: center;
-justify-content: flex-start;
-margin-bottom: 0.5rem;
-transition: all 0.3s ease-in-out;
-&:hover {
-  color: rgba( 0, 0, 0, 0.1 );
-  transform: scale(1.05);
-}
+justify-content: center;
 `;
 
 export const ExternalLink = styled.a`
   font-size: 1.2rem;
-  margin-right: .4rem;
+  margin-top: .7rem;
   cursor: pointer;
-  transition: 0.3s;
-  color: #999;
   transition: all 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  min-width: 35vw;
+  max-width: 35vw;
+  background: rgba( 255, 255, 255, 0.1 );
+  backdrop-filter: blur( 1.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
+  padding: 0.5rem 1rem;
+  border-radius: 16px 0 16px 0;
   &:hover {
-    color: rgba( 0, 0, 0, 0.1 );
-    transform: scale(1.05);
+    background: rgba(0, 0, 0, 0.1);
+    min-width: 32.5vw;
+    max-width: 32.5vw;
   }
-  @media only screen and (max-width: 700px) {
-    font-size: 0.9rem;
+  @media only screen and (max-width: 900px) {
+    font-size: 0.85rem;
+    min-width: 75vw;
+    max-width: 75vw;
   }
 `;
 
 export const IconWrapper = styled.div`
   color: #f5f5f5;
-  margin-right: 0.2rem
+  margin-right: 0.5rem;
+  display: flex;
 `;
 
 export const ContactSpan = styled.span`
-  font-size: 1rem;
   color: #f5f5f5;
+  display: flex;
 `;
 
 

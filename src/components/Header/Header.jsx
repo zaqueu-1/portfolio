@@ -1,17 +1,14 @@
 import React from "react";
 import {
+  BoxSpacer,
   HeaderH1,
   HeaderContainer,
   H1Container,
-  SocialMediaContainer,
-  ExternalLink,
   SubtitleContainer,
   SubtitleText,
   SkillsContainer,
   Skill,
 } from "./Header.styles";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";
 import { data } from "../../data";
 import ReactTooltip from "react-tooltip";
 
@@ -22,22 +19,11 @@ const Header = ({ lang }) => {
   return (
     <HeaderContainer>
       <ReactTooltip />
+      <BoxSpacer>
       <H1Container>
         <div data-aos={"fade-right"} data-aos-duration={"1500"}>
           <HeaderH1>{title}</HeaderH1>
         </div>
-        <SocialMediaContainer data-aos={"fade-left"} data-aos-delay={"300"} data-aos-duration={"1500"}>
-          <ExternalLink
-            data-tip={lang ? "Github" : "Github"}
-            href="https://github.com/zaqueu-1"
-            target="_blank">
-            <FiGithub /></ExternalLink>
-          <ExternalLink
-            data-tip={lang ? "LinkedIn" : "LinkedIn"}
-            href="https://www.linkedin.com/in/zaqueu1"
-            target="_blank">
-            <FaLinkedinIn /></ExternalLink>
-        </SocialMediaContainer>
       </H1Container>
       <SubtitleContainer>
         <SubtitleText
@@ -53,6 +39,7 @@ const Header = ({ lang }) => {
             return <Skill>{s}</Skill>;
           })}</SkillsContainer>
       </SubtitleContainer>
+      </BoxSpacer>
     </HeaderContainer>
   );
 };

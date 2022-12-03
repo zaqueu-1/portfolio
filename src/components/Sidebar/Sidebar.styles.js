@@ -35,7 +35,7 @@ export const SidebarIcon = styled.button`
   z-index: 50;
   transition: all 0.2s ease-in-out;
   &:hover {
-    color: rgba(255,255,255,0.1);
+    color: #999;
   }
 `;
 
@@ -49,7 +49,7 @@ export const SidebarSection = styled.div`
 `;
 
 export const SidebarItem = styled.button`
-  margin: .6rem;
+  margin: .5rem;
   outline: none;
   background: transparent;
   border: none;
@@ -62,17 +62,16 @@ export const SidebarItem = styled.button`
 `;
 
 export const SidebarSpan = styled.span`
-  text-transform: uppercase;
   font-size: 1.2rem;
   cursor: pointer;
-  padding: .6rem;
+  padding: .5rem;
   }
 `;
 
 export const SidebarSpacer = styled.div`
   border: 1px dashed rgba(255,255,255,0.15);
   width: 30%;
-  margin: .6rem 0;
+  margin: .8rem 0;
 `;
 
 export const SidebarSubSpan = styled.span`
@@ -81,7 +80,6 @@ export const SidebarSubSpan = styled.span`
   padding: .6rem;
   }
 `;
-
 
 export const CloseSidebar = styled.button`
   margin: 1rem;

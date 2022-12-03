@@ -19,12 +19,9 @@ export const Wrapper = styled.div`
   @media only screen and (max-width: 900px) {
     margin: 0 auto;
   }
-  @media only screen and (max-width: 417px) {
-    margin: 0 auto;
-  }
 `;
 
-export const H1 = styled.h1`
+export const ProjectsH1 = styled.h1`
   font-size: 2.5rem;
   color: #999;
   @media only screen and (max-width: 900px) {
