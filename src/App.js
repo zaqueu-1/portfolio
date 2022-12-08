@@ -24,7 +24,7 @@ function App() {
     AOS.init();
     AOS.refresh();
     let userLang = navigator.language || navigator.userLanguage;
-    if (userLang !== "pt-BR") setLang(false);
+    if (userLang !== "pt-BR") setLang(false); //pt=true, other=false
   }, []);
 
   const [lang, setLang] = useState(true);
