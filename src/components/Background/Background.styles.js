@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const BackgroundStyle = createGlobalStyle`
 .area{
-    background: linear-gradient(#222, rgb(76, 127, 182));  
+    background: linear-gradient(#222, rgb(162, 165, 138));  
     position: fixed;
     right: 0;
     bottom: 0;

@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   justify-content: center;
   height: 55vh;
   margin: 0 1rem;
-  @media only screen and (max-width: 769px) {
+  @media only screen and (max-width: 1199px) {
     margin: 0 .5rem;
   }
 `;
@@ -34,8 +34,8 @@ export const HeaderH1 = styled.h1`
   &:hover {
     transform: scale(1.02);
   }
-  @media only screen and (max-width: 450px) {
-    font-size: 2.5rem;
+  @media only screen and (max-width: 417px) {
+    font-size: 2.3rem;
   }
   @media only screen and (max-width: 900px) {
     font-size: 3.5rem;
@@ -53,7 +53,7 @@ export const SubtitleText = styled.p`
   line-height: 1.8;
   margin-left: 0.3rem;
   color: #999;
-  @media only screen and (max-width: 370px) {
+  @media only screen and (max-width: 417px) {
     font-size: 1rem;
   }
 `;
@@ -75,7 +75,10 @@ export const Skill = styled.p`
     background-color: rgba( 0, 0, 0, 0.1 );
   }
   @media only screen and (max-width: 417px) {
-    font-size: 12px;
+    font-size: 0.8rem;
+    margin: 0.125rem 0.25rem;
+  }
+  @media only screen and (max-width: 1199px) {
     margin: 0.125rem 0.25rem;
   }
 `;
@@ -90,8 +93,8 @@ export const InfoSpan = styled.span`
   font-size: 16px;
   color: grey;
   font-style: italic;
-  @media only screen and (max-width: 370px) {
-    font-size: 12px;
+  @media only screen and (max-width: 417px) {
+    font-size: 0.8rem;
   }
 `;
 

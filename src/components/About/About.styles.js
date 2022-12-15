@@ -5,13 +5,9 @@ export const AboutContainer = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 900px) {
-    justify-content: center;
-  }
   @media only screen and (max-width: 417px) {
-    justify-content: center;
     margin-top: 16.8rem;
   }
 `;
@@ -20,8 +16,10 @@ export const FlexContainer = styled.div`
   margin-top: 1.8rem;
   display: flex;
   flex-direction: row;
-  padding: 0 6rem;
-  @media only screen and (max-width: 900px) {
+  margin: 0 5rem;
+  align-items: space-around;
+  justify-content: space-around;
+  @media only screen and (max-width: 1199px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -31,19 +29,19 @@ export const FlexContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 `;
 
 export const ImageWrapper = styled.div`
 display: flex;
-justify-content: flex-end;
-align-items: flex-end;
+justify-content: center;
+align-items: center;
 opacity: 0.8;
 width: 45vh;
 height: 45vh;
-margin-left: 8rem;
-@media only screen and (max-width: 900px) {
+margin-left: 10rem;
+@media only screen and (max-width: 1199px) {
     width: 35vh;
     height: 50%;
     flex-direction: column;
@@ -64,18 +62,12 @@ margin-left: 8rem;
 `;
 
 export const DescWrapper = styled.div`
-  flex: 5;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem 0 0 4rem;
-  @media only screen and (max-width: 900px) {
+  padding: 1rem;
+  @media only screen and (max-width: 1199px) {
     padding: 0 1.2rem;
-    justify-content: center;
-    align-items: center;
-  }
-  @media only screen and (max-width: 417px) {
-    padding: 0 1rem;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -100,9 +92,29 @@ export const AboutP = styled.p`
   font-size: 1rem;
   line-height: 1.7;
   color: #dddddd;
-  @media only screen and (max-width: 900px) {
-    margin: .2rem 0;
+  @media only screen and (max-width: 1199px) {
+    font-size: 0.9rem;
+    margin: .2rem .6rem;
+  }
+`;
+
+  export const Tech = styled.a`
+  background: rgba( 255, 255, 255, 0.1 );
+  backdrop-filter: blur( 1.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
+  text-align: center;
+  padding: 0.3rem;
+  max-width: 150px;
+  display: flex;
+  border-radius: 12px 1px 12px 1px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: rgba( 0, 0, 0, 0.1 );
+  }
+  @media only screen and (max-width: 700px) {
     font-size: 0.8rem;
-    display: flex;
   }
 `;

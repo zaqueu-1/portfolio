@@ -19,6 +19,11 @@ export const data = {
     "Git"
   ],
 
+  aboutme: {
+    pt: `Atuo na Web há 13 anos, trazendo soluções que vão do design gráfico ao desenvolvimento de aplicações. Já fui professor, ministrei workshops e hoje trilho o caminho Front-end focando na qualidade dos projetos e experiência do usuário.`,
+    en: 'Bringing web solutions, from graphic design to application development, since 2009. Experienced both as a teacher and host for workshops, nowadays I follow my path in front-end, always focusing on the quality and usability of my projects.',
+    },
+
   projects: [
     {
       id: 1,

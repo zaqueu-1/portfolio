@@ -6,11 +6,16 @@ import {
   DescWrapper,
   AboutTitle,
   AboutP,
+  Tech,
 } from "./About.styles";
 import React from "react";
 import Avatar from "../Avatar/Avatar";
+import { data } from "../../data";
+import cveng from "../../docs/eduardo-zaqueu-cv-eng.pdf";
+import cvpt from "../../docs/eduardo-zaqueu-cv-pt.pdf";
 
 const About = ({ lang }) => {
+
   return (
     <AboutContainer>
       <div data-aos={"zoom-in"} data-aos-duration={"1200"}>
@@ -29,12 +34,11 @@ const About = ({ lang }) => {
               : `Eduardo Zaqueu | 27 years | RJ, Brazil`
               }
              </AboutP>
-          <AboutP>
-          {lang
-              ? `Talvez seja por conta do primeiro computador, em 1999, todo meu interesse na área da tecnologia. Ou talvez sejam os diversos consoles e portáteis que tive ao longo dos anos. O fato é que cresci, estudei, me desenvolvi em diversas áreas e hoje me especializo como desenvolvedor.`
-              : `Maybe It was due my first computer, back in 1999, the reason of all my interest in technology. Or maybe It was due the several consoles and handhelds I had along the years. The fact is that I grew up, studied, sharpened my skills and nowadays I specialize myself as a developer.`
-              }
-          </AboutP>
+          <AboutP>{lang ? data.aboutme.pt : data.aboutme.en }</AboutP>
+          <AboutP>{lang
+          ? `Quer saber mais sobre mim? Dê uma olhada em meu currículo logo abaixo.`
+          : 'Want to know more? Check out my CV below.'}</AboutP>
+          <Tech href={lang ? cvpt : cveng } download>{lang ? 'Baixar currículo' : 'Download CV'}</Tech>
             </DescWrapper>
         </FlexContainer>
       

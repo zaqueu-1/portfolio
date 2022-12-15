@@ -8,7 +8,7 @@ const Projects = ({ lang }) => {
   return (
     <ProjectsContainer>
       <Wrapper data-aos={"zoom-in"} data-aos-duration={"1200"}>
-      <ProjectsH1><AiOutlineFundProjectionScreen style={{ marginRight: "0.4rem", fontSize: "2.5rem" }} />{lang ? "Projetos" : "Projects"}</ProjectsH1>
+      <ProjectsH1><AiOutlineFundProjectionScreen style={{ marginRight: "0.4rem", fontSize: "1.8rem" }} />{lang ? "Projetos" : "Projects"}</ProjectsH1>
       </Wrapper>
 
       {data.projects.map((p) => {

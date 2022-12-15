@@ -10,7 +10,7 @@ import {
   ExternalLink,
 } from "./Contact.styles";
 import { AiOutlineMail } from "react-icons/ai";
-import { FaLinkedinIn, FaWhatsapp} from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { RiContactsLine, RiDiscordFill } from "react-icons/ri";
 import ReactTooltip from "react-tooltip";
@@ -21,7 +21,7 @@ const Contact = ({ lang }) => {
     <ContactContainer>
       <ReactTooltip />
       <div data-aos={"zoom-in"} data-aos-duration={"1200"}>
-        <ContactTitle><RiContactsLine style={{ marginRight: "0.4rem", fontSize: "2.5rem" }} />{lang ? "Contato" : "Get in touch"}</ContactTitle>
+        <ContactTitle><RiContactsLine style={{ marginRight: "0.4rem", fontSize: "1.6rem" }} />{lang ? "Contato" : "Get in touch"}</ContactTitle>
       </div>
       <FlexContainer data-aos={"fade-left"} data-aos-duration={"1200"}>
           <ContactSub>{lang ? "Sinta-se à vontade pra entrar em contato comigo pelos meios abaixo:" 
