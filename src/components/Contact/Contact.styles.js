@@ -27,12 +27,12 @@ color: #999;
 
 export const ContactSub = styled.h2`
 font-size: 1.2rem;
+margin: 0.5rem;
+padding: 0.2rem;
+text-align: center;
 color: #f5f5f5;
-@media only screen and (max-width: 450px) {
-  font-size: 0.85rem;
-}
 @media only screen and (max-width: 900px) {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 `;
 
