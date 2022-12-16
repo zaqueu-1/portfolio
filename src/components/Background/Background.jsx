@@ -3,7 +3,7 @@ import React from "react";
 const Background = () => {
   return (
     <div class="area" >
-    <ul class="circles">
+      <ul class="circles">
             <li></li>
             <li></li>
             <li></li>
@@ -14,8 +14,8 @@ const Background = () => {
             <li></li>
             <li></li>
             <li></li>
-    </ul>
-</div >
+      </ul>
+    </div >
   );
 };
 

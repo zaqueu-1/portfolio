@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
-  margin: 50px 0 20px 0;
+  margin: 3.1rem 0 1.2rem 0;
   display: flex;
   justify-content: right;
   align-items: center;
 `;
 
-export const GoToTop = styled.button`
+export const GoTop = styled.button`
   outline: none;
   background: none;
   border: none;
@@ -20,7 +20,7 @@ export const GoToTop = styled.button`
     color: #999;
     transform: scale(1.05);
   }
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 1199px) {
     font-size: .8rem;
   }
 `;

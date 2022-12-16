@@ -7,7 +7,7 @@ export const AboutContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 417px) {
+  @media only screen and (max-width: 419px) {
     margin-top: 16.8rem;
   }
 `;
@@ -25,7 +25,7 @@ export const FlexContainer = styled.div`
     justify-content: center;
     padding: 0 1rem;
   }
-  @media only screen and (max-width: 417px) {
+  @media only screen and (max-width: 419px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -50,7 +50,7 @@ margin-left: 10rem;
     margin-left: 0;
     margin-bottom: .5rem;
   }
-  @media only screen and (max-width: 417px) {
+  @media only screen and (max-width: 419px) {
     width: 25vh;
     height: 50%;
     justify-content: center;
@@ -77,11 +77,11 @@ export const DescWrapper = styled.div`
 export const AboutTitle = styled.h2`
   font-size: 2rem;
   color: #999;
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1199px) {
     font-size: 1.3rem;
     display: flex;
   }
-  @media only screen and (max-width: 417px) {
+  @media only screen and (max-width: 419px) {
     font-size: 1.2rem;
     display: flex;
   }
@@ -114,7 +114,7 @@ export const AboutP = styled.p`
   &:hover {
     background-color: rgba( 0, 0, 0, 0.1 );
   }
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 1199px) {
     font-size: 0.8rem;
   }
 `;

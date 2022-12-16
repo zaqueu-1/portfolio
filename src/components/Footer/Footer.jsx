@@ -1,16 +1,14 @@
 import React from "react";
-import { FooterContainer, GoToTop } from "./Footer.styles";
+import { FooterContainer, GoTop } from "./Footer.styles";
 
 const Footer = ({ lang, onGetScrollSection }) => {
   return (
     <FooterContainer>
-      <GoToTop
-        onClick={() => {
-          onGetScrollSection("header");
-        }}
-      >
-        {lang ? "Voltar ao topo" : "Back to top"}
-      </GoToTop>
+      <GoTop onClick={() => {onGetScrollSection("header");}}>
+        {lang 
+          ? "Voltar ao topo" 
+          : "Back to top"}
+      </GoTop>
     </FooterContainer>
   );
 };

@@ -50,26 +50,17 @@ function App() {
       <Sidebar
         onGetLang={languageHandler}
         onGetScrollSection={scrollToSection}
-        lang={lang}
-      />
+        lang={lang}/>
       <LanguageControlMain data-tip={lang ? "English" : "Português"} onClick={() => setLang(!lang)}>
         <LanguageTogglerMain>
           <MdLanguage style={{ marginRight: ".6rem" }} />
           {lang ? "View in English" : "Ver em Português"}
         </LanguageTogglerMain>
       </LanguageControlMain>
-      <section ref={headerSection}>
-        <Header lang={lang} />
-      </section>
-      <section ref={aboutSection}>
-        <About lang={lang} />
-      </section>
-      <section ref={projectsSection}>
-        <Projects lang={lang} />
-      </section>
-      <section ref={contactsSection}>
-        <Contact lang={lang} />
-      </section>
+      <section ref={headerSection}><Header lang={lang} /></section>
+      <section ref={aboutSection}><About lang={lang} /></section>
+      <section ref={projectsSection}><Projects lang={lang} /></section>
+      <section ref={contactsSection}><Contact lang={lang} /></section>
       <Footer lang={lang} onGetScrollSection={scrollToSection} />
       </div>
   );

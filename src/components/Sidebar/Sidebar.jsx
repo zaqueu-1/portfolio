@@ -14,8 +14,6 @@ import {
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { MdLanguage } from "react-icons/md";
 import ReactTooltip from "react-tooltip";
-/*import { FaLinkedinIn } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";*/
 
 const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
 
@@ -37,58 +35,53 @@ const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
             onClick={() => {
               onGetScrollSection("header");
               sidebarToggler();
-            }}
-          >
-            <SidebarSpan>{lang ? "Início" : "Home"}</SidebarSpan>
+            }}>
+            <SidebarSpan>
+              {lang 
+                ? "Início" 
+                : "Home"}
+            </SidebarSpan>
           </SidebarItem>
           <SidebarItem
             onClick={() => {
               onGetScrollSection("about");
               sidebarToggler();
-            }}
-          >
-            <SidebarSpan>{lang ? "Sobre mim" : "About me"}</SidebarSpan>
+            }}>
+            <SidebarSpan>
+              {lang 
+                ? "Sobre mim" 
+                : "About me"}
+            </SidebarSpan>
           </SidebarItem>
           <SidebarItem
             onClick={() => {
               onGetScrollSection("projects");
               sidebarToggler();
-            }}
-          >
-            <SidebarSpan>{lang ? "Projetos" : "Projects"}</SidebarSpan>
+            }}>
+            <SidebarSpan>
+              {lang 
+                ? "Projetos" 
+                : "Projects"}
+            </SidebarSpan>
           </SidebarItem>
           <SidebarItem
             onClick={() => {
               onGetScrollSection("contact");
               sidebarToggler();
-            }}
-          >
-            <SidebarSpan>{lang ? "Contato" : "Contact Info"}</SidebarSpan>
+            }}>
+            <SidebarSpan>
+              {lang 
+                ? "Contato" 
+                : "Contact Info"}
+            </SidebarSpan>
           </SidebarItem>
         </SidebarSection>
         <SidebarSpacer />
-        {/*<SidebarSection>
-          <SidebarItem>
-          <FiGithub /><SidebarSubSpan>
-              <a href="https://github.com/zaqueu-1" target="_blank" rel="noreferrer">
-                Github
-              </a>
-            </SidebarSubSpan>
-          </SidebarItem>
-          <SidebarItem>
-          <FaLinkedinIn /><SidebarSubSpan>
-              <a href="https://www.linkedin.com/in/zaqueu1" target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>{" "}
-            </SidebarSubSpan>
-          </SidebarItem>
-        </SidebarSection>*/}
         <LanguageControl data-tip={lang ? "Mudar idioma" : "Switch language"}>
           <LanguageToggler
             onClick={() => {
               onGetLang(!lang);
-            }}
-          >
+            }}>
             <MdLanguage style={{ marginRight: ".5rem" }} />
             {lang ? "View in English" : "Ver em Português"}
           </LanguageToggler>
