@@ -1,8 +1,9 @@
 import teamzed from "./img/teamzed.png";
 import atarefado from "./img/atarefado.png";
 import linkspage from "./img/linkspage.png";
-import portfolio from "./img/portfolio.png"
-import qrcodegen from "./img/qrcodegen.png"
+import portfolio from "./img/portfolio.png";
+import qrcodegen from "./img/qrcodegen.png";
+import terraemtransito from "./img/terraemtransito.png";
 
 export const data = {
   about: {
@@ -42,12 +43,14 @@ export const data = {
     {
       id: 2,
       title: `TeamZed | landing page`,
-      desc: `Landing Page para minha equipe de Consultoria Esportiva, fundada em 2020, com intuito de divulgar o trabalho e modernizar o acesso.`,
-      descEn: `Landing Page for my Sports Consulting Team, created in 2020, aiming to divulge my services and modernize access.`,
+      desc: `Landing Page para equipe de Consultoria Esportiva, fundada em 2020, com intuito de divulgar o trabalho e modernizar o acesso. Atualmente está sendo portada para NextJS e MongoDB e transformada em uma plataforma com área de membros.`,
+      descEn: `Landing Page for my Sports Consulting Team, created in 2020, aiming to divulge my services and modernize access. It's being ported to NextJS and MongoDB and transformed into a plataform with members area.`,
       stack: [
         "HTML",
         "CSS",
         "Javascript",
+        "NextJS (port)",
+        "MongoDB (port)",
       ],
       url: "https://teamzed.com.br",
       rep: "https://github.com/zaqueu-1/teamzed",
@@ -70,7 +73,20 @@ export const data = {
     },
     {
       id: 4,
-      title: `tree- | Link Page`,
+      title: `Terra em Trânsito | Blog`,
+      desc: `Blog personalizado desenvolvido para pesquisadores da UERJ alocarem conteúdo sobre suas pesquisas acadêmicas e materiais. Também será usado como plataforma na qual alunos poderão contribuir e criar conteúdo`,
+      descEn: `Custom blog developed to UERJ researchers so they can allocate content about their academic essays and research material. It'll also be used as a platform on which students will be able to contribute and create content.`,
+      stack: [        
+      "ReactJS",
+      "Firebase",
+      ],
+      url: "https://terraemtransito.vercel.app/",
+      rep: "https://github.com/zaqueu-1/terra-em-transito-blog",
+      img: terraemtransito,
+    },
+    {
+      id: 5,
+      title: `tree- | Links Page`,
       desc: `tree- é uma página de links no estilo Linktree, mas usando ícones ao invés de caixas de texto. Criado com intuito de desenvolver uma ferramenta própria para concentrar minhas informações de contato.`,
       descEn: `tree- is a linktree inpired tool that uses icons instead of text boxes. I developed this project so I had my own tool to put all my contact info and social media.`,
       stack: [
@@ -83,7 +99,7 @@ export const data = {
       img: linkspage,
     },
     {
-      id: 5,
+      id: 6,
       title: `zaqueu-QR | QR Code Generator`,
       desc: `Um dia precisei gerar um QR Code e pensei "Pra que usar um gerador se eu posso fazer o MEU próprio?". Daí surgiu a motivação. Utilizei React e CSS de forma bem direta ao ponto, entregando algo bonito e funcional.`,
       descEn: `One day I needed to generate a QR Code and I thought "Why using someone's else generator if I can make my own?". That's where the motivation came from. I used React and CSS strict to the point, making something beautiful and functional.`,
