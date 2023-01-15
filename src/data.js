@@ -86,13 +86,11 @@ export const data = {
     },
     {
       id: 5,
-      title: `tree- | Links Page`,
-      desc: `tree- é uma página de links no estilo Linktree, mas usando ícones ao invés de caixas de texto. Criado com intuito de desenvolver uma ferramenta própria para concentrar minhas informações de contato.`,
-      descEn: `tree- is a linktree inpired tool that uses icons instead of text boxes. I developed this project so I had my own tool to put all my contact info and social media.`,
+      title: `leanlinks | Links Page`,
+      desc: `leanlinks é uma página de links no estilo Linktree, mas usando ícones ao invés de caixas de texto. Criado com intuito de desenvolver uma ferramenta própria para concentrar minhas informações de contato.`,
+      descEn: `leanlinks is a linktree inpired tool that uses icons instead of text boxes. I developed this project so I had my own tool to put all my contact info and social media.`,
       stack: [
-        "HTML",
-        "CSS",
-        "Javascript",
+        "ReactJS",
       ],
       url: "https://tree-zaqueu.vercel.app/",
       rep: "https://github.com/zaqueu-1/tree-zaqueu",
