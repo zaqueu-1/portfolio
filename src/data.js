@@ -4,6 +4,7 @@ import linkspage from "./img/linkspage.png";
 import portfolio from "./img/portfolio.png";
 import qrcodegen from "./img/qrcodegen.png";
 import terraemtransito from "./img/terraemtransito.png";
+import pokedex from "./img/pokedex.png";
 
 export const data = {
   about: {
@@ -107,6 +108,19 @@ export const data = {
       url: "https://zaqueu-qr.vercel.app/",
       rep: "https://github.com/zaqueu-1/qrcode-gen",
       img: qrcodegen,
+    },
+    {
+      id: 7,
+      title: `Pokédex | PokeAPI + Web Scrapping`,
+      desc: `Nesse projeto, trabalhei a requisição de dados à uma API pública (PokéAPI), e usei web scrapping para pegar dados que ainda não foram atualizados na API em questão. Utilizei React em todo o desenvolvimento, além de elementos da MUI que modifiquei a meu gosto.`,
+      descEn: `In this project, I fetched data from a public API (PokeAPI), also using web scrapping to get updated data that is not yet present on PokeAPI. I used React and some elements from MUI that I adapted myself to this project.`,
+      stack: [
+        "ReactJS",
+        "MUI",
+      ],
+      url: "https://pokedex-zaqueu-1.vercel.app/",
+      rep: "https://github.com/zaqueu-1/pokedex",
+      img: pokedex,
     },
   ],
 };
