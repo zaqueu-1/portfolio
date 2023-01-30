@@ -3,8 +3,8 @@ import atarefado from "./img/atarefado.png";
 import linkspage from "./img/linkspage.png";
 import portfolio from "./img/portfolio.png";
 import qrcodegen from "./img/qrcodegen.png";
-import terraemtransito from "./img/terraemtransito.png";
 import pokedex from "./img/pokedex.png";
+import pomodoro from "./img/pomodoro.png";
 
 export const data = {
   about: {
@@ -30,16 +30,15 @@ export const data = {
   projects: [
     {
       id: 1,
-      title: `Eduardo Zaqueu | Portfolio`,
-      desc: `Que projeto melhor pra abrir essa seção do que o próprio portfolio em questão? Desenvolvido inteiramente em ReactJS e StyledComponents, visa demonstrar de forma objetiva minhas habilidades com essa stack.`,
-      descEn: `What a better project to open this section with other than my own portfolio? Developed with ReactJS and StyledComponents, this project aims to showcase my abilities with that stack.`,
+      title: `Pomo-you| Pomodoro`,
+      desc: `Desenvolvido em ReactJS, trata-se de uma ferramenta para aplicar a técnica de estudo Pomodoro, que consiste em intercalar seu tempo de estudos com descansos pré-definidos.`,
+      descEn: `Developed with ReactJS, It's a tool to apply the Pomodoro technique into your studying time. That technique consists on intersperse your study time with predefined breaks.`,
       stack: [
         "ReactJS",
-        "StyledComponents",
       ],
-      url: "https://zaqueu.tech/",
-      rep: "https://github.com/zaqueu-1/portfolio",
-      img: portfolio,
+      url: "https://pomoyou.vercel.app/",
+      rep: "https://github.com/zaqueu-1/pomoyou",
+      img: pomodoro,
     },
     {
       id: 2,
@@ -74,19 +73,6 @@ export const data = {
     },
     {
       id: 4,
-      title: `Terra em Trânsito | Blog`,
-      desc: `Blog personalizado desenvolvido para pesquisadores da UERJ alocarem conteúdo sobre suas pesquisas acadêmicas e materiais. Também será usado como plataforma na qual alunos poderão contribuir e criar conteúdo`,
-      descEn: `Custom blog developed to UERJ researchers so they can allocate content about their academic essays and research material. It'll also be used as a platform on which students will be able to contribute and create content.`,
-      stack: [        
-      "ReactJS",
-      "Firebase",
-      ],
-      url: "https://terraemtransito.vercel.app/",
-      rep: "https://github.com/zaqueu-1/terra-em-transito-blog",
-      img: terraemtransito,
-    },
-    {
-      id: 5,
       title: `leanlinks | Links Page`,
       desc: `leanlinks é uma página de links no estilo Linktree, mas usando ícones ao invés de caixas de texto. Criado com intuito de desenvolver uma ferramenta própria para concentrar minhas informações de contato.`,
       descEn: `leanlinks is a linktree inpired tool that uses icons instead of text boxes. I developed this project so I had my own tool to put all my contact info and social media.`,
@@ -98,7 +84,7 @@ export const data = {
       img: linkspage,
     },
     {
-      id: 6,
+      id: 5,
       title: `zaqueu-QR | QR Code Generator`,
       desc: `Um dia precisei gerar um QR Code e pensei "Pra que usar um gerador se eu posso fazer o MEU próprio?". Daí surgiu a motivação. Utilizei React e CSS de forma bem direta ao ponto, entregando algo bonito e funcional.`,
       descEn: `One day I needed to generate a QR Code and I thought "Why using someone's else generator if I can make my own?". That's where the motivation came from. I used React and CSS strict to the point, making something beautiful and functional.`,
@@ -110,7 +96,7 @@ export const data = {
       img: qrcodegen,
     },
     {
-      id: 7,
+      id: 6,
       title: `Pokédex | PokeAPI + Web Scrapping`,
       desc: `Nesse projeto, trabalhei a requisição de dados à uma API pública (PokéAPI), e usei web scrapping para pegar dados que ainda não foram atualizados na API em questão. Utilizei React em todo o desenvolvimento, além de elementos da MUI que modifiquei a meu gosto.`,
       descEn: `In this project, I fetched data from a public API (PokeAPI), also using web scrapping to get updated data that is not yet present on PokeAPI. I used React and some elements from MUI that I adapted myself to this project.`,
@@ -122,5 +108,31 @@ export const data = {
       rep: "https://github.com/zaqueu-1/pokedex",
       img: pokedex,
     },
+    {
+      id: 7,
+      title: `Eduardo Zaqueu | Portfolio`,
+      desc: `Desenvolvido inteiramente em ReactJS e StyledComponents, visa demonstrar de forma objetiva minhas habilidades com essa stack.`,
+      descEn: `Developed with ReactJS and StyledComponents, this project aims to showcase my abilities with that stack.`,
+      stack: [
+        "ReactJS",
+        "StyledComponents",
+      ],
+      url: "https://zaqueu.tech/",
+      rep: "https://github.com/zaqueu-1/portfolio",
+      img: portfolio,
+    },
+        /*{
+      id: 8,
+      title: `Terra em Trânsito | Blog`,
+      desc: `Blog personalizado desenvolvido para pesquisadores da UERJ alocarem conteúdo sobre suas pesquisas acadêmicas e materiais. Também será usado como plataforma na qual alunos poderão contribuir e criar conteúdo`,
+      descEn: `Custom blog developed to UERJ researchers so they can allocate content about their academic essays and research material. It'll also be used as a platform on which students will be able to contribute and create content.`,
+      stack: [        
+      "ReactJS",
+      "Firebase",
+      ],
+      url: "https://terraemtransito.vercel.app/",
+      rep: "https://github.com/zaqueu-1/terra-em-transito-blog",
+      img: terraemtransito,
+    },*/
   ],
 };
