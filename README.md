@@ -10,7 +10,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] seguir acrescentando novos projetos;
 
 ## 🚀 Deploy
-https://portfolio-zaqueu-1.vercel.app/
+https://zaqueu.tech
 
 ## 🖼️ Demonstração
 ![demo](https://github.com/zaqueu-1/portfolio/blob/main/github/demo.gif)
