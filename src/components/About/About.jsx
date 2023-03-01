@@ -1,4 +1,3 @@
-
 import {
   AboutContainer,
   FlexContainer,
@@ -11,7 +10,6 @@ import {
 import React from "react";
 import Avatar from "../Avatar/Avatar";
 import { data } from "../../data";
-import cveng from "../../docs/eduardo-zaqueu-cv-eng.pdf";
 import cvpt from "../../docs/eduardo-zaqueu-cv-pt.pdf";
 
 const About = ({ lang }) => {
@@ -45,7 +43,7 @@ const About = ({ lang }) => {
               ? `Quer saber mais sobre mim? Dê uma olhada em meu currículo logo abaixo.`
               : 'Want to know more? Check out my CV below.'}
           </AboutP>
-          <Tech href={lang ? cvpt : cveng} download>
+          <Tech href={cvpt} download>
             {lang 
               ? 'Baixar currículo' 
               : 'Download CV'}

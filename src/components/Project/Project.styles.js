@@ -11,14 +11,16 @@ export const ProjectContainer = styled.div`
     flex-direction: column;
     padding: 0 .5rem;
     width: 100vw;
-    margin: .5rem 1rem;
+    margin: .5rem auto;
   }
 `;
 
-export const ImgWrapper = styled.div``;
+export const ImgWrapper = styled.div`
+`;
 
 export const ProjectImg = styled.img`
-  width: 50vw;
+  width: 35vw;
+  border-radius: 10px;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
   opacity: 0.8;
@@ -27,7 +29,7 @@ export const ProjectImg = styled.img`
     opacity: 1;
   }
   @media only screen and (max-width: 1199px) {
-    width: 100%;
+    width: 80vw;
   }
 `;
 
