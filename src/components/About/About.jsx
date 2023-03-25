@@ -11,6 +11,7 @@ import React from "react";
 import Avatar from "../Avatar/Avatar";
 import { data } from "../../data";
 import cvpt from "../../docs/eduardo-zaqueu-cv-pt.pdf";
+import cveng from "../../docs/eduardo-zaqueu-cv-eng.pdf"
 
 const About = ({ lang }) => {
 
@@ -43,7 +44,7 @@ const About = ({ lang }) => {
               ? `Quer saber mais sobre mim? Dê uma olhada em meu currículo logo abaixo.`
               : 'Want to know more? Check out my CV below.'}
           </AboutP>
-          <Tech href={cvpt} download>
+          <Tech href={lang ? cvpt : cveng} download>
             {lang 
               ? 'Baixar currículo' 
               : 'Download CV'}
