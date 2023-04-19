@@ -31,8 +31,8 @@ const About = ({ lang }) => {
           </AboutTitle>
           <AboutP>
             {lang
-              ? `Eduardo Zaqueu | 27 anos | RJ, Brasil `
-              : `Eduardo Zaqueu | 27 years | RJ, Brazil`}
+              ? `Eduardo Zaqueu | 28 anos | RJ, Brasil `
+              : `Eduardo Zaqueu | 28 years | RJ, Brazil`}
           </AboutP>
           <AboutP>
             {lang 

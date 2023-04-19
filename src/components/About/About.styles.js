@@ -16,7 +16,7 @@ export const FlexContainer = styled.div`
   margin-top: 1.8rem;
   display: flex;
   flex-direction: row;
-  margin: 0 5rem;
+  margin: 0 4rem;
   align-items: space-around;
   justify-content: space-around;
   @media only screen and (max-width: 1199px) {
@@ -40,7 +40,7 @@ align-items: center;
 opacity: 0.8;
 width: 45vh;
 height: 45vh;
-margin-left: 10rem;
+margin-left: 3rem;
 @media only screen and (max-width: 1199px) {
     width: 35vh;
     height: 50%;

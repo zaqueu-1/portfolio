@@ -58,6 +58,15 @@ export const SubtitleText = styled.p`
   }
 `;
 
+export const SkillsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-bottom: .5rem;
+  max-width: 500px;
+  gap: .5rem;
+`;
+
 export const Skill = styled.p`
   padding: 0.3rem 0.8rem;
   border-radius: 12px 1px 12px 1px;
@@ -67,7 +76,7 @@ export const Skill = styled.p`
   border: none;
   font-size: 1rem;
   cursor: pointer;
-  margin: 0 0.25rem;
+  margin: 0;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
@@ -76,17 +85,9 @@ export const Skill = styled.p`
   }
   @media only screen and (max-width: 419px) {
     font-size: 0.8rem;
-    margin: 0.125rem 0.25rem;
   }
   @media only screen and (max-width: 1199px) {
-    margin: 0.125rem 0.25rem;
   }
-`;
-
-export const SkillsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 0;
 `;
 
 export const InfoSpan = styled.span`

@@ -21,7 +21,7 @@ const Project = ({ id, title, desc, stack, img, url, rep, lang }) => {
     <ProjectContainer id={id} 
       data-aos={id % 2 !== 0 ? "fade-right" : "fade-left"} 
       data-aos-duration={"1500"}>
-      <ImgWrapper><ProjectImg src={img} /></ImgWrapper>
+      <ImgWrapper><ProjectImg style={{filter: 'drop-shadow(-6px 6px 0px #757666)'}} src={img} /></ImgWrapper>
       <ProjectInfo>
         <Section>
           <ProjectH1>{title}</ProjectH1>
