@@ -31,7 +31,7 @@ const Contact = ({ lang }) => {
           <FlexContainer data-aos={"fade-left"} data-aos-duration={"1200"}>
             <ContactSub>
               {lang 
-                ? "Sinta-se à vontade pra entrar em contato comigo pelos meios abaixo:" 
+                ? "Sinta-se à vontade pra entrar em contato pelos meios abaixo:" 
                 : "Feel free to contact me by any social media below:"}
             </ContactSub>
             <ContactWrapper>
@@ -75,7 +75,7 @@ const Contact = ({ lang }) => {
               <IconWrapper><RiDiscordFill /></IconWrapper>
               <ContactSpan>
                   {lang 
-                    ? "Bata um papo comigo" 
+                    ? "Vamos conversar?" 
                     : "Let's chat"}
               </ContactSpan>
               </ExternalLink>

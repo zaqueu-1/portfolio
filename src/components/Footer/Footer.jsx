@@ -7,7 +7,7 @@ const Footer = ({ lang, onGetScrollSection }) => {
       <GoTop onClick={() => {onGetScrollSection("header");}}>
         {lang 
           ? "Voltar ao topo" 
-          : "Back to top"}
+          : "Back to the top"}
       </GoTop>
     </FooterContainer>
   );

@@ -1,13 +1,13 @@
 
 export const data = {
   about: {
-    pt: `Desenvolvedor Fullstack`,
-    en: `Fullstack Developer`,
+    pt: `Desenvolvedor Front-end`,
+    en: `Front-end Developer`,
   },
 
   aboutme: {
-    pt: `Atuo na Web há 14 anos, trazendo soluções que vão do design gráfico ao desenvolvimento de aplicações. Já fui professor, ministrei workshops e hoje trilho o caminho Fullstack focando na qualidade dos projetos e experiência do usuário.`,
-    en: 'Bringing web solutions, from graphic design to application development, since 2009. Experienced both as a teacher and host for workshops, nowadays I follow my path as a Fullstack developer, always focusing on the quality and usability of my projects.',
+    pt: `Atuo na Web há 14 anos, trazendo soluções que vão do design ao desenvolvimento de aplicações. Já fui professor, ministrei workshops e hoje trilho o caminho de desenvolvedor focando na qualidade dos projetos e experiência do usuário.`,
+    en: 'Bringing web solutions, from design to application development, since 2009. Experienced both as a teacher and host for workshops, nowadays I follow my path as a developer, always focusing on the quality and usability of my projects.',
     },
 
     skills: [
