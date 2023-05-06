@@ -94,16 +94,29 @@ export const data = {
     },
     {
       id: 6,
-      title: `Pokédex | PokeAPI + Web Scrapping`,
-      desc: `Nesse projeto, trabalhei a requisição de dados à uma API pública (PokéAPI), e usei web scrapping para pegar dados que ainda não foram atualizados na API em questão. Utilizei React em todo o desenvolvimento, além de elementos da MUI que modifiquei a meu gosto.`,
-      descEn: `In this project, I fetched data from a public API (PokeAPI), also using web scrapping to get updated data that is not yet present on PokeAPI. I used React and some elements from MUI that I adapted myself to this project.`,
+      title: `Linktree Personalizado | Links Page`,
+      desc: `Trabalho desenvolvido para cliente, seguindo especificações do mesmo. O foco está na responsividade, uma vez que seu público-alvo virá do Instagram.`,
+      descEn: `Work developed to a client, following his guidelines. The page is focused on being responsible, since most of his public comes from Instagram.`,
+      stack: [
+        "NextJS",
+      ],
+      url: "https://vanderleimoraespro.vercel.app/",
+      rep: "",
+      img: 'https://media.licdn.com/dms/image/D4D22AQHY_2s7ovpn5Q/feedshare-shrink_800/0/1683212808357?e=1686182400&v=beta&t=_NyuHm4-I3AdBnm-MsiWJ2v-5M8KZoBVeE999rBghj0',
+
+    },
+    {
+      id: 7,
+      title: `Decker | Scryfall API`,
+      desc: `Construtor de baralhos para meu jogo de cartas favorito, Magic the Gathering, consumindo a API do Scryfall. Nele é possível é registrar baralhos, pesquisar por cards e até mesmo visualizar seus decks salvos.`,
+      descEn: `Deckbuilder for my favorite card game, Magic the Gathering, consuming Scryfall API. It's possible to save, register, search for cards and even visualize your own decks.`,
       stack: [
         "ReactJS",
-        "MUI",
+        "LocalStorage",
       ],
-      url: "https://pokedex-zaqueu-1.vercel.app/",
-      rep: "https://github.com/zaqueu-1/pokedex",
-      img: 'https://github.com/zaqueu-1/pokedex/blob/main/chrome-capture-2023-0-17.gif?raw=true',
+      url: "https://decker-xi.vercel.app/",
+      rep: "https://github.com/zaqueu-1/decker",
+      img: 'https://github.com/zaqueu-1/decker/blob/main/github/demo.gif?raw=true',
 
     },
   ],

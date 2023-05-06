@@ -40,12 +40,14 @@ const Project = ({ id, title, desc, stack, img, url, rep, lang }) => {
                   ? "Acessar" 
                   : "Open"}
             </ExternalLink></ELButton>
-            <ELButton><ExternalLink href={rep} target="_blank">
-              <FiGithub style={{ marginRight: "0.3rem" }} />
-                {lang 
-                  ? "Github" 
-                  : "Github"}
-            </ExternalLink></ELButton>
+              {rep.length > 0 && (
+                <>
+                  <ELButton><ExternalLink href={rep} target="_blank">
+                    <FiGithub style={{ marginRight: "0.3rem" }} />
+                      {'Github'}
+                    </ExternalLink></ELButton>
+                </>
+              )}
           </LinkContainer>
         </Section>
       </ProjectInfo>

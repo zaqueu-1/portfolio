@@ -104,6 +104,8 @@ export const ExternalLink = styled.a`
   font-size: 1rem;
   padding: .6rem;
   color: whitesmoke;
+  display: flex;
+  align-items: center;
   @media only screen and (max-width: 1199px) {
     font-size: 16px;
     margin-top: 10px;
