@@ -94,19 +94,6 @@ export const data = {
     },
     {
       id: 6,
-      title: `Linktree Personalizado | Links Page`,
-      desc: `Trabalho desenvolvido para cliente, seguindo especificações do mesmo. O foco está na responsividade, uma vez que seu público-alvo virá do Instagram.`,
-      descEn: `Work developed to a client, following his guidelines. The page is focused on being responsible, since most of his public comes from Instagram.`,
-      stack: [
-        "NextJS",
-      ],
-      url: "https://vanderleimoraespro.vercel.app/",
-      rep: "",
-      img: 'https://media.licdn.com/dms/image/D4D22AQHY_2s7ovpn5Q/feedshare-shrink_800/0/1683212808357?e=1686182400&v=beta&t=_NyuHm4-I3AdBnm-MsiWJ2v-5M8KZoBVeE999rBghj0',
-
-    },
-    {
-      id: 7,
       title: `Decker | Scryfall API`,
       desc: `Construtor de baralhos para meu jogo de cartas favorito, Magic the Gathering, consumindo a API do Scryfall. Nele é possível é registrar baralhos, pesquisar por cards e até mesmo visualizar seus decks salvos.`,
       descEn: `Deckbuilder for my favorite card game, Magic the Gathering, consuming Scryfall API. It's possible to save, register, search for cards and even visualize your own decks.`,
@@ -117,6 +104,32 @@ export const data = {
       url: "https://decker-xi.vercel.app/",
       rep: "https://github.com/zaqueu-1/decker",
       img: 'https://github.com/zaqueu-1/decker/blob/main/github/demo.gif?raw=true',
+
+    },
+    {
+      id: 7,
+      title: `Vanderlei Moraes | Página para Treinador Esportivo`,
+      desc: `Trabalho desenvolvido para cliente, seguindo especificações do mesmo. O foco está na responsividade, uma vez que seu público-alvo virá do Instagram.`,
+      descEn: `Work developed to a client, following his guidelines. The page is focused on being responsible, since most of his public comes from Instagram.`,
+      stack: [
+        "NextJS",
+      ],
+      url: "https://vanderleimoraespro.vercel.app/",
+      rep: "",
+      img: 'https://i.imgur.com/zM0DmhT.gif',
+
+    },
+    {
+      id: 8,
+      title: `NovaMP Engenharia | Página para empresa de Engenharia`,
+      desc: `Trabalho desenvolvido para empresa de serviços de Engenharia. Conta também com uma página de links em /links (exclusivamente para a divulgação pelo Instagram). `,
+      descEn: `Work developed to an engineering services company. It also has a links page at /links.`,
+      stack: [
+        "NextJS",
+      ],
+      url: "https://novampeng.com.br",
+      rep: "",
+      img: 'https://i.imgur.com/sRSS0NT.gif',
 
     },
   ],
