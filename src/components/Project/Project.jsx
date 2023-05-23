@@ -44,7 +44,7 @@ const Project = ({ id, title, desc, stack, img, url, rep, lang }) => {
                 <>
                   <ELButton><ExternalLink href={rep} target="_blank">
                     <FiGithub style={{ marginRight: "0.3rem" }} />
-                      {'Github'}
+                      Github
                     </ExternalLink></ELButton>
                 </>
               )}

@@ -59,28 +59,23 @@ export const ExternalLink = styled.a`
   align-items: center;
   justify-content: center;
   display: flex;
-  min-width: 35vw;
-  max-width: 35vw;
+  width: 100%;
+  max-width: 350px;
   background: rgba( 255, 255, 255, 0.1 );
   backdrop-filter: blur( 1.5px );
   -webkit-backdrop-filter: blur( 1.5px );
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   border-radius: 16px 0 16px 0;
+  gap: .25rem;
   &:hover {
     background: rgba(0, 0, 0, 0.1);
     transform: scale(0.95);
   }
   @media only screen and (max-width: 1199px) {
     font-size: 0.85rem;
-    min-width: 70vw;
-    max-width: 70vw;
+    min-width: 50vw;
+    max-width: 300px;
   }
-`;
-
-export const IconWrapper = styled.div`
-  color: #f5f5f5;
-  margin-right: 0.5rem;
-  display: flex;
 `;
 
 export const ContactSpan = styled.span`

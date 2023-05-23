@@ -12,6 +12,7 @@ import {
 import { AiOutlineMail } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
+import { BsInstagram } from 'react-icons/bs'
 import { RiContactsLine, RiDiscordFill } from "react-icons/ri";
 import ReactTooltip from "react-tooltip";
 import React from "react";
@@ -35,48 +36,40 @@ const Contact = ({ lang }) => {
                 : "Feel free to contact me by any social media below:"}
             </ContactSub>
             <ContactWrapper>
-              <ExternalLink                 
-                data-tip="E-mail"
-                href="mailto:bss.eduardo@yahoo.com.br"
-                target="_blank">
-              <IconWrapper><AiOutlineMail /></IconWrapper>
-              <ContactSpan>
-                {lang 
-                  ? "Mande uma mensagem" 
-                  : "Send me a message"}
-              </ContactSpan>
-              </ExternalLink>
               <ExternalLink
                 data-tip="Github"
                 href="https://github.com/zaqueu-1"
                 target="_blank">
-              <IconWrapper><FiGithub /></IconWrapper>
+            <FiGithub />
               <ContactSpan>
-                {lang 
-                  ? "Veja meus repositórios" 
-                  : "Take a look at my repos"}
+                {'GitHub'}
               </ContactSpan>
               </ExternalLink>
               <ExternalLink
                 data-tip="LinkedIn"
                 href="https://linkedin.com/in/zaqueu1"
                 target="_blank">
-              <IconWrapper><FaLinkedinIn /></IconWrapper>
+            <FaLinkedinIn />
               <ContactSpan>
-                {lang 
-                  ? "Conecte-se comigo" 
-                  : "Connect with me"}
+                {'LinkedIn'}
               </ContactSpan>
               </ExternalLink>
               <ExternalLink
                 data-tip="Discord"
                 href="https://discordapp.com/users/856969236684603422"
                 target="_blank">
-              <IconWrapper><RiDiscordFill /></IconWrapper>
+            <RiDiscordFill />
               <ContactSpan>
-                  {lang 
-                    ? "Vamos conversar?" 
-                    : "Let's chat"}
+                  {'Discord'}
+              </ContactSpan>
+              </ExternalLink>
+              <ExternalLink
+                data-tip="Instagram"
+                href="https://instagram.com/zaqueu.tech"
+                target="_blank">
+            <BsInstagram />
+              <ContactSpan>
+                  {'Instagram'}
               </ContactSpan>
               </ExternalLink>
             </ContactWrapper> 
