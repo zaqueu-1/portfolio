@@ -27,6 +27,16 @@ border-radius: 0px;
 box-shadow: inset -0.4px 0px 0px 0px #F0F0F0;
 }
 
+input::placeholder, textarea::placeholder {
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+input, textarea {
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
 html,
 body {
   font-family: "Poppins", sans-serif;

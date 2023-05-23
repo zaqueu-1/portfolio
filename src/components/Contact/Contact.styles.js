@@ -49,6 +49,13 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+width: 600px;
+@media only screen and (max-width: 1199px) {
+    font-size: 0.85rem;
+    max-width: 600px;
+    min-width: 300px;
+    width: 100%;
+  }
 `;
 
 export const ExternalLink = styled.a`
@@ -60,7 +67,8 @@ export const ExternalLink = styled.a`
   justify-content: center;
   display: flex;
   width: 100%;
-  max-width: 350px;
+  max-width: 900px;
+  min-width: 300px;
   background: rgba( 255, 255, 255, 0.1 );
   backdrop-filter: blur( 1.5px );
   -webkit-backdrop-filter: blur( 1.5px );
@@ -73,8 +81,9 @@ export const ExternalLink = styled.a`
   }
   @media only screen and (max-width: 1199px) {
     font-size: 0.85rem;
-    min-width: 50vw;
-    max-width: 300px;
+    max-width: 600px;
+    min-width: 300px;
+    width: 100%;
   }
 `;
 
@@ -83,6 +92,69 @@ export const ContactSpan = styled.span`
   display: flex;
 `;
 
+export const ContactForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 650px;
+    min-width: 330px;
+    width: 100%;
+    gap: 1rem;
+    border: 2px solid transparent;
+    padding: 1rem .5rem;
+    margin-top: 1rem;
+    background: rgba( 255, 255, 255, 0.1 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border-radius: 18px 3px 18px 3px;
+`;
+
+export const FormInput = styled.input`
+    border-radius: 8px;
+    border: none;
+    padding: .5rem;
+    max-width: 600px;
+    min-width: 300px;
+    width: 100%;
+    font-size: 1rem;
+    color: white;
+    background: rgba( 255, 255, 255, 0.025 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+`;
+
+export const FormArea = styled.textarea`
+    border-radius: 8px;
+    border: none;
+    padding: .5rem;
+    max-width: 600px;
+    min-width: 300px;
+    width: 100%;
+    font-size: 1rem;
+    color: white;
+    background: rgba( 255, 255, 255, 0.1 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    height: 200px;
+`;
+
+export const SubmitForm = styled.button`
+    max-width: 600px;
+    min-width: 300px;
+    width: 100%;
+    cursor: pointer;
+    height: 30px;
+    transition: all 0.3s ease-in-out;
+    background: rgba( 255, 255, 255, 0.1 );
+    backdrop-filter: blur( 1.5px );
+    -webkit-backdrop-filter: blur( 1.5px );
+    border: none;
+    color: white;
+    &:hover {
+      background: rgba( 255, 255, 255, 0.4 );
+    }
+`
 
 
 
