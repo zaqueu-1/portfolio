@@ -30,6 +30,8 @@ box-shadow: inset -0.4px 0px 0px 0px #F0F0F0;
 input::placeholder, textarea::placeholder {
   font-family: "Poppins", sans-serif;
   color: white;
+  font-weight: 200;
+  font-size: .9rem;
 }
 
 input, textarea {
@@ -43,6 +45,7 @@ body {
   color: #bfbfbf;
   cursor: default;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -65,7 +68,7 @@ export const LanguageControlMain = styled.div`
 
 export const LanguageTogglerMain = styled.button`
   display: flex;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   background: transparent;
   outline: none;

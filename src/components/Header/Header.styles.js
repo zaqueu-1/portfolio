@@ -5,11 +5,8 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 55vh;
+  height: 60vh;
   margin: 0 1rem;
-  @media only screen and (max-width: 1199px) {
-    margin: 0 .5rem;
-  }
 `;
 
 export const BoxSpacer = styled.div`
@@ -31,14 +28,12 @@ export const HeaderH1 = styled.h1`
   cursor: pointer;
   transition: all 1s ease-in-out;
   margin: 15.6rem 0 0.3rem 0;
+  font-weight: 400;
   &:hover {
     transform: scale(1.02);
   }
-  @media only screen and (max-width: 419px) {
-    font-size: 2.3rem;
-  }
   @media only screen and (max-width: 1199px) {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 `;
 

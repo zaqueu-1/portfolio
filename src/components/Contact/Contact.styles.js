@@ -8,32 +8,38 @@ export const ContactContainer = styled.div`
   justify-content: center;
   align-items: center;
   @media only screen and (max-width: 1199px) {
-    margin-top: 50px;
+    margin-top: 2rem;
   }
 `;
 
 export const ContactTitle = styled.h2`
-font-size: 2.5rem;
-color: #999;
-@media only screen and (max-width: 1199px) {
-  font-size: 2rem;
-  margin: 0 auto;
-}
-@media only screen and (max-width: 419px) {
-  font-size: 1.5rem;
-  margin: 0 auto;
-}
+  font-size: 2.5rem;
+  color: #999;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  @media only screen and (max-width: 1199px) {
+    font-size: 2rem;
+    margin: 0 auto;
+  }
+  @media only screen and (max-width: 419px) {
+    font-size: 1.5rem;
+    margin: 0 auto;
+  }
 `;
 
 export const ContactSub = styled.h2`
-font-size: 1.2rem;
-margin: 0.5rem;
-padding: 0.2rem;
-text-align: center;
-color: #f5f5f5;
-@media only screen and (max-width: 1199px) {
-  font-size: 0.9rem;
-}
+  font-size: 1.2rem;
+  margin: 1rem;
+  padding: 0.2rem;
+  text-align: center;
+  color: #f5f5f5;
+  font-weight: 400;
+  @media only screen and (max-width: 1199px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const FlexContainer = styled.div`
@@ -61,6 +67,7 @@ width: 600px;
 export const ExternalLink = styled.a`
   font-size: 1.2rem;
   margin-top: .7rem;
+  font-weight: 300;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   align-items: center;
@@ -98,16 +105,15 @@ export const ContactForm = styled.form`
     align-items: center;
     justify-content: center;
     max-width: 650px;
-    min-width: 330px;
+    min-width: 300px;
     width: 100%;
     gap: 1rem;
     border: 2px solid transparent;
-    padding: 1rem .5rem;
-    margin-top: 1rem;
+    padding: 1rem;
     background: rgba( 255, 255, 255, 0.1 );
     backdrop-filter: blur( 1.5px );
     -webkit-backdrop-filter: blur( 1.5px );
-    border-radius: 18px 3px 18px 3px;
+    border-radius: 16px;
 `;
 
 export const FormInput = styled.input`
@@ -115,7 +121,7 @@ export const FormInput = styled.input`
     border: none;
     padding: .5rem;
     max-width: 600px;
-    min-width: 300px;
+    min-width: 250px;
     width: 100%;
     font-size: 1rem;
     color: white;
@@ -129,7 +135,7 @@ export const FormArea = styled.textarea`
     border: none;
     padding: .5rem;
     max-width: 600px;
-    min-width: 300px;
+    min-width: 250px;
     width: 100%;
     font-size: 1rem;
     color: white;
@@ -141,7 +147,7 @@ export const FormArea = styled.textarea`
 
 export const SubmitForm = styled.button`
     max-width: 600px;
-    min-width: 300px;
+    min-width: 250px;
     width: 100%;
     cursor: pointer;
     height: 30px;

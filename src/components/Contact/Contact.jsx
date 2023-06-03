@@ -58,7 +58,7 @@ const Contact = ({ lang }) => {
 
       <div data-aos={"zoom-in"} style={{display:'flex', flexDirection:'column', alignItems:'center'}} data-aos-duration={"1200"}>
         <ContactTitle>
-          <RiContactsLine style={{ marginRight: "0.4rem", fontSize: "1.6rem" }}/>
+          <RiContactsLine style={{ fontSize: "1.8rem" }}/>
             {lang 
               ? "Contato" 
               : "Get in touch"}
@@ -71,7 +71,7 @@ const Contact = ({ lang }) => {
         </ContactSub>
       </div>
       
-      <div data-aos={"zoom-in"} style={{display:'flex', flexDirection:'column', alignItems:'center', width:'100%'}} data-aos-duration={"1500"}>
+      <div data-aos={"zoom-in"} style={{display:'flex', padding:'0 1rem', margin:'0 auto', flexDirection:'column', alignItems:'center', justifyContent:'center', width:'100%'}} data-aos-duration={"1500"}>
         <ContactForm data-aos={"fade-right"} data-aos-duration={"1800"} onSubmit={sendEmail}>
           <FormInput
             className='input'

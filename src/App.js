@@ -8,7 +8,6 @@ import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import { GlobalStyle, LanguageControlMain, LanguageTogglerMain } from "./globals.styles";
-import WebFont from 'webfontloader';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { MdLanguage } from "react-icons/md";
@@ -16,13 +15,7 @@ import { MdLanguage } from "react-icons/md";
 
 function App() {
   useEffect(() => {
-    WebFont.load({
-      google: {
-        families: ['Poppins'],
-      }
-    });
     AOS.init();
-    AOS.refresh();
     let userLang = navigator.language || navigator.userLanguage;
     if (userLang !== "pt-BR") setLang(false);
   }, []);

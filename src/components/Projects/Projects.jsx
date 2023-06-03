@@ -8,7 +8,7 @@ const Projects = ({ lang }) => {
   return (
     <ProjectsContainer>
       <Wrapper data-aos={"zoom-in"} data-aos-duration={"1200"}>
-      <ProjectsH1><AiOutlineFundProjectionScreen style={{ marginRight: "0.4rem", fontSize: "1.8rem" }} />
+      <ProjectsH1><AiOutlineFundProjectionScreen style={{ fontSize: "1.8rem" }} />
         {lang 
           ? "Últimos Projetos" 
           : "Latest Projects"}

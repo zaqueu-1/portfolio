@@ -56,7 +56,7 @@ margin-left: 3rem;
     justify-content: center;
     align-items: center;
     margin-left: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
   }
 
 `;
@@ -76,6 +76,7 @@ export const DescWrapper = styled.div`
 
 export const AboutTitle = styled.h2`
   font-size: 2rem;
+  font-weight: 400;
   color: #999;
   @media only screen and (max-width: 1199px) {
     font-size: 1.3rem;
@@ -90,11 +91,12 @@ export const AboutTitle = styled.h2`
 export const AboutP = styled.p`
   margin: 1.2rem 1.9rem 0 0;
   font-size: 1rem;
+  font-weight: 300;
   line-height: 1.7;
   color: #dddddd;
   @media only screen and (max-width: 1199px) {
     font-size: 0.9rem;
-    margin: .2rem .6rem;
+    margin: .5rem .6rem;
   }
 `;
 
@@ -103,7 +105,7 @@ export const AboutP = styled.p`
   backdrop-filter: blur( 1.5px );
   -webkit-backdrop-filter: blur( 1.5px );
   text-align: center;
-  padding: 0.3rem;
+  padding: .5rem .75rem;
   max-width: 150px;
   display: flex;
   border-radius: 12px 1px 12px 1px;
@@ -115,6 +117,6 @@ export const AboutP = styled.p`
     background-color: rgba( 0, 0, 0, 0.1 );
   }
   @media only screen and (max-width: 1199px) {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 `;

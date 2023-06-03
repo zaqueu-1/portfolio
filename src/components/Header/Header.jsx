@@ -26,7 +26,7 @@ const Header = ({ lang }) => {
       <BoxSpacer>
         <H1Container>
           <div data-aos={"fade-right"} data-aos-duration={"1500"}>
-          <HeaderH1>{title}</HeaderH1>
+            <HeaderH1>{title}</HeaderH1>
           </div>
         </H1Container>
         <SubtitleContainer>

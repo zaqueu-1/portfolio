@@ -24,12 +24,17 @@ export const Wrapper = styled.div`
 export const ProjectsH1 = styled.h1`
   font-size: 2.5rem;
   color: #999;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
   @media only screen and (max-width: 1199px) {
     font-size: 2rem;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
   @media only screen and (max-width: 419px) {
     font-size: 1.5rem;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
 `;

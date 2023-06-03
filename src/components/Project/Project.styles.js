@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProjectContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.id % 2 !== 0 ? "row" : "row-reverse")};
-  min-height: 70vh;
+  min-height: 55vh;
   align-items: center;
   margin: 0 1.5rem;
   padding: 0 .5rem;
@@ -20,7 +20,7 @@ export const ImgWrapper = styled.div`
 
 export const ProjectImg = styled.img`
   width: 35vw;
-  border-radius: 10px;
+  border-radius: 8px;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
   opacity: 0.8;
@@ -39,8 +39,8 @@ export const ProjectInfo = styled.div`
   flex-direction: column;
   justify-content: space-around;
   @media only screen and (max-width: 1199px) {
-    margin: 0 0 0 1.2rem;
     align-items: start;
+    margin-top: 0;
   }
 `;
 
@@ -48,6 +48,7 @@ export const Section = styled.div``;
 
 export const ProjectH1 = styled.h1`
   font-size: 2.2rem;
+  font-weight: 400;
   @media only screen and (max-width: 1199px) {
     font-size: 1.7rem;
   }
@@ -59,6 +60,7 @@ export const ProjectH1 = styled.h1`
 export const ProjectDescription = styled.p`
   font-size: 1rem;
   line-height: 1.7;
+  font-weight: 300;
   color: #ddd;
   @media only screen and (max-width: 1199px) {
     font-size: 0.9rem;
@@ -88,7 +90,7 @@ export const Tech = styled.span`
   }
   @media only screen and (max-width: 1199px) {
     font-size: 0.8rem;
-    padding: 0.25rem; 0.3rem;
+    padding: 0.25rem 0.3rem;
   }
 `;
 
