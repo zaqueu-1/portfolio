@@ -10,7 +10,6 @@ import {
   Skill,
 } from "./Header.styles";
 import { data } from "../../data";
-import ReactTooltip from "react-tooltip";
 
 
 const Header = ({ lang }) => {
@@ -22,7 +21,6 @@ const Header = ({ lang }) => {
 
   return (
     <HeaderContainer>
-      <ReactTooltip />
       <BoxSpacer>
         <H1Container>
           <div data-aos={"fade-right"} data-aos-duration={"1500"}>

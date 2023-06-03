@@ -7,6 +7,20 @@ export const AboutContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+      }
+    50% {
+      transform: translateY(5px);
+      }
+    100% {
+      transform: translateY(0px);
+      }
+    
+  }
+
   @media only screen and (max-width: 419px) {
     margin-top: 16.8rem;
   }
@@ -35,12 +49,27 @@ export const FlexContainer = styled.div`
 
 export const ImageWrapper = styled.div`
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
 opacity: 0.8;
-width: 45vh;
-height: 45vh;
+width: 42vh;
+height: 42vh;
 margin-left: 3rem;
+
+div a {
+  transition: all 0.3s ease-in-out;
+}
+
+div a:hover {
+  transform: scale(1.1);
+  color: rgba( 0, 0, 0, 0.4 );
+}
+
+div a .icon {
+  font-size: 1.5rem;
+}
+
 @media only screen and (max-width: 1199px) {
     width: 35vh;
     height: 50%;
@@ -57,6 +86,10 @@ margin-left: 3rem;
     align-items: center;
     margin-left: 0;
     margin-bottom: 1rem;
+
+    div a .icon {
+      font-size: 1.2rem;
+    }
   }
 
 `;
@@ -94,9 +127,10 @@ export const AboutP = styled.p`
   font-weight: 300;
   line-height: 1.7;
   color: #dddddd;
-  @media only screen and (max-width: 1199px) {
+  @media only screen and (max-width: 600px) {
     font-size: 0.9rem;
     margin: .5rem .6rem;
+    text-align: center;
   }
 `;
 
