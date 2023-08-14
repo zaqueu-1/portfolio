@@ -1,8 +1,8 @@
 
 export const data = {
   about: {
-    pt: `Desenvolvedor Front-end`,
-    en: `Front-end Developer`,
+    pt: `Desenvolvedor Fullstack`,
+    en: `Fullstack Developer`,
   },
 
   aboutme: {
