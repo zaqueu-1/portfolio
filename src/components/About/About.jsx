@@ -10,7 +10,8 @@ import {
 import React from "react";
 import Avatar from "../Avatar/Avatar";
 import { data } from "../../data";
-import cvpt from "../../docs/eduardo-zaqueu-cv-br.pdf";
+import cvpt from "../../docs/eduardo-zaqueu-cv-min.pdf";
+import cven from "../../docs/eduardo-zaqueu-resume-min.pdf";
 import { BsLinkedin, BsGithub,  } from 'react-icons/bs'
 
 const About = ({ lang }) => {
@@ -51,12 +52,12 @@ const About = ({ lang }) => {
             <AboutP>
               {lang
                 ? `Quer saber mais sobre mim? Dê uma olhada em meu currículo logo abaixo.`
-                : 'Want to know more? Check out my CV below.'}
+                : 'Want to know more? Check out my resume below.'}
             </AboutP>
-            <Tech href={cvpt} download>
+            <Tech href={lang ? cvpt : cven} download>
               {lang 
                 ? 'Baixar currículo' 
-                : 'Download CV'}
+                : 'Download resume'}
             </Tech>
         </DescWrapper>
         </FlexContainer>

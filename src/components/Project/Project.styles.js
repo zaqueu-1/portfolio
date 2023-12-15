@@ -5,8 +5,8 @@ export const ProjectContainer = styled.div`
   flex-direction: ${(props) => (props.id % 2 !== 0 ? "row" : "row-reverse")};
   min-height: 55vh;
   align-items: center;
-  margin: 0 1.5rem;
-  padding: 0 .5rem;
+  margin: .5rem 1.5rem;
+  padding: .5rem 4rem;
   @media only screen and (max-width: 1199px) {
     flex-direction: column;
     padding: 0 .5rem;

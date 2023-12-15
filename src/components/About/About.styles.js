@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AboutContainer = styled.div`
   margin-top: 18.75rem;
-  width: 100vw;
+  width: 95vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,12 +140,14 @@ export const AboutP = styled.p`
   -webkit-backdrop-filter: blur( 1.5px );
   text-align: center;
   padding: .5rem .75rem;
-  max-width: 150px;
+  max-width: 210px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 12px 1px 12px 1px;
   font-size: 1rem;
   cursor: pointer;
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
   transition: all 0.3s ease-in-out;
   &:hover {
     background-color: rgba( 0, 0, 0, 0.1 );
