@@ -4,6 +4,7 @@ export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 12.5rem;
+  padding: 0 2rem;
   @media only screen and (max-width: 419px) {
     margin-top: 10.5rem;
   }

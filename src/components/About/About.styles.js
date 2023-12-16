@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const AboutContainer = styled.div`
   margin-top: 18.75rem;
-  width: 95vw;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: space-around;
+  padding: 0 2rem;
 
   @keyframes float {
     0% {
@@ -98,12 +99,13 @@ export const DescWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
+  max-width: 50vw;
   @media only screen and (max-width: 1199px) {
     padding: 0 1.2rem;
     justify-content: center;
     align-items: center;
     width: 100vw;
+    max-width: 100vw;
   }
 `;
 

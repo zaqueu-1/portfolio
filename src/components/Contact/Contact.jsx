@@ -67,7 +67,7 @@ const Contact = ({ lang }) => {
         <ContactSub>
         {lang 
           ? "Sinta-se à vontade pra me mandar uma mensagem:" 
-          : "Feel free to sned me a message:"}
+          : "Feel free to send me a message:"}
         </ContactSub>
       </div>
       

@@ -19,7 +19,7 @@ export const ImgWrapper = styled.div`
 `;
 
 export const ProjectImg = styled.img`
-  width: 35vw;
+  width: 32.5vw;
   border-radius: 8px;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
