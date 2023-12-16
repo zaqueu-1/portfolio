@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const AboutContainer = styled.div`
   margin-top: 18.75rem;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,16 +71,16 @@ div a .icon {
 }
 
 @media only screen and (max-width: 1199px) {
-    width: 35vh;
+    width: 32.5vh;
     height: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
   }
   @media only screen and (max-width: 419px) {
-    width: 25vh;
+    width: 20vh;
     height: 50%;
     justify-content: center;
     align-items: center;
@@ -100,12 +99,14 @@ export const DescWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   max-width: 50vw;
+  padding: 0 2rem;
   @media only screen and (max-width: 1199px) {
-    padding: 0 1.2rem;
+    padding: 0 1.5rem;
     justify-content: center;
     align-items: center;
     width: 100vw;
     max-width: 100vw;
+    text-align: center;
   }
 `;
 
