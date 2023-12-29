@@ -6,8 +6,8 @@ export const data = {
   },
 
   aboutme: {
-    pt: `Com mais de dez anos de experiência em soluções web, trago expertise em design, desenvolvimento e uma paixão pela qualidade. Sou apaixonado por construir projetos que mesclam criatividade e funcionalidade.`,
-    en: 'With over a decade in web solutions, I bring expertise in design, development, and a passion for quality. I thrive on building projects that seamlessly merge creativity and functionality.',
+    pt: `Com mais de dez anos de experiência em soluções web, trago expertise em design, desenvolvimento e paixão pela qualidade. Com forte bagagem em UI/UX, sou especialista em construir projetos que mesclam criatividade e funcionalidade.`,
+    en: 'With over a decade in web solutions, I bring expertise in design, development, and a passion for quality. With my background in UI/UX, I thrive on building projects that seamlessly merge creativity and functionality.',
     },
 
     skills: [

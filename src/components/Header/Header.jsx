@@ -40,11 +40,10 @@ const Header = ({ lang }) => {
           data-aos={"fade-down"}
           data-aos-delay={window.innerWidth < 800 ? "600" : "1200"}
           data-aos-duration={"1200"}>
-          <Skill onClick={goTo('https://developer.mozilla.org/en-US/docs/Web/JavaScript')}>JavaScript</Skill>
           <Skill onClick={goTo('https://www.typescriptlang.org/docs/')}>TypeScript</Skill>
-          <Skill onClick={goTo('https://vuejs.org/guide/introduction.html')}>VueJS</Skill>
-          <Skill onClick={goTo('https://nextjs.org/')}>NextJS</Skill>
           <Skill onClick={goTo('https://reactjs.org/docs/getting-started.html')}>ReactJS</Skill>
+          <Skill onClick={goTo('https://nextjs.org/')}>NextJS</Skill>
+          <Skill onClick={goTo('https://vuejs.org/guide/introduction.html')}>VueJS</Skill>
         </SkillsContainer>
         </SubtitleContainer>
       </BoxSpacer>
