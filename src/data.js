@@ -50,8 +50,8 @@ export const data = {
     {
       id: 3,
       title: `SM Creative Marketing`,
-      desc: `Trabalho desenvolvido para a agência de marketing onde presto serviços. Conta também com uma página de links em /links e uma página de serviços em /servicos. `,
-      descEn: `Work developed to a marketing agency where I work as outsourced. It also has a links page at /links and a services pages at /servicos.`,
+      desc: `Trabalho desenvolvido para a agência de marketing onde atuei. Conta também com uma página de links em /links e uma página de serviços em /servicos. `,
+      descEn: `Work developed to a marketing agency where I worked as a Developer. It also has a links page at /links and a services pages at /servicos.`,
       stack: [
         "NextJS",
       ],
