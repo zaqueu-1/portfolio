@@ -6,15 +6,14 @@ import {
   AboutTitle,
   AboutP,
   Tech,
-} from "./About.styles";
-import React from "react";
-import Avatar from "../Avatar/Avatar";
-import { data } from "../../data";
-import cvpt from "../../docs/eduardo-zaqueu-cv-min.pdf";
-import cven from "../../docs/eduardo-zaqueu-resume-min.pdf";
+} from "./About.styles"
+import React from "react"
+import Avatar from "../Avatar/Avatar"
+import cvpt from "../../docs/eduardo-zaqueu-cv-min.pdf"
 import { BsLinkedin, BsGithub,  } from 'react-icons/bs'
 
 const About = ({ lang }) => {
+  const age = Number((new Date().getFullYear()) - 1995)
 
   return (
     <>
@@ -36,25 +35,33 @@ const About = ({ lang }) => {
           <DescWrapper data-aos={"fade-left"} data-aos-duration={"1200"}>
             <AboutTitle>
               {lang 
-                ? "Opa, deixa eu me apresentar..." 
-                : "Hey, let me introduce myself..."}
+                ? "Sobre mim" 
+                : "About me"}
             </AboutTitle>
             <AboutP>
-              {lang
-                ? `Eduardo Zaqueu | Rio de Janeiro, RJ - Brasil `
-                : `Eduardo Zaqueu | Rio de Janeiro, RJ - Brazil`}
+              {`Eduardo Zaqueu, ${age} | Rio de Janeiro, RJ`}
             </AboutP>
             <AboutP>
               {lang 
-                ? data.aboutme.pt 
-                : data.aboutme.en }
+                ? (
+                  <div>
+                    <i>Um desenvolvedor que acredita no poder da comunicação e das soft skills.</i>
+                    <p>Faço parte do time de desenvolvimento da <a href="https://hurb.com/br" target="_blank" rel="noreferrer">Hurb</a>, atuando a maior parte do tempo no front-end com JavaScript e seus frameworks. Sou fascinado por aprender e compartilhar aquilo que domino e me sinto à vontade estando ao redor de profissionais que buscam o crescimento. Comunicação e curiosidade são minhas palavras-chave.</p>
+                  </div>
+                )
+                : (
+                  <div>
+                    <p>A developer who believes in the power of communication and soft skills.</p>
+                    <p>I'm part of <a href="https://hurb.com" target="_blank" rel="noreferrer">Hurb</a> development team, working on front-end with JavaScript and it's frameworks. I'm excited to learn and share what I know and am comfortable around professionals who seek growth. Communication and curiosity are my key words. </p>
+                  </div>
+                ) }
             </AboutP>
             <AboutP>
               {lang
                 ? `Quer saber mais sobre mim? Dê uma olhada em meu currículo logo abaixo.`
                 : 'Want to know more? Check out my resume below.'}
             </AboutP>
-            <Tech href={lang ? cvpt : cven} download>
+            <Tech href={cvpt} download>
               {lang 
                 ? 'Baixar currículo' 
                 : 'Download resume'}

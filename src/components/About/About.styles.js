@@ -130,6 +130,20 @@ export const AboutP = styled.p`
   font-weight: 300;
   line-height: 1.7;
   color: #dddddd;
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    & a {
+      text-decoration: underline;
+      color: #dddddd;
+      font-weight: 400;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: #999;
+      }
+    }
+  }
   @media only screen and (max-width: 600px) {
     font-size: 0.9rem;
     margin: .5rem .6rem;

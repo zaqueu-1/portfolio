@@ -1,8 +1,8 @@
-import React from "react";
-import { data } from "../../data";
-import Project from "../Project/Project.jsx";
-import { ProjectsContainer, ProjectsH1, Wrapper } from "./Projects.styles";
-import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+import React from "react"
+import { data } from "../../data"
+import Project from "../Project/Project.jsx"
+import { ProjectsContainer, ProjectsH1, Wrapper } from "./Projects.styles"
+import { AiOutlineFundProjectionScreen } from "react-icons/ai"
 
 const Projects = ({ lang }) => {
   return (
@@ -26,10 +26,10 @@ const Projects = ({ lang }) => {
             rep={proj.rep}
             lang={lang}
           />
-        );
+        )
       })}
     </ProjectsContainer>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
