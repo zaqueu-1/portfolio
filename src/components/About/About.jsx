@@ -46,13 +46,13 @@ const About = ({ lang }) => {
                 ? (
                   <div>
                     <i>Um desenvolvedor que acredita no poder da comunicação e das soft skills.</i>
-                    <p>Faço parte do time de desenvolvimento da <a href="https://hurb.com/br" target="_blank" rel="noreferrer">Hurb</a>, atuando a maior parte do tempo no front-end com JavaScript e seus frameworks. Sou fascinado por aprender e compartilhar aquilo que domino e me sinto à vontade estando ao redor de profissionais que buscam o crescimento. Comunicação e curiosidade são minhas palavras-chave.</p>
+                    <p>Faço parte atualmente do time de desenvolvimento da <a href="https://hurb.com/br" target="_blank" rel="noreferrer">Hurb</a>. Sou fascinado por aprender e compartilhar aquilo que sei e me sinto à vontade estando ao redor de profissionais que buscam crescimento. Comunicação e curiosidade são minhas palavras-chave.</p>
                   </div>
                 )
                 : (
                   <div>
                     <p>A developer who believes in the power of communication and soft skills.</p>
-                    <p>I'm part of <a href="https://hurb.com" target="_blank" rel="noreferrer">Hurb</a> development team, working on front-end with JavaScript and it's frameworks. I'm excited to learn and share what I know and am comfortable around professionals who seek growth. Communication and curiosity are my key words. </p>
+                    <p>I am currently part of the development team at <a href="https://hurb.com" target="_blank" rel="noreferrer">Hurb</a>. Fascinated by learning and sharing what I know, I feel comfortable being around professionals who seek growth. Communication and curiosity are my keywords.</p>
                   </div>
                 ) }
             </AboutP>
@@ -74,4 +74,4 @@ const About = ({ lang }) => {
   );
 };
 
-export default About;
+export default About

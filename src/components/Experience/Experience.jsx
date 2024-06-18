@@ -1,38 +1,36 @@
 import React from "react"
 import {
-  ProjectContainer,
+  ExperienceContainer,
   ImgWrapper,
-  ProjectImg,
-  ProjectInfo,
-  ProjectDescription,
+  ExperienceImg,
+  ExperienceInfo,
   StackContainer,
   Tech,
   Section,
-  ProjectHeader,
-  ProjectSub,
-} from "./Project.styles"
+  ExperienceHeader,
+  ExperienceSub,
+} from "./Experience.styles"
 
-const Project = ({ id, title_pt, title_en, desc_pt, desc_en, company, date, stack, img, lang }) => {
+const Experience = ({ id, title_pt, title_en, company, date, stack, img, lang }) => {
   return (
-    <ProjectContainer id={id} 
+    <ExperienceContainer id={id} 
       data-aos={id % 2 !== 0 ? "fade-right" : "fade-left"} 
       data-aos-duration={"1500"}>
-      <ImgWrapper><ProjectImg src={require(`../../${img}`)} /></ImgWrapper>
-      <ProjectInfo>
+      <ImgWrapper><ExperienceImg src={require(`../../${img}`)} /></ImgWrapper>
+      <ExperienceInfo>
         <Section>
-          <ProjectHeader>{company}</ProjectHeader>
-          <ProjectSub>{lang ? title_pt : title_en}</ProjectSub>
-          <ProjectSub>{date}</ProjectSub>
-          <ProjectDescription>{lang ? desc_pt : desc_en}</ProjectDescription>
+          <ExperienceHeader>{company}</ExperienceHeader>
+          <ExperienceSub>{lang ? title_pt : title_en}</ExperienceSub>
+          <ExperienceSub>{date}</ExperienceSub>
           <StackContainer>
             {stack.map((tech) => {
               return <Tech>{tech}</Tech>
             })}
           </StackContainer>
         </Section>
-      </ProjectInfo>
-    </ProjectContainer>
+      </ExperienceInfo>
+    </ExperienceContainer>
   )
 }
 
-export default Project
+export default Experience

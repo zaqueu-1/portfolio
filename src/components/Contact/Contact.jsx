@@ -2,8 +2,7 @@
 import {
   ContactContainer,
   ContactTitle,
-  ContactSub,
-  FlexContainer,
+  SocialContainer,
   ContactWrapper,
   ContactSpan,
   ExternalLink,
@@ -55,7 +54,6 @@ const Contact = ({ lang }) => {
   return (
     <ContactContainer>
       <ReactTooltip />
-
       <div data-aos={"zoom-in"} style={{display:'flex', flexDirection:'column', alignItems:'center'}} data-aos-duration={"1200"}>
         <ContactTitle>
           <RiContactsLine style={{ fontSize: "1.8rem" }}/>
@@ -63,16 +61,9 @@ const Contact = ({ lang }) => {
               ? "Contato" 
               : "Get in touch"}
         </ContactTitle>
-
-        <ContactSub>
-        {lang 
-          ? "Sinta-se à vontade pra me mandar uma mensagem:" 
-          : "Feel free to send me a message:"}
-        </ContactSub>
       </div>
-      
-      <div data-aos={"zoom-in"} style={{display:'flex', padding:'0 1rem', margin:'0 auto', flexDirection:'column', alignItems:'center', justifyContent:'center', width:'100%'}} data-aos-duration={"1500"}>
-        <ContactForm data-aos={"fade-right"} data-aos-duration={"1800"} onSubmit={sendEmail}>
+      <div data-aos={"zoom-in"} style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', width:'100%'}} data-aos-duration={"1500"}>
+        <ContactForm onSubmit={sendEmail}>
           <FormInput
             className='input'
             type='text'
@@ -80,75 +71,64 @@ const Contact = ({ lang }) => {
             onChange={(e) => setName(e.target.value)}
             value={name} 
           />
-
-        <FormInput
+          <FormInput
             className='input'
             type='text'
             placeholder='Digite seu email'
             onChange={(e) => setEmail(e.target.value)}
             value={email} 
           />
-
-        <FormArea
+          <FormArea
             className='textarea'
             placeholder='Digite sua mensagem...'
             onChange={(e) => setMessage(e.target.value)}
             value={message} 
           />
-
           <SubmitForm className='submit-btn' type='submit' >Enviar</SubmitForm>
         </ContactForm>
-
-          <FlexContainer data-aos={"fade-left"} data-aos-duration={"1200"}>
-            <ContactSub>
-              {lang 
-                ? "Ou entre em contato pelas redes sociais:" 
-                : "Or get in touch through my social media:"}
-            </ContactSub>
-            <ContactWrapper>
-              <ExternalLink
-                data-tip="Github"
-                href="https://github.com/zaqueu-1"
-                target="_blank">
-            <FiGithub />
-              <ContactSpan>
-                {'GitHub'}
-              </ContactSpan>
-              </ExternalLink>
-              <ExternalLink
-                data-tip="LinkedIn"
-                href="https://linkedin.com/in/zaqueu1"
-                target="_blank">
-            <FaLinkedinIn />
-              <ContactSpan>
-                {'LinkedIn'}
-              </ContactSpan>
-              </ExternalLink>
-              <ExternalLink
-                data-tip="Discord"
-                href="https://discordapp.com/users/856969236684603422"
-                target="_blank">
-            <RiDiscordFill />
-              <ContactSpan>
-                  {'Discord'}
-              </ContactSpan>
-              </ExternalLink>
-              <ExternalLink
-                data-tip="Instagram"
-                href="https://instagram.com/zaqueu.tech"
-                target="_blank">
-            <BsInstagram />
-              <ContactSpan>
-                  {'Instagram'}
-              </ContactSpan>
-              </ExternalLink>
-            </ContactWrapper> 
-          </FlexContainer>
-        
+        <SocialContainer>
+          <ContactWrapper>
+            <ExternalLink
+              data-tip="Github"
+              href="https://github.com/zaqueu-1"
+              target="_blank">
+          <FiGithub />
+            <ContactSpan>
+              {'GitHub'}
+            </ContactSpan>
+            </ExternalLink>
+            <ExternalLink
+              data-tip="LinkedIn"
+              href="https://linkedin.com/in/zaqueu1"
+              target="_blank">
+          <FaLinkedinIn />
+            <ContactSpan>
+              {'LinkedIn'}
+            </ContactSpan>
+            </ExternalLink>
+            <ExternalLink
+              data-tip="Discord"
+              href="https://discordapp.com/users/856969236684603422"
+              target="_blank">
+          <RiDiscordFill />
+            <ContactSpan>
+                {'Discord'}
+            </ContactSpan>
+            </ExternalLink>
+            <ExternalLink
+              data-tip="Instagram"
+              href="https://instagram.com/zaqueu.tech"
+              target="_blank">
+          <BsInstagram />
+            <ContactSpan>
+                {'Instagram'}
+            </ContactSpan>
+            </ExternalLink>
+          </ContactWrapper> 
+        </SocialContainer>
       </div>
-
     </ContactContainer>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
