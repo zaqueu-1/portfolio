@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   BoxSpacer,
   HeaderH1,
@@ -8,8 +8,8 @@ import {
   SubtitleText,
   SkillsContainer,
   Skill,
-} from "./Header.styles";
-import { data } from "../../data";
+} from "./Header.styles"
+import { data } from "../../data"
 
 
 const Header = ({ lang }) => {
@@ -48,7 +48,7 @@ const Header = ({ lang }) => {
         </SubtitleContainer>
       </BoxSpacer>
     </HeaderContainer>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

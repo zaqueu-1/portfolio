@@ -55,13 +55,13 @@ const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
           </SidebarItem>
           <SidebarItem
             onClick={() => {
-              onGetScrollSection("projects")
+              onGetScrollSection("experiences")
               sidebarToggler()
             }}>
             <SidebarSpan>
               {lang 
-                ? "Projetos" 
-                : "Projects"}
+                ? "Experiência" 
+                : "Experience"}
             </SidebarSpan>
           </SidebarItem>
           <SidebarItem
