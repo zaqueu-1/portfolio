@@ -4,7 +4,6 @@ import { BackgroundStyle } from "./components/Background/Background.styles"
 import Header from "./components/Header/Header"
 import Sidebar from "./components/Sidebar/Sidebar"
 import About from "./components/About/About"
-import Projects from "./components/Projects/Projects"
 import Experiences from "./components/Experiences/Experiences"
 import Contact from "./components/Contact/Contact"
 import Footer from "./components/Footer/Footer"
@@ -27,7 +26,6 @@ function App() {
   const headerSection = useRef(null)
   const aboutSection = useRef(null)
   const experiencesSection = useRef(null)
-  const projectsSection = useRef(null)
   const contactsSection = useRef(null)
 
   const scrollToSection = (section) => {
@@ -41,9 +39,6 @@ function App() {
       case "experiences":
         window.scrollTo({ top: experiencesSection.current.offsetTop, behavior: "smooth" })
         break
-      case "projects":
-        window.scrollTo({ top: projectsSection.current.offsetTop, behavior: "smooth" })
-        break
       case "contact":
         window.scrollTo({ top: contactsSection.current.offsetTop, behavior: "smooth" })
         break
@@ -54,27 +49,26 @@ function App() {
 
   return (
       <div>
-      <BackgroundStyle />
-      <Background />
-      <GlobalStyle />
-      <Sidebar
-        onGetLang={languageHandler}
-        onGetScrollSection={scrollToSection}
-        lang={lang}/>
-      <LanguageControlMain data-tip={lang ? "English" : "Português"} onClick={() => setLang(!lang)}>
-        <LanguageTogglerMain>
-          <MdLanguage style={{ marginRight: ".6rem" }} />
-          {lang ? "View in English" : "Ver em Português"}
-        </LanguageTogglerMain>
-      </LanguageControlMain>
-      <section ref={headerSection}><Header lang={lang} /></section>
-      <section ref={aboutSection}><About lang={lang} /></section>
-      {/* <section ref={projectsSection}><Projects lang={lang} /></section> */}
-      <section ref={experiencesSection}><Experiences lang={lang} /></section>
-      <section ref={contactsSection}><Contact lang={lang} /></section>
-      <Footer lang={lang} onGetScrollSection={scrollToSection} />
+        <BackgroundStyle />
+        <Background />
+        <GlobalStyle />
+        <Sidebar
+          onGetLang={languageHandler}
+          onGetScrollSection={scrollToSection}
+          lang={lang}/>
+        <LanguageControlMain data-tip={lang ? "English" : "Português"} onClick={() => setLang(!lang)}>
+          <LanguageTogglerMain>
+            <MdLanguage style={{ marginRight: ".6rem" }} />
+            {lang ? "View in English" : "Ver em Português"}
+          </LanguageTogglerMain>
+        </LanguageControlMain>
+        <section ref={headerSection}><Header lang={lang} /></section>
+        <section ref={aboutSection}><About lang={lang} /></section>
+        <section ref={experiencesSection}><Experiences lang={lang} /></section>
+        <section ref={contactsSection}><Contact lang={lang} /></section>
+        <Footer lang={lang} onGetScrollSection={scrollToSection} />
       </div>
-  );
+  )
 }
 
 export default App

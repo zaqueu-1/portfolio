@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai"
 import {
   SidebarContainer,
   SidebarIcon,
@@ -11,14 +11,14 @@ import {
   LanguageControl,
   LanguageToggler,
 } from "./Sidebar.styles";
-import { IoReorderThreeOutline } from "react-icons/io5";
-import { MdLanguage } from "react-icons/md";
-import ReactTooltip from "react-tooltip";
+import { IoReorderThreeOutline } from "react-icons/io5"
+import { MdLanguage } from "react-icons/md"
+import ReactTooltip from "react-tooltip"
 
 const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
 
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-  const sidebarToggler = () => setSidebarIsOpen(!sidebarIsOpen);
+  const [sidebarIsOpen, setSidebarIsOpen] = useState(false)
+  const sidebarToggler = () => setSidebarIsOpen(!sidebarIsOpen)
 
   return (
     <>
@@ -33,8 +33,8 @@ const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
         <SidebarSection>
           <SidebarItem
             onClick={() => {
-              onGetScrollSection("header");
-              sidebarToggler();
+              onGetScrollSection("header")
+              sidebarToggler()
             }}>
             <SidebarSpan>
               {lang 
@@ -44,8 +44,8 @@ const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
           </SidebarItem>
           <SidebarItem
             onClick={() => {
-              onGetScrollSection("about");
-              sidebarToggler();
+              onGetScrollSection("about")
+              sidebarToggler()
             }}>
             <SidebarSpan>
               {lang 
@@ -55,8 +55,8 @@ const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
           </SidebarItem>
           <SidebarItem
             onClick={() => {
-              onGetScrollSection("projects");
-              sidebarToggler();
+              onGetScrollSection("projects")
+              sidebarToggler()
             }}>
             <SidebarSpan>
               {lang 
@@ -66,8 +66,8 @@ const Sidebar = ({ onGetLang, onGetScrollSection, lang }) => {
           </SidebarItem>
           <SidebarItem
             onClick={() => {
-              onGetScrollSection("contact");
-              sidebarToggler();
+              onGetScrollSection("contact")
+              sidebarToggler()
             }}>
             <SidebarSpan>
               {lang 

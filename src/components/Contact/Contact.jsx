@@ -11,8 +11,8 @@ import {
   FormArea,
   SubmitForm,
 } from "./Contact.styles";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FiGithub } from "react-icons/fi";
+import { FaLinkedinIn } from "react-icons/fa"
+import { FiGithub } from "react-icons/fi"
 import { BsInstagram } from 'react-icons/bs'
 import { RiContactsLine, RiDiscordFill } from "react-icons/ri"
 import ReactTooltip from "react-tooltip"

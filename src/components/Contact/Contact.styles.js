@@ -8,6 +8,7 @@ export const ContactContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 6.5rem;
+  font-family: "Poppins", sans-serif;
   @media only screen and (max-width: 419px) {
     margin-top: 8.5rem;
     padding: 1.5rem;

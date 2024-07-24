@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import "./globals.styles.js";
+import React from "react"
+import ReactDOM from "react-dom"
+import App from "./App"
+import "./globals.styles.js"
 import "./components/Background/Background.styles.js"
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'

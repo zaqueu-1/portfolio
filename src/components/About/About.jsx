@@ -46,13 +46,13 @@ const About = ({ lang }) => {
                 ? (
                   <div>
                     <i>Um desenvolvedor que acredita no poder da comunicação e das soft skills.</i>
-                    <p>Faço parte atualmente do time de desenvolvimento da <a href="https://hurb.com/br" target="_blank" rel="noreferrer">Hurb</a>. Sou fascinado por aprender e compartilhar aquilo que sei e me sinto à vontade estando ao redor de profissionais que buscam crescimento. Comunicação e curiosidade são minhas palavras-chave.</p>
+                    <p>Faço parte do time de engenharia da <a href="https://hurb.com/br" target="_blank" rel="noreferrer">Hurb</a>. Sou fascinado por aprender e compartilhar aquilo que sei e me sinto à vontade estando ao redor de profissionais que buscam crescimento. Comunicação e curiosidade são minhas palavras-chave.</p>
                   </div>
                 )
                 : (
                   <div>
                     <p>A developer who believes in the power of communication and soft skills.</p>
-                    <p>I am currently part of the development team at <a href="https://hurb.com" target="_blank" rel="noreferrer">Hurb</a>. Fascinated by learning and sharing what I know, I feel comfortable being around professionals who seek growth. Communication and curiosity are my keywords.</p>
+                    <p>I am part of the engineering team at <a href="https://hurb.com" target="_blank" rel="noreferrer">Hurb</a>. Fascinated by learning and sharing what I know, I feel comfortable being around professionals who seek growth. Communication and curiosity are my keywords.</p>
                   </div>
                 ) }
             </AboutP>
@@ -70,8 +70,7 @@ const About = ({ lang }) => {
         </FlexContainer>
       </AboutContainer>
     </>
-    
-  );
-};
+  )
+}
 
 export default About
