@@ -47,7 +47,7 @@ const Contact = ({ lang }) => {
       setEmail('')
       setMessage('')
     }, (err) => {
-      console.log('Erro: ', err)
+      //console.log('Erro: ', err)
     })
   }
 
@@ -67,24 +67,24 @@ const Contact = ({ lang }) => {
           <FormInput
             className='input'
             type='text'
-            placeholder='Digite seu nome'
+            placeholder={lang ? "Nome" : "Name"}
             onChange={(e) => setName(e.target.value)}
             value={name} 
           />
           <FormInput
             className='input'
             type='text'
-            placeholder='Digite seu email'
+            placeholder='E-mail'
             onChange={(e) => setEmail(e.target.value)}
             value={email} 
           />
           <FormArea
             className='textarea'
-            placeholder='Digite sua mensagem...'
+            placeholder={lang ? "Digite sua mensagem..." : "Type your message..."}
             onChange={(e) => setMessage(e.target.value)}
             value={message} 
           />
-          <SubmitForm className='submit-btn' type='submit' >Enviar</SubmitForm>
+          <SubmitForm className='submit-btn' type='submit' >{lang ? "Enviar" : "Send"}</SubmitForm>
         </ContactForm>
         <SocialContainer>
           <ContactWrapper>
@@ -93,36 +93,24 @@ const Contact = ({ lang }) => {
               href="https://github.com/zaqueu-1"
               target="_blank">
           <FiGithub />
-            <ContactSpan>
-              {'GitHub'}
-            </ContactSpan>
             </ExternalLink>
             <ExternalLink
               data-tip="LinkedIn"
               href="https://linkedin.com/in/zaqueu1"
               target="_blank">
           <FaLinkedinIn />
-            <ContactSpan>
-              {'LinkedIn'}
-            </ContactSpan>
             </ExternalLink>
             <ExternalLink
               data-tip="Discord"
               href="https://discordapp.com/users/856969236684603422"
               target="_blank">
           <RiDiscordFill />
-            <ContactSpan>
-                {'Discord'}
-            </ContactSpan>
             </ExternalLink>
             <ExternalLink
               data-tip="Instagram"
               href="https://instagram.com/zaqueu.tech"
               target="_blank">
           <BsInstagram />
-            <ContactSpan>
-                {'Instagram'}
-            </ContactSpan>
             </ExternalLink>
           </ContactWrapper> 
         </SocialContainer>

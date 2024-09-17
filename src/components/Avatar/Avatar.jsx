@@ -3,11 +3,11 @@ import React from "react"
 const Avatar = () => {
   return (
       <img class="avatar" 
-        style={{borderRadius: '50%', animation:'float 3s infinite' }} 
+        style={{borderRadius: '8%'}} 
         src={ require("../../img/avatarzin.jpg")} 
         alt="Eduardo Zaqueu" 
-        width='70%' 
-        height='70%'
+        width='85%' 
+        height='85%'
       />
   )
 }

@@ -40,7 +40,7 @@ export const ContactForm = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 900px;
+    max-width: 700px;
     min-width: 300px;
     width: 100%;
     gap: 1rem;
@@ -74,7 +74,6 @@ border-radius: 8px;
     max-width: 550px;
     min-width: 300px;
     width: 100%;
-    flex-direction: column;
   }
 `;
 
@@ -86,12 +85,12 @@ export const ExternalLink = styled.a`
   align-items: center;
   justify-content: center;
   display: flex;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.1);
   gap: .35rem;
   &:hover {
-    transform: scale(0.95);
+    transform: scale(1.05);
   }
   @media only screen and (max-width: 1199px) {
     font-size: 0.85rem;
@@ -115,6 +114,11 @@ export const FormInput = styled.input`
     background: rgba( 255, 255, 255, 0.15 );
     backdrop-filter: blur( 1.5px );
     -webkit-backdrop-filter: blur( 1.5px );
+    ::placeholder {
+      color: white;
+      opacity: .5;
+      font-style: italic;
+    }
 `;
 
 export const FormArea = styled.textarea`
@@ -130,12 +134,15 @@ export const FormArea = styled.textarea`
     backdrop-filter: blur( 1.5px );
     -webkit-backdrop-filter: blur( 1.5px );
     height: 200px;
+    ::placeholder {
+      color: white;
+      opacity: .5;
+      font-style: italic;
+    }
 `;
 
 export const SubmitForm = styled.button`
-    max-width: 900px;
-    min-width: 300px;
-    width: 100%;
+    width: 300px;
     cursor: pointer;
     height: 30px;
     transition: all 0.3s ease-in-out;
@@ -143,7 +150,7 @@ export const SubmitForm = styled.button`
     backdrop-filter: blur( 1.5px );
     -webkit-backdrop-filter: blur( 1.5px );
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     color: white;
     &:hover {
       background: rgba( 255, 255, 255, 0.4 );

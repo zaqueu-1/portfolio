@@ -25,14 +25,11 @@ export const ImgWrapper = styled.div`
 `;
 
 export const ExperienceImg = styled.img`
-  width: 150px;
+  width: 100px;
   border-radius: 8px;
   transition: all 0.4s ease-in-out;
   opacity: 0.8;
   background: rgb( 255, 255, 255);
-  @media only screen and (max-width: 1199px) {
-    width: 100px;
-  }
   @media only screen and (max-width: 419px) {
     width: 80px;
   }
@@ -59,10 +56,10 @@ export const Section = styled.div`
 `;
 
 export const ExperienceHeader = styled.p`
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 400;
   @media only screen and (max-width: 1199px) {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
   }
   @media only screen and (max-width: 419px) {
     font-size: 1.2rem;
@@ -70,13 +67,11 @@ export const ExperienceHeader = styled.p`
 `;
 
 export const ExperienceSub = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-style: italic;
   font-weight: 300;
   @media only screen and (max-width: 1199px) {
-    font-size: 1rem;
-  }
-  @media only screen and (max-width: 419px) {
-    font-size: 0.8rem;
+    font-size: .8rem;
   }
 `;
 
@@ -85,7 +80,7 @@ export const StackContainer = styled.div`
   flex-wrap: wrap;
   gap: .3rem;
   width: 100%;
-  margin-top: .5rem;
+  margin-top: .25rem;
 `;
 
 export const Tech = styled.span`

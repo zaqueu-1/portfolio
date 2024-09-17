@@ -31,7 +31,7 @@ export const FlexContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0 4rem;
-  align-items: space-around;
+  align-items: center;
   justify-content: space-around;
   @media only screen and (max-width: 1199px) {
     flex-direction: column;
@@ -62,7 +62,7 @@ div a {
 }
 
 div a:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   color: rgba( 0, 0, 0, 0.4 );
 }
 
