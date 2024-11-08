@@ -11,20 +11,20 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 ::-webkit-scrollbar{
-width: 6px;
-height: 10px;
+  width: 6px;
+  height: 10px;
 }
 ::-webkit-scrollbar-thumb{
-background: #333333;
-border-radius: 0px;
+  background: #333333;
+  border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover{
-background:rgba(0,0,0,0.2);
+  background:rgba(0,0,0,0.2);
 }
 ::-webkit-scrollbar-track{
-background: #111111;
-border-radius: 0px;
-box-shadow: inset -0.4px 0px 0px 0px #F0F0F0;
+  background: #111111;
+  border-radius: 0px;
+  box-shadow: inset -0.4px 0px 0px 0px #F0F0F0;
 }
 
 input::placeholder, textarea::placeholder {
@@ -49,7 +49,6 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 `;

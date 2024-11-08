@@ -2,23 +2,14 @@ import styled from "styled-components";
 
 export const ExperienceContainer = styled.div`
   display: flex;
-  height: 25vh;
-  width: 80vw;
+  height: 140px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 550px;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
-  padding: .5rem 4rem;
-  @media only screen and (max-width: 1199px) {
-    width: 90vw;
-    gap: .5rem;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: .5rem 1rem;
-    height: 20vh;
-  }
-  @media only screen and (max-width: 419px) {
-    width: 100vw;
-  }
+  padding: .5rem;
 `;
 
 export const ImgWrapper = styled.div`
@@ -38,21 +29,9 @@ export const ExperienceImg = styled.img`
 export const ExperienceInfo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: .25rem;
   width: 100%;
-  @media only screen and (max-width: 1199px) {
-    align-items: start;
-  }
-`;
-
-export const Section = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  @media only screen and (max-width: 1199px) {
-    align-items: start;
-  }
+  height: 100px;
 `;
 
 export const ExperienceHeader = styled.p`
@@ -79,8 +58,6 @@ export const StackContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: .3rem;
-  width: 100%;
-  margin-top: .25rem;
 `;
 
 export const Tech = styled.span`
@@ -88,10 +65,6 @@ export const Tech = styled.span`
   backdrop-filter: blur( 1.5px );
   -webkit-backdrop-filter: blur( 1.5px );
   padding: 0.3rem 0.8rem;
-  border-radius: 12px 1px 12px 1px;
-  font-size: 16px;
-  @media only screen and (max-width: 1199px) {
-    font-size: 0.8rem;
-    padding: 0.2rem;
-  }
+  border-radius: 12px;
+  font-size: 12px;
 `;
