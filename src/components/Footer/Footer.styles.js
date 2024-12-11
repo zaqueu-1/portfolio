@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
-  margin: 3.1rem 0 1.2rem 0;
+  width: 100%;
   display: flex;
+  gap: 2rem;
+  flex-direction: column;
   justify-content: right;
   align-items: center;
+  padding: 4rem;
+  padding-bottom: 0;
 `;
 
 export const GoTop = styled.button`
@@ -13,8 +17,8 @@ export const GoTop = styled.button`
   border: none;
   color: #dddddd;
   cursor: pointer;
-  margin-right: 1.2rem;
   font-size: 1rem;
+  align-self: flex-end;
   transition: all 0.2s ease-in-out;
   &:hover {
     color: #999;

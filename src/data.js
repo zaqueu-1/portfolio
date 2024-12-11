@@ -1,17 +1,23 @@
 
 export const data = {
   about: {
-    pt: `Desenvolvedor Front-end`,
-    en: `Front-end Software Engineer`,
+    title: {
+      pt: `Desenvolvedor Front-end`,
+      en: `Front-end Software Engineer`,
+    },
+    info: {
+      pt: "Fascinado por aprender, compartilhar conhecimento e estar ao redor de profissionais que buscam crescimento. Comunicação e curiosidade são minhas palavras-chave.",
+      en: "Passionate about learning, sharing knowledge and being around professionals who seek growth. Communication and curiosity are my key strengths.",
+    }
   },
 
   experiences: [
     {
       id: 1,
+      url: "https://hurb.com/br",
       title_pt: "Desenvolvedor Front-end",
       title_en: "Front-end Software Engineer",
       company: "Hurb",
-      date: "07/24",
       stack: [
         "NextJS",
         "ReactJS",
@@ -25,42 +31,41 @@ export const data = {
     },
     {
       id: 2,
+      url: "https://next.berry.tech/",
       title_pt: "Desenvolvedor Front-end",
       title_en: "Front-end Software Engineer",
       company: "Berrytech",
-      date: "03/24 - 07/24",
       stack: [
         "TypeScript",
         "ReactJS",
         "NodeJS",
         "Tailwind",
-        "graphQL",
-        "shadcn/ui",
+        "GraphQL",
         "Legend State",
       ],
       img: "img/berrytech.jpg",
     },
     {
       id: 3,
+      url: "https://speedio.com.br/",
       title_pt: "Desenvolvedor Front-end",
       title_en: "Front-end Software Engineer",
       company: "Speedio",
-      date: "07/23 - 03/24",
       stack: [
         "TypeScript",
         "VueJS",
         "NodeJS",
-        "Rails",
+        "Ruby",
         "MongoDB"
       ],
       img: "img/speedio.png",
     },
     {
       id: 4,
+      url: "https://www.linkedin.com/company/ag%C3%AAnciadazzio/?originalSubdomain=br",
       title_pt: "Desenvolvedor Front-end",
       title_en: "Front-end Software Engineer",
       company: "SM Creative Marketing",
-      date: "01/23 - 07/23",
       stack: [
         "NextJS",
         "ReactJS",

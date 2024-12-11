@@ -9,7 +9,7 @@ import {
   import React from "react"
   import ReactTooltip from "react-tooltip"
   
-  const SocialLinks = ({ lang }) => {
+  const SocialLinks = () => {
   
     return (
         <LinksContainer>

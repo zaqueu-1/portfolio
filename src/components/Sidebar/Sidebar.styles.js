@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const SidebarContainer = styled.aside`
   background: rgba(0, 0, 0, 0.3);
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   width: 300px;
   right: ${({ isOpen }) => (isOpen ? "0" : "-1000px")};
   transition: 0.5s ease-in-out;

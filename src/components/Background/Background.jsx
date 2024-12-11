@@ -2,8 +2,8 @@ import React from "react"
 
 const Background = () => {
   return (
-    <div class="area" >
-      <ul class="circles">
+    <div className="area" >
+      <ul className="circles">
             <li></li>
             <li></li>
             <li></li>

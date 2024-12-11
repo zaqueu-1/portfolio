@@ -1,76 +1,72 @@
 
 import {
   ContactContainer,
-  ContactTitle,
   ContactForm,
   FormInput,
   FormArea,
   SubmitForm,
 } from "./Contact.styles";
-import { RiContactsLine } from "react-icons/ri"
 import React, {useState} from "react"
 import emailjs from '@emailjs/browser'
 import { toast } from 'react-toastify'
 
 const Contact = ({ lang }) => {
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    message: "",
+  })
 
   const sendEmail = (e) => {
     e.preventDefault()
 
-    if(name===''| email===''| message===''){
+    if(user.name ===''| user.email ===''| user.message ===''){
       toast.error("Preencha todos os campos!")
       return
     }
 
     const templateParams = {
-      from_name: name,
-      message: message,
-      email: email
+      from_name: user.name,
+      message: user.message,
+      email: user.email
     }
 
     emailjs.send('service_2ym8t6p', 'template_ngmaux4', templateParams, 'p-NhBYy89o5fjyjqm')
     .then((res) => {
-      toast.success('Mensagem enviada!')
-      setName('')
-      setEmail('')
-      setMessage('')
+      toast.success(lang ? 'Mensagem enviada!' : "Message sent!")
+      setUser({
+        name: "",
+        email: "",
+        message: "",
+      })
     }, (err) => {
-      //console.log('Erro: ', err)
+      err && toast.error(lang ? "Aconteceu um erro. Tente mais tarde." : "An error has occurred. Try again later.")
     })
   }
 
   return (
     <ContactContainer>
-      <ContactTitle data-aos={"zoom-in"} data-aos-duration={"1200"}>
-        <RiContactsLine style={{ fontSize: "1.8rem" }}/>
-          {lang 
-            ? "Contato" 
-            : "Get in touch"}
-      </ContactTitle>
       <ContactForm onSubmit={sendEmail} data-aos={"zoom-in"} data-aos-duration={"1500"}>
         <FormInput
           className='input'
           type='text'
           placeholder={lang ? "Nome" : "Name"}
-          onChange={(e) => setName(e.target.value)}
-          value={name} 
+          onChange={(e) => setUser((prev) => ({...prev, name: e.target.value }))}
+          value={user.name} 
         />
         <FormInput
           className='input'
           type='text'
           placeholder='E-mail'
-          onChange={(e) => setEmail(e.target.value)}
-          value={email} 
+          onChange={(e) => setUser((prev) => ({...prev, email: e.target.value }))}
+          value={user.email} 
         />
         <FormArea
           className='textarea'
           placeholder={lang ? "Digite sua mensagem..." : "Type your message..."}
-          onChange={(e) => setMessage(e.target.value)}
-          value={message} 
+          onChange={(e) => setUser((prev) => ({ ...prev, message: e.target.value }))}
+          value={user.message} 
         />
         <SubmitForm className='submit-btn' type='submit' >
           {lang ? "Enviar" : "Send"}

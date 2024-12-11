@@ -51,6 +51,15 @@ body {
 a {
   text-decoration: none;
 }
+
+section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 4rem;
+}
 `;
 
 export const LanguageControlMain = styled.div`

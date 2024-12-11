@@ -1,30 +1,45 @@
 import React from "react"
 import {
   ExperienceContainer,
+  ExperienceWrapper,
   ImgWrapper,
   ExperienceImg,
-  ExperienceInfo,
+  ExperienceTitleWrapper,
   StackContainer,
   Tech,
   ExperienceHeader,
   ExperienceSub,
+  VisitButton
 } from "./Experience.styles"
 
-const Experience = ({ id, title_pt, title_en, company, date, stack, img, lang }) => {
+const Experience = ({ id, exp, lang }) => {
   return (
     <ExperienceContainer id={id} >
-      <ImgWrapper>
-        <ExperienceImg src={require(`../../${img}`)} />
-      </ImgWrapper>
-      <ExperienceInfo>
-        <ExperienceHeader>{company}</ExperienceHeader>
-        <ExperienceSub>{lang ? title_pt + ` (${date})` : title_en + ` (${date})`}</ExperienceSub>
-        <StackContainer>
-          {stack.map((tech) => {
-            return <Tech>{tech}</Tech>
-          })}
-        </StackContainer>
-      </ExperienceInfo>
+      <ExperienceWrapper>
+        <ImgWrapper>
+          <ExperienceImg src={require(`../../${exp.img}`)} />
+        </ImgWrapper>
+        <ExperienceTitleWrapper>
+          <ExperienceHeader
+            onClick={() => {
+              window.open(exp.url, "_blank")
+            }}
+          >
+            {exp.company}
+            <VisitButton>
+              {"🔗"}
+            </VisitButton>
+          </ExperienceHeader>
+          <ExperienceSub>
+            {lang ? exp.title_pt : exp.title_en}
+          </ExperienceSub>
+        </ExperienceTitleWrapper>
+      </ExperienceWrapper>
+      <StackContainer>
+        {exp.stack.map((tech) => {
+          return <Tech>{tech}</Tech>
+        })}
+      </StackContainer>
     </ExperienceContainer>
   )
 }

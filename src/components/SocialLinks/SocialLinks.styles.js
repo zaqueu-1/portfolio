@@ -1,20 +1,12 @@
 import styled from "styled-components";
 
 export const LinksContainer = styled.div`
-display: flex;
-flex-direction: column;
-gap: .5rem;
-align-items: center;
-justify-content: center;
-width: 60px;
-border-radius: 8px;
-position: absolute;
-right: 92.5%;
-@media only screen and (max-width: 1199px) {
-  right: 82.5%;
-  gap: .7rem;
-}
-
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 8px;
+  padding: 1rem 0;
 `;
 
 export const ExternalLink = styled.a`
@@ -25,19 +17,14 @@ export const ExternalLink = styled.a`
   align-items: center;
   justify-content: center;
   display: flex;
-  padding: .5rem 1rem;
+  padding: .5rem;
   border-radius: 8px;
-  background: rgba( 255, 255, 255, 0.1 );
-  backdrop-filter: blur( 1.5px );
-  -webkit-backdrop-filter: blur( 1.5px );
   color: #dddddd;
   &:hover {
     transform: scale(1.05);
-    background-color: rgba( 0, 0, 0, 0.1 );
   }
   @media only screen and (max-width: 1199px) {
     font-size: .9rem;
-    padding: .35rem .75rem;
   }
 `;
 

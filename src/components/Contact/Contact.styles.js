@@ -1,32 +1,15 @@
 import styled from "styled-components";
 
 export const ContactContainer = styled.div`
-  width: 100vw;
-  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 6.5rem;
   font-family: "Poppins", sans-serif;
   @media only screen and (max-width: 1199px) {
-    margin-top: 8.5rem;
-    padding: 1.5rem;
     font-size: 1.5rem;
-    margin: 2rem auto;
-  }
-`;
-
-export const ContactTitle = styled.h2`
-  font-size: 2.5rem;
-  color: #999;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .35rem;
-  @media only screen and (max-width: 1199px) {
-    font-size: 2rem;
   }
 `;
 
@@ -35,28 +18,28 @@ export const ContactForm = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 600px;
     min-width: 320px;
-    width: 70%;
+    width: 100%;
     padding: 2rem;
     gap: 1rem;
     border: 2px solid transparent;
-    backdrop-filter: blur( 1.5px );
-    -webkit-backdrop-filter: blur( 1.5px );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
     border-radius: 16px;
 `;
 
 export const FormInput = styled.input`
     border-radius: 8px;
-    border: none;
+    border: 1px solid #222;
     padding: .5rem;
-    width: 100%;
     min-width: 300px;
+    width: 100%;
     font-size: 1rem;
     color: white;
-    background: rgba( 255, 255, 255, 0.15 );
-    backdrop-filter: blur( 1.5px );
-    -webkit-backdrop-filter: blur( 1.5px );
+    background: rgba( 0, 0, 0, 0.1 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
     ::placeholder {
       color: white;
       opacity: .5;
@@ -66,15 +49,15 @@ export const FormInput = styled.input`
 
 export const FormArea = styled.textarea`
     border-radius: 8px;
-    border: none;
+    border: 1px solid #222;
     padding: .5rem;
-    width: 100%;
     min-width: 300px;
+    width: 100%;
     font-size: 1rem;
     color: white;
-    background: rgba( 255, 255, 255, 0.15 );
-    backdrop-filter: blur( 1.5px );
-    -webkit-backdrop-filter: blur( 1.5px );
+    background: rgba( 0, 0, 0, 0.1 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
     height: 200px;
     ::placeholder {
       color: white;
@@ -84,22 +67,19 @@ export const FormArea = styled.textarea`
 `;
 
 export const SubmitForm = styled.button`
-    width: 45%;
     min-width: 300px;
+    width: 100%;
     cursor: pointer;
     height: 30px;
     transition: all 0.3s ease-in-out;
-    background: rgba( 255, 255, 255, 0.15 );
-    backdrop-filter: blur( 1.5px );
-    -webkit-backdrop-filter: blur( 1.5px );
-    border: none;
+    background: rgba( 0, 0, 0, 0.1 );
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border: 1px solid #222;
     border-radius: 4px;
     color: white;
     font-size: 1rem;
     font-weight: 500;
-    &:hover {
-      background-color: rgba( 0, 0, 0, 0.1 );
-    }
 `
 
 

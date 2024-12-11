@@ -5,7 +5,6 @@ import Header from "./components/Header/Header"
 import Sidebar from "./components/Sidebar/Sidebar"
 import About from "./components/About/About"
 import Experiences from "./components/Experiences/Experiences"
-import Contact from "./components/Contact/Contact"
 import Footer from "./components/Footer/Footer"
 import { GlobalStyle, LanguageControlMain, LanguageTogglerMain } from "./globals.styles"
 import AOS from "aos"
@@ -25,20 +24,20 @@ function App() {
 
   const headerSection = useRef(null)
   const aboutSection = useRef(null)
-  const experiencesSection = useRef(null)
   const contactsSection = useRef(null)
+  const experiencesSection = useRef(null)
 
   const scrollToSection = (section) => {
     switch (section) {
       case "header":
-        window.scrollTo({ top: headerSection.current.offsetTop, behavior: "smooth" })
+        window.scrollTo({ top: headerSection.current.offsetTop-50, behavior: "smooth" })
         break
       case "about":
-        window.scrollTo({ top: aboutSection.current.offsetTop, behavior: "smooth" })
+        window.scrollTo({ top: aboutSection.current.offsetTop-50, behavior: "smooth" })
         break
       case "experiences":
         window.scrollTo({ top: experiencesSection.current.offsetTop, behavior: "smooth" })
-        break
+        break 
       case "contact":
         window.scrollTo({ top: contactsSection.current.offsetTop, behavior: "smooth" })
         break
@@ -48,7 +47,7 @@ function App() {
   }
 
   return (
-      <div>
+      <>
         <BackgroundStyle />
         <Background />
         <GlobalStyle />
@@ -58,16 +57,21 @@ function App() {
           lang={lang}/>
         <LanguageControlMain data-tip={lang ? "English" : "Português"} onClick={() => setLang(!lang)}>
           <LanguageTogglerMain>
-            <MdLanguage style={{ marginRight: ".6rem" }} />
+            <MdLanguage style={{ marginRight: ".5rem" }} />
             {lang ? "View in English" : "Ver em Português"}
           </LanguageTogglerMain>
         </LanguageControlMain>
         <section ref={headerSection}><Header lang={lang} /></section>
-        <section ref={aboutSection}><About lang={lang} /></section>
-        <section ref={experiencesSection}><Experiences lang={lang} /></section>
-        <section ref={contactsSection}><Contact lang={lang} /></section>
-        <Footer lang={lang} onGetScrollSection={scrollToSection} />
-      </div>
+        <section 
+          data-aos={"fade-left"} 
+          data-aos-duration={"1500"}  
+          ref={aboutSection}
+        >
+          <About lang={lang} />
+        </section>
+        <section ref={experiencesSection} data-aos={"fade-right"} data-aos-duration={"1500"}><Experiences lang={lang} /></section>
+        <section ref={contactsSection}><Footer lang={lang} onGetScrollSection={scrollToSection} /></section>
+      </>
   )
 }
 
