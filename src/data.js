@@ -6,8 +6,8 @@ export const data = {
       en: `Front-end Software Engineer`,
     },
     info: {
-      pt: "Fascinado por aprender, compartilhar conhecimento e estar ao redor de profissionais que buscam crescimento. Comunicação e curiosidade são minhas palavras-chave.",
-      en: "Passionate about learning, sharing knowledge and being around professionals who seek growth. Communication and curiosity are my key strengths.",
+      pt: "Desenvolvedor há mais de 2 anos, com experiência sólida em JavaScript e seus frameworks. Já atuei em agências de marketing, startups do setor empresarial e, atualmente, trabalho como Desenvolvedor Front-end na Hurb. Sou alguém curioso, tranquilo e apaixonado por compartilhar o que sei e aprender com os outros.",
+      en: "Developer with more than 2 years of experience, solid knowledge in JavaScript and its frameworks. I have worked in marketing agencies, startups in the business sector and, currently, I work as a Front-end Software Engineer at Hurb. I am curious, calm and passionate about sharing what I know and learning from others.",
     }
   },
 
@@ -62,7 +62,7 @@ export const data = {
     },
     {
       id: 4,
-      url: "https://www.linkedin.com/company/ag%C3%AAnciadazzio/?originalSubdomain=br",
+      url: "https://agenciadazzio.com.br/",
       title_pt: "Desenvolvedor Front-end",
       title_en: "Front-end Software Engineer",
       company: "SM Creative Marketing",

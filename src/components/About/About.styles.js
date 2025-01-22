@@ -3,14 +3,13 @@ import styled from "styled-components";
 export const AboutContainer = styled.div`
   max-width: 600px;
   min-width: 340px;
-  max-height: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  padding: 4rem;
   margin: 0 auto;
+  height: 70vh;
 `;
 
 export const ImageWrapper = styled.div`
@@ -19,8 +18,8 @@ export const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   opacity: 0.9;
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   position: relative;
   @media only screen and (max-width: 680px) {
     width: 120px;
@@ -32,6 +31,7 @@ export const DescWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
   align-items: center;
   max-width: 1200px;
   min-width: 340px;

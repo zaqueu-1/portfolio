@@ -2,7 +2,7 @@ import {
   AboutContainer,
   ImageWrapper,
   DescWrapper,
-  AboutText,
+  AboutText
 } from "./About.styles"
 import React from "react"
 import Avatar from "../Avatar/Avatar"

@@ -8,10 +8,12 @@ export const ExperienceContainer = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   gap: .5rem;  
+  margin-bottom: 2rem;
   &:hover {
     button {
       opacity: 1;
     };
+  }
 `;
 
 export const ExperienceWrapper = styled.div`
