@@ -65,7 +65,6 @@ export const SidebarSpan = styled.span`
   font-size: 1.2rem;
   cursor: pointer;
   padding: .5rem;
-  }
 `;
 
 export const SidebarSpacer = styled.div`
@@ -78,7 +77,6 @@ export const SidebarSubSpan = styled.span`
   font-size: 1rem;
   cursor: pointer;
   padding: .6rem;
-  }
 `;
 
 export const CloseSidebar = styled.button`

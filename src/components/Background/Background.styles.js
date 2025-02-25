@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const BackgroundStyle = createGlobalStyle`
 .area{
-    background: linear-gradient(#111, #222);  
+    background: #333;  
     position: fixed;
     right: 0;
     bottom: 0;
@@ -31,7 +31,7 @@ export const BackgroundStyle = createGlobalStyle`
     list-style: none;
     width: 20px;
     height: 20px;
-    background: #111;
+    background: #222;
     animation: animate 25s linear infinite;
     bottom: -150px;
 }
@@ -124,4 +124,5 @@ export const BackgroundStyle = createGlobalStyle`
         opacity: 0;
         border-radius: 50%;
     }
-`;
+}
+`

@@ -4,8 +4,7 @@ import {
   } from "./SocialLinks.styles";
   import { FaLinkedinIn } from "react-icons/fa"
   import { FiGithub } from "react-icons/fi"
-  import { BsInstagram } from 'react-icons/bs'
-  import { RiDiscordFill } from "react-icons/ri"
+  import { BsInstagram } from 'react-icons/bs' 
   import React from "react"
   import ReactTooltip from "react-tooltip"
   
@@ -25,12 +24,6 @@ import {
                 href="https://linkedin.com/in/zaqueu1"
                 target="_blank">
                 <FaLinkedinIn />
-            </ExternalLink>
-            <ExternalLink
-                data-tip="Discord"
-                href="https://discordapp.com/users/856969236684603422"
-                target="_blank">
-            <   RiDiscordFill />
             </ExternalLink>
             <ExternalLink
                 data-tip="Instagram"

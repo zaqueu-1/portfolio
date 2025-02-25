@@ -15,17 +15,18 @@ export const GoTop = styled.button`
   outline: none;
   background: none;
   border: none;
-  color: #dddddd;
+  color: #999;
   cursor: pointer;
   font-size: 1rem;
-  align-self: flex-end;
   transition: all 0.2s ease-in-out;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
   &:hover {
-    color: #999;
+    color: #ddd;
     transform: scale(1.05);
   }
   @media only screen and (max-width: 1199px) {
     font-size: .8rem;
   }
 `;
-;

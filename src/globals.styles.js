@@ -56,10 +56,21 @@ section {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin: 0 auto;
   padding: 4rem;
+  height: 100vh;
+  gap: 2rem;
 }
+
+@media only screen and (max-width: 1199px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+}
+
 `;
 
 export const LanguageControlMain = styled.div`

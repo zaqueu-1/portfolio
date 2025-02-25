@@ -6,7 +6,7 @@ const Footer = ({ lang, onGetScrollSection }) => {
   return (
     <FooterContainer>
       <Contact lang={lang} />
-      <GoTop onClick={() => {onGetScrollSection("header");}}>
+      <GoTop onClick={() => {onGetScrollSection("hero");}}>
         {lang 
           ? "Voltar ao topo" 
           : "Back to the top"}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import Background from "./components/Background/Background"
 import { BackgroundStyle } from "./components/Background/Background.styles"
-import Header from "./components/Header/Header"
+import Hero from "./components/Hero/Hero"
 import Sidebar from "./components/Sidebar/Sidebar"
 import About from "./components/About/About"
 import Experiences from "./components/Experiences/Experiences"
@@ -10,7 +10,6 @@ import { GlobalStyle, LanguageControlMain, LanguageTogglerMain } from "./globals
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { MdLanguage } from "react-icons/md"
-
 
 function App() {
   useEffect(() => {
@@ -22,18 +21,13 @@ function App() {
   const [lang, setLang] = useState(true)
   const languageHandler = (boolean) => setLang(boolean)
 
-  const headerSection = useRef(null)
-  const aboutSection = useRef(null)
+  const heroSection = useRef(null)
   const contactsSection = useRef(null)
   const experiencesSection = useRef(null)
-
   const scrollToSection = (section) => {
     switch (section) {
-      case "header":
-        window.scrollTo({ top: headerSection.current.offsetTop-50, behavior: "smooth" })
-        break
-      case "about":
-        window.scrollTo({ top: aboutSection.current.offsetTop-50, behavior: "smooth" })
+      case "hero":
+        window.scrollTo({ top: heroSection.current.offsetTop-50, behavior: "smooth" })
         break
       case "experiences":
         window.scrollTo({ top: experiencesSection.current.offsetTop, behavior: "smooth" })
@@ -61,15 +55,11 @@ function App() {
             {lang ? "View in English" : "Ver em Português"}
           </LanguageTogglerMain>
         </LanguageControlMain>
-        <section ref={headerSection}><Header lang={lang} /></section>
-        <section 
-          data-aos={"fade-left"} 
-          data-aos-duration={"1500"}  
-          ref={aboutSection}
-        >
+        <section ref={heroSection}>
+          <Hero lang={lang} />
           <About lang={lang} />
         </section>
-        <section ref={experiencesSection} data-aos={"fade-right"} data-aos-duration={"1500"}><Experiences lang={lang} /></section>
+        <Experiences lang={lang} ref={experiencesSection} /> 
         <section ref={contactsSection}><Footer lang={lang} onGetScrollSection={scrollToSection} /></section>
       </>
   )

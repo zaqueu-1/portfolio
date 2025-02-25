@@ -5,7 +5,7 @@ import { ExperiencesWrapper } from "./Experiences.styles.js"
 
 const Experiences = ({ lang }) => {
   return (
-    <ExperiencesWrapper>
+    <ExperiencesWrapper data-aos={"fade-right"} data-aos-duration={"1200"}>
       {data.experiences.map((exp) => {
         return (
           <Experience

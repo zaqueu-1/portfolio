@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const ExperiencesWrapper = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
-  padding: 4rem;
-  justify-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 4rem;
 
   @media screen and (max-width: 680px) {
-    grid-template-columns: repeat(1, 1fr);
-    padding: 0rem;
+    padding: 2rem 1rem;
+    justify-content: center;
+    align-items: center;
   }
-
 `;

@@ -6,11 +6,12 @@ export const LinksContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   border-radius: 8px;
-  padding: 1rem 0;
+  padding: 0;
+  width: 100%;
 `;
 
 export const ExternalLink = styled.a`
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 300;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -22,9 +23,6 @@ export const ExternalLink = styled.a`
   color: #dddddd;
   &:hover {
     transform: scale(1.05);
-  }
-  @media only screen and (max-width: 1199px) {
-    font-size: .9rem;
   }
 `;
 

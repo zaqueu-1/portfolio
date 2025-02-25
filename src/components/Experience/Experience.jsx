@@ -2,44 +2,41 @@ import React from "react"
 import {
   ExperienceContainer,
   ExperienceWrapper,
-  ImgWrapper,
   ExperienceImg,
-  ExperienceTitleWrapper,
-  StackContainer,
-  Tech,
   ExperienceHeader,
   ExperienceSub,
-  VisitButton
 } from "./Experience.styles"
-
+import Skills from "../Skills/Skills"
 const Experience = ({ id, exp, lang }) => {
   return (
     <ExperienceContainer id={id} >
       <ExperienceWrapper>
-        <ImgWrapper>
-          <ExperienceImg src={require(`../../${exp.img}`)} />
-        </ImgWrapper>
-        <ExperienceTitleWrapper>
-          <ExperienceHeader
-            onClick={() => {
-              window.open(exp.url, "_blank")
-            }}
-          >
-            {exp.company}
-            <VisitButton>
-              {"🔗"}
-            </VisitButton>
-          </ExperienceHeader>
-          <ExperienceSub>
+        <ExperienceImg src={require(`../../${exp.img}`)} />
+        <ExperienceHeader
+          onClick={() => {
+            window.open(exp.url, "_blank")
+          }}
+          data-aos={"fade-right"} data-aos-duration={"1200"}
+        >
+          {exp.company}
+          <span>
             {lang ? exp.title_pt : exp.title_en}
-          </ExperienceSub>
-        </ExperienceTitleWrapper>
+          </span>
+        </ExperienceHeader>
       </ExperienceWrapper>
-      <StackContainer>
-        {exp.stack.map((tech) => {
-          return <Tech>{tech}</Tech>
+      <ExperienceSub data-aos={"fade-left"} data-aos-duration={"1200"}>
+        {lang && exp.descPT && exp.descPT.map((desc, index) => {
+          return (
+            <p key={index}>• {desc}</p>
+          )
         })}
-      </StackContainer>
+        {!lang && exp.descEN && exp.descEN.map((desc, index) => {
+          return (
+            <p key={index}>- {desc}</p>
+          )
+        })}
+        <Skills lang={lang} tech={exp.stack} />
+      </ExperienceSub>
     </ExperienceContainer>
   )
 }
