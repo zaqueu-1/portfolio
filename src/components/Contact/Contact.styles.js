@@ -32,8 +32,6 @@ export const FormInput = styled.input`
     border-radius: 8px;
     border: 1px solid transparent;
     background: rgba( 0, 0, 0, 0.2 );
-    backdrop-filter: blur( 8px );
-    -webkit-backdrop-filter: blur( 8px );
     padding: 1rem;
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
     ::placeholder {
@@ -54,8 +52,6 @@ export const FormArea = styled.textarea`
     height: 200px;
     border-radius: 8px;
     background: rgba( 0, 0, 0, 0.2 );
-    backdrop-filter: blur( 8px );
-    -webkit-backdrop-filter: blur( 8px );
     padding: 1rem;
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
     ::placeholder {
@@ -78,8 +74,6 @@ export const SubmitForm = styled.button`
     font-weight: 500;
     border-radius: 8px;
     background: rgba( 0, 0, 0, 0.2 );
-    backdrop-filter: blur( 8px );
-    -webkit-backdrop-filter: blur( 8px );
     padding: 1rem;
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
 `
