@@ -5,12 +5,25 @@
 /.pnp
 .pnp.js
 .env
+.linkedin/
 
 # testing
 /coverage
 
 # production
 /build
+/dist
+
+# docs (plans locais, superpowers)
+/docs
+CLAUDE.md
+
+# graphify
+graphify-out
+/src/graphify-out
+
+# mistaken shadcn output path
+/@
 
 # misc
 .DS_Store
