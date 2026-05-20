@@ -1,0 +1,191 @@
+{
+  "slug": "zaqueu1",
+  "name": "Eduardo Zaqueu",
+  "headline": {
+    "pt": "Desenvolvedor Frontend | TypeScript, React.js, Vue.js",
+    "en": "Frontend Software Engineer | TypeScript | Next.js | Vue.js"
+  },
+  "about": {
+    "pt": "Desenvolvedor Frontend com ampla experiência na construção de dashboards, e-commerces e plataformas financeiras personalizadas que conectam tecnologia às necessidades reais do negócio.\n\n• Lidero desenvolvimento de plataformas para traders com visualização de dados e performance em tempo real\n• Implementei sistemas de pagamento completos (Paymid, Zoop, Stripe) para mercado de Prop Trading\n• Desenvolvi aplicações inteligentes com IA que automatizam processos e integram fluxos de trabalho\n• Criei estruturas de componentes para CRM com IA, otimizando eficiência das aplicações\n\nStack:\nFrontend: Vue 3 (Nuxt 4), React, Next.js, TypeScript, Tailwind\nBackend & Dados: Directus CMS, SQL, GraphQL, Docker\nAutomação: n8n, LangChain, GitHub Actions, AWS (ECS)\nIA & Ferramentas: Zustand, Retool, shadcn/ui\n\nPassei por empresas como Hurb, Berrytech e Speedio, sempre focado em performance, manutenibilidade e experiência do usuário. Tenho certificações em Desenvolvimento Web e experiência tanto com sistemas legados quanto tecnologias de ponta.\n\nQuando não estou codando, você me encontra jogando Magic the Gathering com minha noiva e amigos ou assistindo filmes de terror e suspense.\n\n💬 Vamos conversar sobre seu próximo projeto? Mande uma mensagem!",
+    "en": "Frontend Developer with extensive experience building dashboards, e‑commerce sites, and custom financial platforms that connect technology to real business needs.\n\n- I lead the development of trading platforms with real-time data visualization and performance\n- I implemented full payment systems (Paymid, Zoop, Stripe) for the Prop Trading market\n- I built AI-powered smart applications that automate processes and integrate workflows\n- I created component architectures for AI-driven CRMs, boosting application efficiency\n\nStack:\nFrontend: Vue 3 (Nuxt 4), React, Next.js, TypeScript, Tailwind\nBackend & Data: Directus CMS, SQL, GraphQL, Docker\nAutomation: n8n, LangChain, GitHub Actions, AWS (ECS)\nAI & Tools: Zustand, Retool, shadcn/ui\n\nI’ve worked at companies such as Hurb, Berrytech, and Speedio, always focused on performance, maintainability, and user experience. I hold Web Development certifications and have experience with both legacy systems and cutting-edge technologies.\n\nWhen I’m not coding, you’ll find me playing Magic: The Gathering with my fiancée and friends or watching horror and thriller movies.\n\n💬 Want to talk about your next project? Send me a message!"
+  },
+  "location": {
+    "pt": "Rio de Janeiro, Brasil",
+    "en": "Rio de Janeiro, Brazil"
+  },
+  "avatarUrl": "https://media.licdn.com/dms/image/v2/D4D03AQGHzj5aoU3Pvg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1721492102351?e=1780531200&v=beta&t=UNbMRmp9AfoVohZr4JAh3L1oADx0eoUBmBF9WM-aBpw",
+  "linkedinUrl": "https://www.linkedin.com/in/zaqueu1/",
+  "experiences": [
+    {
+      "id": "prophub.tech-0",
+      "company": "prophub.tech",
+      "title": {
+        "pt": "Desenvolvedor Frontend",
+        "en": "Frontend Software Engineer"
+      },
+      "description": {
+        "pt": "• Lidero desenvolvimento de funcionalidades, integrações, fluxos de tela e componentes para aplicações web voltadas para o mercado de Prop Trading, personalizando de acordo com o cliente enquanto seguindo e mantendo uma estrutura base em Vue 3 (Nuxt 4), Tailwind, TypeScript, Directus CMS, NuxtUI e SQL;\n• Responsável pela adição de novos serviços, métodos de pagamento, gateways e suas respectivas integrações ao front como Paymid, Zoop, Stripe;\n• Manutenção e controle de fluxo de deploy via GitHub Actions e Amazon ECS (AWS), assim como o controle e segurança das respectivas variáveis de ambiente para cada cliente;\n• Atualmente realizando a migração do NuxtUI para o shadcn/ui para redefinir a arquitetura de componentes da aplicação tornando-a mais personalizável e manutenível;\n• Desenvolvimento, atualização e manutenção de Landing Pages para clientes em React.js",
+        "en": "• I lead the development of features, integrations, screen flows, and components for web applications focused on the Prop Trading market, customizing them per client while following and maintaining a shared base architecture using Vue 3 (Nuxt 4), Tailwind, TypeScript, Directus CMS, NuxtUI, and SQL;\n• Responsible for adding new services, payment methods, gateways, and their respective front-end integrations, such as Paymid, Zoop, and Stripe;\n• Maintain and manage the deployment flow via GitHub Actions and Amazon ECS (AWS), as well as the management and security of environment variables for each client;\n• Currently leading the migration from NuxtUI to shadcn/ui to redefine the application’s component architecture, making it more customizable and maintainable;\n• Develop, update, and maintain Landing Pages for clients using React.js."
+      },
+      "startDate": "2025-03-01",
+      "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFxdIxnrVBpbQ/company-logo_100_100/B4DZWGp97QGkAU-/0/1741720903906?e=1780531200&v=beta&t=DoNzplzsRdhnwpybeKlo77y2oAQBElqQpuT6dzahLRU"
+    },
+    {
+      "id": "Hurb-1",
+      "company": "Hurb",
+      "title": {
+        "pt": "Desenvolvedor Frontend",
+        "en": "Frontend Software Engineer"
+      },
+      "description": {
+        "pt": "• Implementei a visualização de logs de alterações de ofertas e pacotes para o projeto legado em PHP, onde também utilizei jQuery, SQL e JavaScript;\n• Desenvolvi uma aplicação de cálculos de margens de lucro integrada à uma API interna utilizando Retool e JavaScript com intuito de  buscar dados de pacotes e preencher valores automaticamente, agilizando o fluxo de trabalho do time de pricing ;\n• Gerenciei todas aplicações React e Next da empresa,  assim como a atualização, versionamento e manutenção de todas as bibliotecas, componentes e pacotes internos;\n• Refatorei e implementei novas políticas de segurança CSP com nonce;\n• Implementei o disparo de eventos com Google Tag Manager, Google Analytics, feature flags com Kameleoon e testes A/B com GrowthBook.",
+        "en": "• Implemented the visualization of change logs for offers and packages in the legacy PHP project, where I also used jQuery, SQL, and JavaScript;\n• Developed a margin calculation application integrated with an internal API using Retool and JavaScript, aimed at retrieving package data and automatically filling in values, streamlining the pricing team's workflow;\n• Managed all React and Next applications in the company, as well as updating, versioning, and maintaining all internal libraries, components, and packages;\n• Refactored and implemented new CSP security policies with nonce;\n• Implemented event triggering with Google Tag Manager, Google Analytics, feature flags with Kameleoon, and A/B testing with GrowthBook."
+      },
+      "startDate": "2024-06-01",
+      "endDate": "2025-08-01",
+      "logoUrl": "/img/hurb.png"
+    },
+    {
+      "id": "Berrytech - Consultoria Empresarial-2",
+      "company": "Berrytech - Consultoria Empresarial",
+      "title": {
+        "pt": "Desenvolvedor Frontend",
+        "en": "Frontend Software Engineer"
+      },
+      "description": {
+        "pt": "• Desenvolvi a estrutura de componentes para a plataforma CRM integrada com IA utilizando React,TypeScript, Tailwind, GraphQL e shadcn/ui;\n• Lidava com a  aplicação de regras de negócio no front, adaptando os componentes visando a eficiência da aplicação;\n• Desenvolvi formulários, validações, interfaces, filtros e sistemas de busca para todos as rotas;\n• Participei do desenvolvimento da estrutura e modelagem dos dados do back-end.",
+        "en": "• Developed the component structure for the AI-integrated CRM platform using React, TypeScript, Tailwind, GraphQL, and shadcn/ui;\n• Applied business rules on the front end, adapting components to improve application efficiency;\n• Developed forms, validations, user interfaces, filters, and search systems for all routes;\n• Contributed to the development of the backend data structure and modeling."
+      },
+      "startDate": "2024-03-01",
+      "endDate": "2024-07-01",
+      "logoUrl": "/img/berrytech.jpg"
+    },
+    {
+      "id": "Speedio-3",
+      "company": "Speedio",
+      "title": {
+        "pt": "Desenvolvedor Frontend",
+        "en": "Frontend Software Engineer"
+      },
+      "description": {
+        "pt": "• Responsável por todas as demandas de produto envolvendo a criação de novas telas e suas funcionalidades utilizando Vue e Nuxt;\n• Desenvolvi e implementei melhorias para a plataforma de geração de leads B2B, trabalhando UI/UX com base em requisitos e protótipos com máxima fidelidade;\n• Atuei na investigação e resolução de bugs tanto no front-end quanto no back-end, como a manutenção, integração e gerenciamento de APIs REST Node e Rails;\n• Utilizava MongoDB Compass, BI e Insomnia para solução de problemas junto ao suporte e auxílio ao cliente;\n• Desenvolvi toda a interface e componentes do processo de onboarding de novos usuários, desde o login até a etapa final de cadastro, garantindo o melhor direcionamento de leads.",
+        "en": "• Responsible for all product-related tasks involving the creation of new screens and their functionalities using Vue and Nuxt;\n• Developed and implemented improvements for the B2B lead generation platform, working on UI/UX based on requirements and prototypes with maximum accuracy;\n• Investigated and resolved bugs in both the front-end and back-end, including maintenance, integration, and management of REST APIs using Node and Rails;\n• Used MongoDB Compass, BI, and Insomnia for troubleshooting alongside customer support and assistance;\n• Developed the entire interface and components for the new user onboarding process, from login to the final registration step, ensuring optimal lead guidance."
+      },
+      "startDate": "2023-07-01",
+      "endDate": "2024-03-01",
+      "logoUrl": "/img/speedio.png"
+    },
+    {
+      "id": "SM Creative Marketing-4",
+      "company": "SM Creative Marketing",
+      "title": {
+        "pt": "Desenvolvedor Frontend",
+        "en": "Frontend Software Engineer"
+      },
+      "description": {
+        "pt": "• Desenvolvi páginas e aplicações web responsivas utilizando React e Next para clientes de diversos portes, sempre focando nos requisitos, qualidade de entrega e trabalhando com prazos delimitados;\n• Desenvolvi interfaces de usuários integradas com back-end e APIs, seguindo o modelo de arquitetura MVC;\n• Atuei tanto nas frentes como Designer quanto como Desenvolvedor;\n• Operei e configurei bancos de dados não-relacionais como MongoDB (NoSQL);\n• Manipulei as mais comuns formas de estruturas de dados, como JSON e APIs REST/RESTful;\n• Implementei a aplicação de TDD para testes unitários/testes de unidade;\n• Fui responsável pela hospedagem, configuração de domínio e otimização de SEO.",
+        "en": "• Developed responsive web pages and applications using React and Next for clients of various sizes, always focusing on requirements, delivery quality, and working within set deadlines;\n• Built user interfaces integrated with the back end and APIs, following the MVC architecture model;\n• Worked both as a Designer and a Developer;\n• Operated and configured non-relational databases such as MongoDB (NoSQL);\n• Handled common data structures, such as JSON and REST/RESTful APIs;\n• Implemented TDD for unit testing;\n• Managed hosting, domain configuration, and SEO optimization."
+      },
+      "logoUrl": "/img/smc.png"
+    },
+    {
+      "id": "Universidade do Estado do Rio de Janeiro-5",
+      "company": "Universidade do Estado do Rio de Janeiro",
+      "title": {
+        "pt": "Web Designer",
+        "en": "Web Designer"
+      },
+      "description": {
+        "pt": "• Desenvolvi páginas para a FFP utilizando Dreamweaver, HTML, CSS e Flash;\n• Fui responsável pela criação de panfletos, banners, identidades visuais, logotipos e páginas estáticas para eventos recorrentes da FFP;\n• Participava de discussões estratégicas de requisitos, garantindo o bom funcionamento das páginas relacionadas ao núcleo da Faculdade de Formação de Professores da UERJ;\n• Realizava manutenções periódicas nas páginas do núcleo FFP, além de todas as questões relacionadas à hospedagem e ao domínio.",
+        "en": "• Developed pages for FFP using Dreamweaver, HTML, CSS and Flash;\n• Responsible for creating flyers, banners, visual identities, logos and static pages for recurring events on FFP;\n• Regular maintenance of FFP core pages, as well as issues related to hosting and domain."
+      },
+      "logoUrl": "/img/ffp.jpeg"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "victor hugo mendes de moraes",
+      "author": "Victor Hugo Mendes de Moraes",
+      "authorTitle": {
+        "pt": "Desenvolvedor Back-end | Java | C++",
+        "en": "Backend Developer | Java | C++"
+      },
+      "text": {
+        "pt": "Conheço o Zaqueu desde 2010 e já trabalhei com ele em duas oportunidades: durante mais de um ano como instrutor e fazendo projetos como desenvolvedor, e sempre enfrentando juntos as adversidades e solucionando problemas. Além de ser um ótimo profissional, ele sempre está disponível pra ajudar e se empenha em concluir as tarefas com qualidade.",
+        "en": "I've known Eduardo since 2010 and have worked with him twice: for over a year as an instructor and on development projects, always tackling challenges together and solving problems. He is an excellent professional, always willing to help and committed to delivering high-quality work."
+      },
+      "relationship": {
+        "pt": "Em 14 de março de 2023, Victor Hugo trabalhou na mesma equipe que Eduardo",
+        "en": "On March 14, 2023, Victor Hugo worked on the same team as Eduardo"
+      }
+    },
+    {
+      "id": "jônatas quirino souza",
+      "author": "Jônatas Quirino Souza",
+      "authorTitle": {
+        "pt": "Inside Sales Strategist | AI Technology | Closer | Account Executive",
+        "en": "Inside Sales Strategist | AI Technology | Closer | Account Executive"
+      },
+      "text": {
+        "pt": "O Zaqueu é uma das pessoas que mais me auxiliaram e me ajudaram em projetos que desenvolvi para Web. Em alguns contextos mais específicos, me motivou a continuar trabalhando, acreditando no meu potencial. Ele é um cara muito fantástico, solícito e muito atencioso, sempre pronto a ouvir. Além disso, é um profissional que gosta de desafios e seus projetos disponibilizados no GitHub são provas vivas disso. Não digo que ele será um bom profissional, ele já é e só crescerá ainda mais! Tenho absoluta certeza que quem tiver a oportunidade de trabalhar com ele, ganhará não somente um ótimo colega de trabalho e amigo, mas também um combo de competência e dedicação.",
+        "en": "Eduardo is one of the people who has helped me most on web projects I've built. In more specific contexts, he motivated me to keep going and believe in my potential. He is incredibly supportive and attentive, always ready to listen. He embraces challenges, and the projects on his GitHub prove it. He is already an outstanding professional and will only keep growing. Anyone who gets to work with him gains not only a great colleague and friend, but a rare mix of skill and dedication."
+      },
+      "relationship": {
+        "pt": "Em 17 de fevereiro de 2023, Jônatas trabalhou com Eduardo, mas em equipes diferentes",
+        "en": "On February 17, 2023, Jônatas worked with Eduardo on different teams"
+      }
+    },
+    {
+      "id": "mayra malaquias",
+      "author": "Mayra Malaquias",
+      "authorTitle": {
+        "pt": "Executiva Comercial | Business Intelligence | PowerBI | Excel | Projetos",
+        "en": "Commercial Executive | Business Intelligence | Power BI | Excel | Projects"
+      },
+      "text": {
+        "pt": "Dividir minha trajetória de Dev com o Eduardo Zaqueu é um grande privilégio, ele é incrível,aquela pessoa que te coloca pra cima, que te incentiva a melhorar todos os dias, tem uma bagagem técnica muito rica, e sempre tem algo positivo para acrescentar. A qualidade dos seus projetos são incríveis, ele sempre se supera, dando a atenção devida aos detalhes. Quero destacar a experiência dele em design, os layout deles e fora de série, muito top.\nZaque te admiro muito!",
+        "en": "Sharing my dev journey with Eduardo Zaqueu is a real privilege. He is the kind of person who lifts you up and pushes you to improve every day. He has deep technical experience and always adds something positive. His project quality is outstanding — he keeps raising the bar and cares about the details that matter. I also want to highlight his design sense; his layouts are exceptional. Eduardo, I admire you a lot!"
+      }
+    },
+    {
+      "id": "vitor bulbovas",
+      "author": "Vitor Bulbovas",
+      "authorTitle": {
+        "pt": "Desenvolvedor Front-End | ReactJS | TypeScript | JavaScript",
+        "en": "Frontend Developer | React | TypeScript | JavaScript"
+      },
+      "text": {
+        "pt": "Já acompanho o trabalho do Eduardo a algum tempo e posso dizer que a palavra mais o define é \"excelência\", não só por conta dos trabalhos utilizando as tecnologias que conhece já tem algum tempo, mas pelo fato de sempre estar se desafiando e indo além, aprendendo novas tecnologias, novas maneiras de solucionar problemas, e sempre se esforçando ao máximo para conseguir entregar o melhor trabalho possível.",
+        "en": "I've followed Eduardo's work for a while, and the word that defines him best is \"excellence\" — not only in projects built with technologies he has known for years, but because he constantly challenges himself, learns new tools and problem-solving approaches, and always gives his best to deliver outstanding work."
+      },
+      "relationship": {
+        "pt": "Em 16 de fevereiro de 2023, Vitor trabalhou com Eduardo, mas em equipes diferentes",
+        "en": "On February 16, 2023, Vitor worked with Eduardo on different teams"
+      }
+    }
+  ],
+  "skills": [
+    "TypeScript",
+    "ReactJS",
+    "NextJS",
+    "VueJS"
+  ],
+  "socialLinks": [
+    {
+      "label": "Github",
+      "url": "https://github.com/zaqueu-1",
+      "type": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/zaqueu1",
+      "type": "linkedin"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://instagram.com/zaq.js",
+      "type": "instagram"
+    }
+  ],
+  "lastSyncedAt": "2026-05-19T18:40:03.258Z"
+}
