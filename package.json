@@ -14,7 +14,7 @@
     "linkedin:login": "tsx scripts/linkedin-login.ts",
     "sync:linkedin": "SYNC_LINKEDIN=1 tsx scripts/sync-linkedin.ts",
     "translate:testimonials": "tsx scripts/translate-testimonials.ts",
-    "postinstall": "playwright install chromium 2>/dev/null || true"
+    "postinstall": "[ -z \"$VERCEL\" ] && playwright install chromium 2>/dev/null || true"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
