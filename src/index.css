@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* Matrix Sans — dot-matrix estilo letreiro LED (SIL OFL, FriedOrange/MatrixSans) */
+@font-face {
+  font-family: "Matrix Sans Screen";
+  src: url("/fonts/matrix-sans-screen.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Matrix Sans Raster";
+  src: url("/fonts/matrix-sans-raster.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: var(--radius-md);
+  --radius-xl: var(--radius-md);
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  /* mannan.io usa Scatter Text (pontos); fallback tipográfico mais próximo: Matrix Sans */
+  --font-mono: "Matrix Sans Screen", "Matrix Sans Raster", "Courier New", Courier, monospace;
+  --font-sans: var(--font-mono);
+}
+
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 0%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 8%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 55%;
+  --text-secondary: 0 0% 62%;
+  --text-role: 0 0% 72%;
+  --accent: 0 0% 12%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62% 50%;
+  --border: 0 0% 100% / 0.12;
+  --input: 0 0% 100% / 0.12;
+  --ring: 0 0% 60%;
+  --radius: 16px;
+  --layout-max: 1100px;
+  --layout-gutter: clamp(1rem, 4vw, 2.5rem);
+  --hero-offset: calc(var(--layout-gutter) * 2.25);
+  --lilac: 278 58% 72%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  a:hover {
+    color: hsl(var(--lilac));
+  }
+
+  button.ds-link:hover {
+    color: hsl(var(--lilac));
+  }
+}
+
+@layer components {
+  .layout-shell {
+    width: 100%;
+    max-width: var(--layout-max);
+    margin-inline: auto;
+    padding-inline: var(--layout-gutter);
+  }
+
+  .ds-muted {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .ds-label {
+    font-size: calc(0.875rem - 1pt);
+    line-height: 1.4;
+    letter-spacing: 0.11em;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .ds-role-label {
+    color: hsl(var(--lilac));
+  }
+
+  .ds-body {
+    font-size: calc(1rem - 1pt);
+    line-height: 1.58;
+    letter-spacing: 0.11em;
+    color: hsl(var(--text-secondary));
+    text-transform: uppercase;
+  }
+
+  .ds-role {
+    font-size: calc(1rem - 1pt);
+    line-height: 1.58;
+    letter-spacing: 0.11em;
+    color: hsl(var(--text-role));
+    text-transform: uppercase;
+  }
+
+  .ds-heading {
+    font-size: clamp(1.375rem, 2.5vw, 1.625rem);
+    line-height: 1.3;
+    letter-spacing: 0.1em;
+    color: hsl(var(--foreground));
+    text-transform: uppercase;
+  }
+
+  .ds-display {
+    font-family: "Matrix Sans Screen", var(--font-mono);
+    font-size: clamp(2.125rem, 6vw, 3.375rem);
+    line-height: 1.15;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+  }
+
+  .ds-subtitle {
+    font-size: calc(1rem - 1pt);
+    line-height: 1.45;
+    letter-spacing: 0.08em;
+    color: hsl(var(--text-secondary));
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 640px) {
+    .ds-subtitle {
+      font-size: calc(1.125rem - 1pt);
+    }
+  }
+
+  .ds-subheading {
+    font-size: calc(1.3125rem - 1pt);
+    line-height: 1.28;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 640px) {
+    .ds-subheading {
+      font-size: calc(1.625rem - 1pt);
+    }
+  }
+
+  .ds-tag {
+    display: inline-block;
+    font-size: calc(0.75rem - 1pt);
+    line-height: 1.4;
+    letter-spacing: 0.11em;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+    text-transform: uppercase;
+  }
+
+  .ds-link {
+    font-size: calc(0.875rem - 1pt);
+    letter-spacing: 0.11em;
+    color: hsl(var(--foreground));
+    text-decoration: none;
+  }
+
+  .ds-link:hover {
+    color: hsl(var(--lilac));
+  }
+
+  .ds-divider {
+    border-top: 1px solid hsl(var(--border));
+  }
+
+  /* Navbar flutuante: fade no conteúdo que passa por baixo ao rolar (estilo referência) */
+  .site-header {
+    pointer-events: none;
+  }
+
+  .site-header__fade {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: clamp(7.5rem, 20vh, 11.5rem);
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--background)) 0%,
+      hsl(var(--background) / 0.94) 22%,
+      hsl(var(--background) / 0.72) 48%,
+      hsl(var(--background) / 0.28) 78%,
+      transparent 100%
+    );
+  }
+
+  .site-header__inner {
+    position: relative;
+    pointer-events: auto;
+  }
+}
