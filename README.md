@@ -1,6 +1,6 @@
 # Eduardo Zaqueu — Portfolio
 
-Personal portfolio for **Eduardo Zaqueu**, a front-end developer. The site is a static, bilingual (PT/EN) single-page app with content sourced from LinkedIn and shipped as committed JSON—no paid API and no scraping at runtime in production.
+My personal portfolio. The site is a static, bilingual (PT/EN) single-page app with content sourced from LinkedIn and shipped as committed JSON—no paid API and no scraping at runtime in production.
 
 **Live:** [zaqueu.tech](https://zaqueu.tech)
 
