@@ -107,6 +107,15 @@
   button.ds-link:hover {
     color: hsl(var(--lilac));
   }
+
+  button.ds-nav-link:hover {
+    color: hsl(var(--lilac));
+  }
+
+  button.ds-nav-link.ds-role-label,
+  button.ds-nav-link.ds-role-label:hover {
+    color: hsl(var(--lilac));
+  }
 }
 
 @layer components {
@@ -211,6 +220,23 @@
   }
 
   .ds-link:hover {
+    color: hsl(var(--lilac));
+  }
+
+  .ds-nav-link {
+    font-size: calc(1rem - 1pt);
+    letter-spacing: 0.11em;
+    color: hsl(var(--foreground));
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .ds-nav-link:hover {
+    color: hsl(var(--lilac));
+  }
+
+  .ds-nav-link.ds-role-label,
+  .ds-nav-link.ds-role-label:hover {
     color: hsl(var(--lilac));
   }
 

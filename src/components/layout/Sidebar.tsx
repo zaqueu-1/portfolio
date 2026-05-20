@@ -30,7 +30,7 @@ export function MobileNav({ onNavigate }: MobileNavProps) {
       <SheetTrigger asChild>
         <button
           type="button"
-          className="ds-link inline-flex items-center gap-2 md:hidden"
+          className="ds-nav-link inline-flex items-center gap-2 md:hidden"
           aria-label={lang ? "Abrir menu" : "Open menu"}
         >
           <Menu className="size-4" strokeWidth={1.5} />

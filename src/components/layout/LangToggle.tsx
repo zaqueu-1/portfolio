@@ -12,7 +12,7 @@ export function LangToggle() {
     <button
       type="button"
       onClick={toggleLocale}
-      className="ds-link inline-flex items-center gap-2 cursor-pointer"
+      className="ds-nav-link inline-flex items-center gap-2 cursor-pointer"
       aria-label={switchToEn ? "Mudar para inglês" : "Mudar para português"}
     >
       {switchToEn ? (

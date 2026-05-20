@@ -33,7 +33,7 @@ export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellPro
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="ds-link hidden md:inline"
+              className="ds-nav-link ds-role-label hidden cursor-pointer md:inline"
               aria-label="Home"
             >
               ~/
@@ -52,14 +52,14 @@ export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellPro
                     href={byType[type]}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ds-link"
+                    className="ds-nav-link"
                   >
                     {label}
                   </a>
                 </span>
               ))}
               {visibleHeaderLinks.length > 0 && <span className="ds-muted">/</span>}
-              <a href={`mailto:${EMAIL}`} className="ds-link">
+              <a href={`mailto:${EMAIL}`} className="ds-nav-link">
                 EMAIL
               </a>
             </nav>
