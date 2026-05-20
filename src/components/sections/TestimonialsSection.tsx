@@ -1,5 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { useLocale } from "@/context/LocaleContext"
+import { stripRelationshipDate } from "@/lib/format"
 import type { Profile } from "@/types/profile"
 
 export function TestimonialsSection({ profile }: { profile: Profile }) {
@@ -23,7 +24,9 @@ export function TestimonialsSection({ profile }: { profile: Profile }) {
         {items.map((item) => {
           const text = t(item.text)
           const authorTitle = t(item.authorTitle)
-          const relationship = item.relationship ? t(item.relationship) : ""
+          const relationship = item.relationship
+            ? stripRelationshipDate(t(item.relationship))
+            : ""
 
           return (
             <li key={item.id} className="ds-divider space-y-4 pt-10 first:border-t-0 first:pt-0">

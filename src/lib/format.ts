@@ -41,3 +41,14 @@ export function formatPeriod(
   }
   return `${start} — ${fmtMonthYear(endDate, lang)}`
 }
+
+/** LinkedIn relationship lines include a leading date; keep context, drop the date. */
+export function stripRelationshipDate(text: string): string {
+  const trimmed = text.trim()
+  if (!trimmed) return ""
+
+  return trimmed
+    .replace(/^Em\s+\d{1,2}\s+de\s+.+?\s+de\s+\d{4},?\s*/iu, "")
+    .replace(/^On\s+[A-Za-z]+\s+\d{1,2},\s+\d{4},?\s*/i, "")
+    .trim()
+}
