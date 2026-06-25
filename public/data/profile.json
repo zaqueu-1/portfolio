@@ -28,7 +28,7 @@
         "en": "• I lead the development of features, integrations, screen flows, and components for web applications focused on the Prop Trading market, customizing them per client while following and maintaining a shared base architecture using Vue 3 (Nuxt 4), Tailwind, TypeScript, Directus CMS, NuxtUI, and SQL;\n• Responsible for adding new services, payment methods, gateways, and their respective front-end integrations, such as Paymid, Zoop, and Stripe;\n• Maintain and manage the deployment flow via GitHub Actions and Amazon ECS (AWS), as well as the management and security of environment variables for each client;\n• Currently leading the migration from NuxtUI to shadcn/ui to redefine the application’s component architecture, making it more customizable and maintainable;\n• Develop, update, and maintain Landing Pages for clients using React.js."
       },
       "startDate": "2025-03-01",
-      "logoUrl": "https://media.licdn.com/dms/image/v2/D4D0BAQFxdIxnrVBpbQ/company-logo_100_100/B4DZWGp97QGkAU-/0/1741720903906?e=1780531200&v=beta&t=DoNzplzsRdhnwpybeKlo77y2oAQBElqQpuT6dzahLRU"
+      "logoUrl": "/img/prophub.png"
     },
     {
       "id": "Hurb-1",
