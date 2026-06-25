@@ -21,6 +21,7 @@ const MAX_CPF = 3
 export function RevealText({ text, as = "span", className, cursor = true }: RevealTextProps) {
   const nodeRef = useRef<HTMLElement | null>(null)
   const register = useRevealRegister()
+  const hasRevealedRef = useRef(false)
 
   const setRef = useCallback((node: HTMLElement | null) => {
     nodeRef.current = node
@@ -31,6 +32,11 @@ export function RevealText({ text, as = "span", className, cursor = true }: Reve
     if (!el) return
 
     if (prefersReducedMotion() || text.length === 0) {
+      el.textContent = text
+      return
+    }
+
+    if (hasRevealedRef.current) {
       el.textContent = text
       return
     }
@@ -64,6 +70,10 @@ export function RevealText({ text, as = "span", className, cursor = true }: Reve
       textNode.nodeValue = text.slice(0, Math.floor(revealed))
     }
 
+    const markDone = () => {
+      hasRevealedRef.current = true
+    }
+
     const frame = () => {
       const step = Math.min(MAX_CPF, BASE_CPF + getDownwardVelocity() * VELOCITY_K)
       revealed = Math.min(len, revealed + step)
@@ -71,6 +81,7 @@ export function RevealText({ text, as = "span", className, cursor = true }: Reve
       if (revealed < len) {
         raf = requestAnimationFrame(frame)
       } else {
+        markDone()
         typing = false
         const cb = onCompleteCb
         onCompleteCb = null
@@ -94,6 +105,7 @@ export function RevealText({ text, as = "span", className, cursor = true }: Reve
       revealed = len
       paint()
       removeCaret()
+      markDone()
       typing = false
     }
 

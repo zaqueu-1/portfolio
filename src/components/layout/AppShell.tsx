@@ -28,7 +28,10 @@ export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellPro
         <div className="site-header__fade" aria-hidden />
         <div className="site-header__inner layout-shell flex items-start justify-between gap-6 py-[var(--layout-gutter)]">
           <div className="flex items-center gap-4">
-            <MobileNav onNavigate={onNavigate} />
+            {/* Mobile: LangToggle left; Desktop: ~/  */}
+            <div className="md:hidden">
+              <LangToggle />
+            </div>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -62,7 +65,12 @@ export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellPro
                 EMAIL
               </a>
             </nav>
-            <LangToggle />
+            {/* Mobile: MobileNav right */}
+            <MobileNav onNavigate={onNavigate} />
+            {/* Desktop: LangToggle right */}
+            <div className="hidden md:block">
+              <LangToggle />
+            </div>
           </div>
         </div>
       </header>

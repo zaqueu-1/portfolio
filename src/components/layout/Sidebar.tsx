@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Menu } from "lucide-react"
-import { LangToggle } from "@/components/layout/LangToggle"
 import { useLocale } from "@/context/LocaleContext"
 import { copy } from "@/lib/copy"
 import {
@@ -32,18 +31,18 @@ export function MobileNav({ onNavigate }: MobileNavProps) {
         </button>
       </SheetTrigger>
       <SheetContent
-        side="left"
+        side="right"
         className="border-border bg-black font-mono uppercase tracking-[0.11em]"
       >
         <SheetHeader>
           <SheetTitle className="ds-label">~/</SheetTitle>
         </SheetHeader>
-        <nav className="mt-8 flex flex-col gap-4">
+        <nav className="mt-8 flex flex-col gap-3">
           {copy.nav.sections.map((item) => (
             <button
               key={item.id}
               type="button"
-              className="ds-link text-left"
+              className="ds-link pl-4 text-left cursor-pointer"
               onClick={() => {
                 onNavigate(item.id)
                 setOpen(false)
@@ -53,7 +52,6 @@ export function MobileNav({ onNavigate }: MobileNavProps) {
             </button>
           ))}
           <div className="ds-divider pt-4">
-            <LangToggle />
           </div>
         </nav>
       </SheetContent>
