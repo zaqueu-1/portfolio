@@ -141,6 +141,24 @@
     color: hsl(var(--lilac));
   }
 
+  .ds-caret {
+    color: hsl(var(--lilac));
+    font-weight: 400;
+    margin-left: 0.05em;
+    animation: ds-caret-blink 1.05s steps(1, end) infinite;
+  }
+
+  @keyframes ds-caret-blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    50.01%,
+    100% {
+      opacity: 0;
+    }
+  }
+
   .ds-body {
     font-size: calc(1rem - 1pt);
     line-height: 1.58;

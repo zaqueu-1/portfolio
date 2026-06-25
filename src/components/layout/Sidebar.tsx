@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Menu } from "lucide-react"
 import { LangToggle } from "@/components/layout/LangToggle"
 import { useLocale } from "@/context/LocaleContext"
+import { copy } from "@/lib/copy"
 import {
   Sheet,
   SheetContent,
@@ -10,19 +11,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-const NAV = [
-  { id: "about", pt: "Sobre", en: "About" },
-  { id: "experiences", pt: "Experiência", en: "Experience" },
-  { id: "testimonials", pt: "Recomendações", en: "Testimonials" },
-  { id: "contact", pt: "Contato", en: "Contact" },
-] as const
-
 interface MobileNavProps {
   onNavigate: (section: string) => void
 }
 
 export function MobileNav({ onNavigate }: MobileNavProps) {
-  const { lang } = useLocale()
+  const { t } = useLocale()
   const [open, setOpen] = useState(false)
 
   return (
@@ -31,10 +25,10 @@ export function MobileNav({ onNavigate }: MobileNavProps) {
         <button
           type="button"
           className="ds-nav-link inline-flex items-center gap-2 md:hidden"
-          aria-label={lang ? "Abrir menu" : "Open menu"}
+          aria-label={t(copy.nav.menuLabel)}
         >
           <Menu className="size-4" strokeWidth={1.5} />
-          <span>{lang ? "Menu" : "Menu"}</span>
+          <span>Menu</span>
         </button>
       </SheetTrigger>
       <SheetContent
@@ -45,7 +39,7 @@ export function MobileNav({ onNavigate }: MobileNavProps) {
           <SheetTitle className="ds-label">~/</SheetTitle>
         </SheetHeader>
         <nav className="mt-8 flex flex-col gap-4">
-          {NAV.map((item) => (
+          {copy.nav.sections.map((item) => (
             <button
               key={item.id}
               type="button"
@@ -55,7 +49,7 @@ export function MobileNav({ onNavigate }: MobileNavProps) {
                 setOpen(false)
               }}
             >
-              {lang ? item.pt : item.en}
+              {t(item.label)}
             </button>
           ))}
           <div className="ds-divider pt-4">

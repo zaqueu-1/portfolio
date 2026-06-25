@@ -1,8 +1,12 @@
 import { ExternalLink } from "lucide-react"
 import { CompanyLogo } from "@/components/ui/CompanyLogo"
+import { RevealSection } from "@/components/ui/RevealSection"
+import { RevealText } from "@/components/ui/RevealText"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { TagList } from "@/components/ui/TagList"
 import { useLocale } from "@/context/LocaleContext"
+import { copy } from "@/lib/copy"
+import { preferLocalLogo } from "@/lib/company-logos"
 import { formatDescription, formatPeriod } from "@/lib/format"
 import type { Profile } from "@/types/profile"
 
@@ -20,28 +24,22 @@ function ExperienceCard({
   const bullets = formatDescription(t(description))
   const period = formatPeriod(startDate, endDate, lang)
   const isCurrent = Boolean(startDate && !endDate)
-  const roleLabel = isCurrent
-    ? lang
-      ? "Cargo atual"
-      : "Current role"
-    : lang
-      ? "Experiência anterior"
-      : "Previous role"
+  const roleLabel = t(isCurrent ? copy.experience.currentRole : copy.experience.previousRole)
+  const resolvedLogo = preferLocalLogo(company, logoUrl)
+  const titleLine = `${t(title)}${period ? ` / ${period}` : ""}`
+
   return (
-    <article className="ds-divider space-y-5 pt-10 first:border-t-0 first:pt-0">
+    <RevealSection as="article" className="ds-divider space-y-5 pt-10 first:border-t-0 first:pt-0">
       <div className="flex justify-end">
         <span className="ds-label ds-role-label">{roleLabel}</span>
       </div>
 
       <div className="space-y-2">
         <div className="flex items-center gap-3">
-          <CompanyLogo src={logoUrl} />
+          <CompanyLogo src={resolvedLogo} />
           <h3 className="ds-subheading">{company}</h3>
         </div>
-        <p className="ds-role">
-          {t(title)}
-          {period ? ` / ${period}` : ""}
-        </p>
+        <RevealText as="p" className="ds-role" text={titleLine} />
         {companyUrl && (
           <a
             href={companyUrl}
@@ -49,7 +47,7 @@ function ExperienceCard({
             rel="noopener noreferrer"
             className="ds-link inline-flex items-center gap-1"
           >
-            {lang ? "Ver empresa" : "View company"}
+            {t(copy.experience.viewCompany)}
             <ExternalLink className="size-3" strokeWidth={1.5} />
           </a>
         )}
@@ -71,23 +69,21 @@ function ExperienceCard({
       {skills && skills.length > 0 && (
         <TagList tags={skills} label={`${company} tags`} />
       )}
-    </article>
+    </RevealSection>
   )
 }
 
 export function ExperienceSection({ profile }: { profile: Profile }) {
-  const { lang } = useLocale()
+  const { t } = useLocale()
 
   return (
     <section id="experiences" className="scroll-mt-24 space-y-10 py-16">
-      <SectionHeading
-        title={lang ? "Experiência selecionada" : "Selected work"}
-        subtitle={
-          lang
-            ? "Emprego atual, papéis anteriores e projetos que ainda representam bem meu trabalho."
-            : "Current role, previous roles, and projects that still represent my work well."
-        }
-      />
+      <RevealSection>
+        <SectionHeading
+          title={t(copy.experience.title)}
+          subtitle={t(copy.experience.subtitle)}
+        />
+      </RevealSection>
 
       <div className="space-y-2">
         {profile.experiences.map((exp) => (

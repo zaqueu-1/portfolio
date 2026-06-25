@@ -1,3 +1,5 @@
+import { RevealText } from "@/components/ui/RevealText"
+
 interface SectionHeadingProps {
   title: string
   subtitle?: string
@@ -6,8 +8,8 @@ interface SectionHeadingProps {
 export function SectionHeading({ title, subtitle }: SectionHeadingProps) {
   return (
     <header className="space-y-4 border-t border-border pt-10">
-      <h2 className="ds-heading">{title}</h2>
-      {subtitle && <p className="ds-body max-w-3xl">{subtitle}</p>}
+      <RevealText as="h2" className="ds-heading" text={title} />
+      {subtitle && <RevealText as="p" className="ds-body max-w-3xl" text={subtitle} />}
     </header>
   )
 }
