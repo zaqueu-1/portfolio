@@ -24,7 +24,7 @@ export function HeroSection({ profile }: { profile: Profile }) {
       {/* Main row: content + avatar */}
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center md:gap-12">
         {/* Left: text content — bottom-aligned on its own */}
-        <div className="flex min-h-0 flex-col justify-end gap-8 pb-6 pt-10 md:gap-10 md:pb-8 md:pt-14">
+        <div className="flex min-h-0 flex-col justify-end gap-6 pb-6 pt-10 md:gap-10 md:pb-8 md:pt-14">
           {location && <p className="ds-label">{location}</p>}
 
           <div className="space-y-3 md:space-y-4">
