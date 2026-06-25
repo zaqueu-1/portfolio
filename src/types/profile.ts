@@ -1,47 +1,59 @@
+import { z } from "zod"
+
 export type Locale = "pt" | "en"
 
-export interface LocalizedString {
-  pt: string
-  en: string
-}
+const LocalizedStringSchema = z.object({
+  pt: z.string(),
+  en: z.string(),
+})
 
-export interface Experience {
-  id: string
-  company: string
-  companyUrl?: string
-  title: LocalizedString
-  description: LocalizedString
-  startDate?: string
-  endDate?: string
-  logoUrl?: string
-  skills?: string[]
-}
+export type LocalizedString = z.infer<typeof LocalizedStringSchema>
 
-export interface SocialLink {
-  label: string
-  url: string
-  type: "github" | "linkedin" | "instagram"
-}
+const ExperienceSchema = z.object({
+  id: z.string(),
+  company: z.string(),
+  companyUrl: z.string().optional(),
+  title: LocalizedStringSchema,
+  description: LocalizedStringSchema,
+  startDate: z.string().optional(),
+  endDate: z.string().optional(),
+  logoUrl: z.string().optional(),
+  skills: z.array(z.string()).optional(),
+})
 
-export interface Testimonial {
-  id: string
-  author: string
-  authorTitle: LocalizedString
-  text: LocalizedString
-  relationship?: LocalizedString
-}
+export type Experience = z.infer<typeof ExperienceSchema>
 
-export interface Profile {
-  slug: string
-  name: string
-  headline: LocalizedString
-  about: LocalizedString
-  location: LocalizedString
-  avatarUrl: string
-  linkedinUrl: string
-  experiences: Experience[]
-  testimonials: Testimonial[]
-  skills: string[]
-  socialLinks: SocialLink[]
-  lastSyncedAt: string
-}
+const SocialLinkSchema = z.object({
+  label: z.string(),
+  url: z.string(),
+  type: z.enum(["github", "linkedin", "instagram"]),
+})
+
+export type SocialLink = z.infer<typeof SocialLinkSchema>
+
+const TestimonialSchema = z.object({
+  id: z.string(),
+  author: z.string(),
+  authorTitle: LocalizedStringSchema,
+  text: LocalizedStringSchema,
+  relationship: LocalizedStringSchema.optional(),
+})
+
+export type Testimonial = z.infer<typeof TestimonialSchema>
+
+export const ProfileSchema = z.object({
+  slug: z.string(),
+  name: z.string(),
+  headline: LocalizedStringSchema,
+  about: LocalizedStringSchema,
+  location: LocalizedStringSchema,
+  avatarUrl: z.string(),
+  linkedinUrl: z.string(),
+  experiences: z.array(ExperienceSchema),
+  testimonials: z.array(TestimonialSchema),
+  skills: z.array(z.string()),
+  socialLinks: z.array(SocialLinkSchema),
+  lastSyncedAt: z.string(),
+})
+
+export type Profile = z.infer<typeof ProfileSchema>
