@@ -1,0 +1,38 @@
+---
+description: Keep code comments minimal — only for non-obvious business/app rules
+alwaysApply: true
+---
+
+# Minimal Comments
+
+Write self-explanatory code. Do NOT narrate what the code does.
+
+Only add a comment when it explains something the code cannot:
+- a non-obvious business rule or domain constraint
+- a deliberate trade-off, workaround, or gotcha
+- why an unusual approach was chosen
+
+## Avoid
+
+```ts
+// Import the module
+import { x } from "./x"
+
+// Set the state to en
+const [locale, setLocale] = useState("en")
+
+// Loop over items and render them
+items.map((i) => <Row key={i.id} {...i} />)
+```
+
+## Acceptable
+
+```ts
+// LinkedIn relationship lines include a leading date; keep context, drop the date.
+function stripRelationshipDate(text: string) { ... }
+
+// Skip Playwright download on Vercel (saves ~300MB per deploy).
+postinstall: "[ -z \"$VERCEL\" ] && playwright install chromium || true"
+```
+
+When in doubt, leave it out. Prefer clear names over comments.

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import type { Profile } from "@/types/profile"
+import { type Profile, ProfileSchema } from "@/types/profile"
 
 export function useProfile() {
   const [profile, setProfile] = useState<Profile | null>(null)
@@ -12,7 +12,13 @@ export function useProfile() {
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
         return r.json()
       })
-      .then((data: Profile) => setProfile(data))
+      .then((data: unknown) => {
+        const result = ProfileSchema.safeParse(data)
+        if (!result.success) {
+          throw new Error(`Invalid profile data: ${result.error.issues[0]?.message ?? "unknown"}`)
+        }
+        setProfile(result.data)
+      })
       .catch((e: Error) => setError(e.message))
       .finally(() => setLoading(false))
   }, [])

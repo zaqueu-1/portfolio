@@ -1,4 +1,5 @@
 import { useCallback } from "react"
+import { ErrorBoundary } from "@/components/ErrorBoundary"
 import { GlassBackground } from "@/components/glass/GlassBackground"
 import { AppShell } from "@/components/layout/AppShell"
 import { Footer } from "@/components/layout/Footer"
@@ -7,7 +8,9 @@ import { CtaSection } from "@/components/sections/CtaSection"
 import { ExperienceSection } from "@/components/sections/ExperienceSection"
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection"
 import { HeroSection } from "@/components/sections/HeroSection"
-import { LocaleProvider } from "@/context/LocaleContext"
+import { LocaleProvider, useLocale } from "@/context/LocaleContext"
+import { useHashNav } from "@/hooks/useHashNav"
+import { usePageMeta } from "@/hooks/usePageMeta"
 import { useProfile } from "@/hooks/useProfile"
 
 function ProfileSkeleton() {
@@ -22,6 +25,9 @@ function ProfileSkeleton() {
 
 function PortfolioContent() {
   const { profile, loading, error } = useProfile()
+  const { locale } = useLocale()
+  usePageMeta(profile, locale)
+  useHashNav()
 
   const onNavigate = useCallback((section: string) => {
     document.getElementById(section)?.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -57,9 +63,11 @@ function PortfolioContent() {
 
 export default function App() {
   return (
-    <LocaleProvider>
-      <GlassBackground />
-      <PortfolioContent />
-    </LocaleProvider>
+    <ErrorBoundary>
+      <LocaleProvider>
+        <GlassBackground />
+        <PortfolioContent />
+      </LocaleProvider>
+    </ErrorBoundary>
   )
 }

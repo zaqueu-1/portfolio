@@ -1,6 +1,7 @@
 import type { ReactNode } from "react"
 import { MobileNav } from "@/components/layout/Sidebar"
 import { LangToggle } from "@/components/layout/LangToggle"
+import { CONTACT_EMAIL } from "@/lib/constants"
 import type { SocialLink } from "@/types/profile"
 
 interface AppShellProps {
@@ -13,8 +14,6 @@ const HEADER_LINKS: { type: SocialLink["type"]; label: string }[] = [
   { type: "github", label: "GITHUB" },
   { type: "linkedin", label: "LINKEDIN" },
 ]
-
-const EMAIL = "oliveira.eduardo08@gmail.com"
 
 export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellProps) {
   const byType = Object.fromEntries(socialLinks.map((l) => [l.type, l.url])) as Partial<
@@ -59,7 +58,7 @@ export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellPro
                 </span>
               ))}
               {visibleHeaderLinks.length > 0 && <span className="ds-muted">/</span>}
-              <a href={`mailto:${EMAIL}`} className="ds-nav-link">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="ds-nav-link">
                 EMAIL
               </a>
             </nav>
