@@ -2,8 +2,8 @@ function companyKey(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]/g, "")
 }
 
-/** Logos locais em `/public/img` — prioridade sobre URLs do LinkedIn. */
 const LOCAL_LOGOS: Record<string, string> = {
+  prophubtech: "/img/prophub.png",
   hurb: "/img/hurb.png",
   berrytech: "/img/berrytech.jpg",
   speedio: "/img/speedio.png",
