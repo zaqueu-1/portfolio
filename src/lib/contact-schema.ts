@@ -18,7 +18,7 @@ export const ContactSchema = z.object({
   html: z.string().max(CONTACT_LIMITS.html),
   text: z.string().trim().min(1).max(CONTACT_LIMITS.text),
   /** Honeypot: hidden from humans, must stay empty. */
-  website: z.string().max(0).default(""),
+  website: z.string().max(200).default(""),
   startedAt: z.number().int().nonnegative(),
 })
 

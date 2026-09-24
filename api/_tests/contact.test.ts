@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
-import { createRateLimiter } from "../rate-limit"
-import { escapeHtml, sanitizeMessageHtml } from "../sanitize"
+import { CONTACT_LIMITS as CLIENT_LIMITS, MIN_COMPOSE_MS as CLIENT_MIN_COMPOSE_MS } from "../../src/lib/contact-schema"
+import { CONTACT_LIMITS, MIN_COMPOSE_MS, createRateLimiter, escapeHtml, sanitizeMessageHtml } from "../contact"
 
 describe("sanitizeMessageHtml", () => {
   it("keeps composer formatting", () => {
@@ -51,5 +51,12 @@ describe("createRateLimiter", () => {
     expect(limiter.hit("ip", 20)).toBe(false)
     expect(limiter.hit("other", 20)).toBe(true)
     expect(limiter.hit("ip", 1011)).toBe(true)
+  })
+})
+
+describe("server/client contract", () => {
+  it("keeps validation limits in sync with the composer", () => {
+    expect(CONTACT_LIMITS).toEqual(CLIENT_LIMITS)
+    expect(MIN_COMPOSE_MS).toBe(CLIENT_MIN_COMPOSE_MS)
   })
 })

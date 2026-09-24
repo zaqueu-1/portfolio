@@ -1,22 +1,100 @@
 import { Resend } from "resend"
-import {
-  ContactSchema,
-  MIN_COMPOSE_MS,
-  type ContactErrorCode,
-  type ContactPayload,
-  type ContactResponse,
-} from "../src/lib/contact-schema.js"
-import { createRateLimiter } from "./_lib/rate-limit.js"
-import { escapeHtml, sanitizeMessageHtml } from "./_lib/sanitize.js"
+import sanitizeHtml from "sanitize-html"
+import { z } from "zod"
 
-const DEFAULT_TO = "oliveira.eduardo08@gmail.com"
-const DEFAULT_FROM = "Portfolio <onboarding@resend.dev>"
+// Self-contained on purpose: no local imports, so the Vercel function bundle
+// never depends on resolving sibling .ts files at runtime.
+// Limits mirror src/lib/contact-schema.ts; a test fails if they drift.
+
+export const CONTACT_LIMITS = {
+  name: 80,
+  email: 254,
+  subject: 120,
+  html: 20_000,
+  text: 5_000,
+} as const
+
+export const MIN_COMPOSE_MS = 2_500
+
+export const ContactSchema = z.object({
+  name: z.string().trim().min(1).max(CONTACT_LIMITS.name),
+  email: z.email().max(CONTACT_LIMITS.email),
+  subject: z.string().trim().max(CONTACT_LIMITS.subject).default(""),
+  html: z.string().max(CONTACT_LIMITS.html),
+  text: z.string().trim().min(1).max(CONTACT_LIMITS.text),
+  website: z.string().max(200).default(""),
+  startedAt: z.number().int().nonnegative(),
+})
+
+type ContactPayload = z.output<typeof ContactSchema>
+type ContactErrorCode = "invalid" | "rate_limited" | "forbidden" | "server"
+
+const CONTACT_TO = "bss.eduardo@yahoo.com.br"
+const CONTACT_FROM = "Portfolio <onboarding@resend.dev>"
 const RATE_LIMIT = 5
 const RATE_WINDOW_MS = 10 * 60 * 1000
 
+const SAFE_FONT = /^[\w\s"',-]+$/
+const SAFE_SIZE = /^(1[0-9]|2[0-9]|3[0-2])px$/
+const SAFE_COLOR = /^(#[0-9a-f]{3,8}|rgb\(\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*\))$/i
+const SAFE_ALIGN = /^(left|center|right|justify)$/
+
+/** Allowlist matching exactly what the composer toolbar can produce. */
+export function sanitizeMessageHtml(html: string): string {
+  return sanitizeHtml(html, {
+    allowedTags: [
+      "p", "br", "strong", "b", "em", "i", "u", "s", "code", "pre",
+      "blockquote", "ul", "ol", "li", "a", "span",
+    ],
+    allowedAttributes: {
+      a: ["href", "target", "rel"],
+      span: ["style"],
+      p: ["style"],
+    },
+    allowedStyles: {
+      span: { "font-family": [SAFE_FONT], "font-size": [SAFE_SIZE], color: [SAFE_COLOR] },
+      p: { "text-align": [SAFE_ALIGN] },
+    },
+    allowedSchemes: ["http", "https", "mailto"],
+    allowProtocolRelative: false,
+    transformTags: {
+      a: sanitizeHtml.simpleTransform("a", { target: "_blank", rel: "noopener noreferrer" }),
+    },
+  })
+}
+
+export function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+}
+
+/**
+ * Fixed-window, in-memory limiter. Per serverless instance only, so it is a
+ * speed bump against bursts, not a global guarantee.
+ */
+export function createRateLimiter(limit: number, windowMs: number) {
+  const hits = new Map<string, number[]>()
+
+  return {
+    hit(key: string, now = Date.now()): boolean {
+      const recent = (hits.get(key) ?? []).filter((ts) => now - ts < windowMs)
+      if (recent.length >= limit) {
+        hits.set(key, recent)
+        return false
+      }
+      hits.set(key, [...recent, now])
+      return true
+    },
+  }
+}
+
 const limiter = createRateLimiter(RATE_LIMIT, RATE_WINDOW_MS)
 
-function reply(status: number, body: ContactResponse): Response {
+function reply(status: number, body: { ok: boolean; error?: ContactErrorCode }): Response {
   return Response.json(body, { status, headers: { "Cache-Control": "no-store" } })
 }
 
@@ -49,7 +127,10 @@ function renderEmail({ name, email, subject, html }: ContactPayload): string {
   return `<div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#888;margin-bottom:16px">from: ${meta}${subjectLine}</div><div style="font-size:15px;line-height:1.6">${sanitizeMessageHtml(html)}</div>`
 }
 
-export async function POST(request: Request): Promise<Response> {
+async function handleContact(request: Request): Promise<Response> {
+  if (request.method !== "POST") {
+    return new Response(null, { status: 405, headers: { Allow: "POST" } })
+  }
   if (!isSameOrigin(request)) return fail(403, "forbidden")
   if (!limiter.hit(clientIp(request))) return fail(429, "rate_limited")
 
@@ -76,20 +157,26 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   const subject = singleLine(payload.subject || `Portfolio: ${payload.name}`)
-  const { error } = await new Resend(apiKey).emails.send({
-    from: process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM,
-    to: process.env.CONTACT_TO_EMAIL || DEFAULT_TO,
-    replyTo: payload.email,
-    subject: `[zaqueu.tech] ${subject}`,
-    html: renderEmail(payload),
-    text: `from: ${singleLine(payload.name)} <${payload.email}>\n\n${payload.text}`,
-  })
-
-  if (error) {
-    // Log provider error only; never the visitor's message or address.
-    console.error("[contact] resend send failed:", error.name, error.message)
+  try {
+    const { error } = await new Resend(apiKey).emails.send({
+      from: CONTACT_FROM,
+      to: CONTACT_TO,
+      replyTo: payload.email,
+      subject: `[zaqueu.tech] ${subject}`,
+      html: renderEmail(payload),
+      text: `from: ${singleLine(payload.name)} <${payload.email}>\n\n${payload.text}`,
+    })
+    if (error) {
+      // Log provider error only; never the visitor's message or address.
+      console.error("[contact] resend send failed:", error.name, error.message)
+      return fail(502, "server")
+    }
+  } catch (err: unknown) {
+    console.error("[contact] resend request threw:", err instanceof Error ? err.message : "unknown")
     return fail(502, "server")
   }
 
   return reply(200, { ok: true })
 }
+
+export default { fetch: handleContact }

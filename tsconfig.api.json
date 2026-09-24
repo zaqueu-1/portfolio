@@ -15,6 +15,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["api/**/*.ts", "src/lib/contact-schema.ts"],
-  "exclude": ["api/**/__tests__/**"]
+  "include": ["api/**/*.ts"],
+  "exclude": ["api/_tests/**"]
 }
