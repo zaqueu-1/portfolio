@@ -284,10 +284,11 @@ export default function MailComposer({ draft, onDraftChange, onSent }: MailCompo
 }
 
 interface MailDialogContentProps extends MailComposerProps {
-  onClose?: () => void
+  /** Element to refocus on close when the dialog was opened from outside its trigger. */
+  getReturnFocus?: () => HTMLElement | null
 }
 
-export function MailDialogContent(props: MailDialogContentProps) {
+export function MailDialogContent({ getReturnFocus, ...props }: MailDialogContentProps) {
   const { t } = useLocale()
   return (
     <Dialog.Portal>
@@ -295,6 +296,12 @@ export function MailDialogContent(props: MailDialogContentProps) {
       <Dialog.Content
         className="mail-window fixed top-1/2 left-1/2 z-50 flex max-h-[min(90dvh,760px)] w-[min(860px,calc(100vw-2rem))] flex-col border border-border bg-background normal-case"
         aria-describedby={undefined}
+        onCloseAutoFocus={(e) => {
+          const target = getReturnFocus?.()
+          if (!target) return
+          e.preventDefault()
+          target.focus({ preventScroll: true })
+        }}
       >
         <div className="flex items-center justify-between gap-4 border-b border-border px-4 py-2.5">
           <Dialog.Title className="ds-label truncate text-foreground">

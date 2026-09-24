@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import { MobileNav } from "@/components/layout/Sidebar"
 import { LangToggle } from "@/components/layout/LangToggle"
 import { useActiveSection } from "@/hooks/useActiveSection"
-import { CONTACT_EMAIL } from "@/lib/constants"
+import { openMailComposer, preloadMailComposer } from "@/lib/mail-events"
 import { SECTION_PATHS } from "@/lib/sections"
 import type { SocialLink } from "@/types/profile"
 
@@ -64,9 +64,16 @@ export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellPro
                 </span>
               ))}
               {visibleHeaderLinks.length > 0 && <span className="ds-muted">/</span>}
-              <a href={`mailto:${CONTACT_EMAIL}`} className="ds-nav-link">
+              <button
+                type="button"
+                className="ds-nav-link cursor-pointer"
+                aria-haspopup="dialog"
+                onClick={openMailComposer}
+                onPointerEnter={preloadMailComposer}
+                onFocus={preloadMailComposer}
+              >
                 EMAIL
-              </a>
+              </button>
             </nav>
             {/* Mobile: MobileNav right */}
             <MobileNav onNavigate={onNavigate} />
