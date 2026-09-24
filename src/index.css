@@ -96,6 +96,24 @@
     letter-spacing: 0.08em;
   }
 
+  /* Form controls ignore inherited case/tracking by default; keep the mono rhythm */
+  button,
+  input,
+  select {
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+
+  ::selection {
+    background: hsl(var(--lilac));
+    color: hsl(var(--background));
+  }
+
+  :focus-visible {
+    outline: 1px dashed hsl(var(--lilac));
+    outline-offset: 4px;
+  }
+
   a {
     @apply transition-colors;
   }
@@ -237,25 +255,223 @@
     text-decoration: none;
   }
 
-  .ds-link:hover {
-    color: hsl(var(--lilac));
-  }
-
   .ds-nav-link {
     font-size: calc(1rem - 1pt);
     letter-spacing: 0.11em;
     color: hsl(var(--foreground));
     text-decoration: none;
-    transition: color 0.15s ease;
   }
 
-  .ds-nav-link:hover {
+  .ds-nav-link.ds-role-label {
     color: hsl(var(--lilac));
   }
 
-  .ds-nav-link.ds-role-label,
+  /* Hover = terminal text selection: inverted lilac block, padded via shadow (no layout shift) */
+  .ds-link,
+  .ds-nav-link {
+    transition:
+      color 0.12s ease-out,
+      background-color 0.12s ease-out,
+      box-shadow 0.12s ease-out;
+  }
+
+  .ds-link:hover,
+  .ds-nav-link:hover,
   .ds-nav-link.ds-role-label:hover {
+    color: hsl(var(--background));
+    background-color: hsl(var(--lilac));
+    box-shadow: 0 0 0 0.2em hsl(var(--lilac));
+  }
+
+  .ds-link:active,
+  .ds-nav-link:active {
+    background-color: hsl(var(--foreground));
+    box-shadow: 0 0 0 0.2em hsl(var(--foreground));
+  }
+
+  .ds-prompt {
     color: hsl(var(--lilac));
+    white-space: nowrap;
+  }
+
+  .ds-block-caret {
+    display: inline-block;
+    width: 0.6em;
+    height: 0.95em;
+    margin-left: 0.15em;
+    vertical-align: -0.08em;
+    background: hsl(var(--lilac));
+    animation: ds-caret-blink 1.05s steps(1, end) infinite;
+  }
+
+  .ds-glitch {
+    position: relative;
+    display: inline-block;
+  }
+
+  .ds-glitch::before,
+  .ds-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .ds-glitch::before {
+    color: hsl(var(--lilac));
+  }
+
+  .ds-glitch::after {
+    color: hsl(var(--foreground) / 0.55);
+  }
+
+  .ds-glitch.is-glitching::before {
+    opacity: 1;
+    animation: ds-glitch-a 0.42s steps(2, end) both;
+  }
+
+  .ds-glitch.is-glitching::after {
+    opacity: 1;
+    animation: ds-glitch-b 0.42s steps(2, end) both;
+  }
+
+  @keyframes ds-glitch-a {
+    0% { transform: translate(-3px, 0); clip-path: inset(10% 0 62% 0); }
+    25% { transform: translate(3px, 0); clip-path: inset(58% 0 12% 0); }
+    50% { transform: translate(-2px, 0); clip-path: inset(30% 0 44% 0); }
+    75% { transform: translate(2px, 0); clip-path: inset(72% 0 4% 0); }
+    100% { transform: translate(0, 0); clip-path: inset(50% 0 50% 0); opacity: 0; }
+  }
+
+  @keyframes ds-glitch-b {
+    0% { transform: translate(3px, 0); clip-path: inset(64% 0 8% 0); }
+    25% { transform: translate(-3px, 0); clip-path: inset(6% 0 70% 0); }
+    50% { transform: translate(2px, 0); clip-path: inset(40% 0 36% 0); }
+    75% { transform: translate(-2px, 0); clip-path: inset(18% 0 60% 0); }
+    100% { transform: translate(0, 0); clip-path: inset(50% 0 50% 0); opacity: 0; }
+  }
+
+  /* CRT: static scanlines + vignette on a fixed, non-interactive layer (no repaint on scroll) */
+  .crt-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    pointer-events: none;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 2px,
+        hsl(0 0% 0% / 0.22) 3px,
+        transparent 4px
+      ),
+      radial-gradient(ellipse at center, transparent 58%, hsl(0 0% 0% / 0.55) 100%);
+    mix-blend-mode: multiply;
+  }
+
+  .crt-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      hsl(0 0% 100% / 0.018) 0,
+      hsl(0 0% 100% / 0.018) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  }
+
+  .boot-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    background: hsl(var(--background));
+    transform-origin: center;
+  }
+
+  .boot-screen.is-leaving {
+    animation: crt-collapse 0.46s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+  }
+
+  @keyframes crt-collapse {
+    0% { transform: scale(1, 1); filter: brightness(1); }
+    55% { transform: scale(1, 0.004); filter: brightness(3); }
+    100% { transform: scale(0, 0.004); filter: brightness(4); opacity: 0; }
+  }
+
+  .matrix-rain {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    mask-image: linear-gradient(to left, black 0%, black 30%, transparent 78%),
+      linear-gradient(to bottom, black 55%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 0%, black 30%, transparent 78%),
+      linear-gradient(to bottom, black 55%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+
+  @media (max-width: 767px) {
+    .matrix-rain {
+      mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 62%);
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 62%);
+    }
+  }
+
+  .git-rail {
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .git-rail::before {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      bottom: 0;
+      left: 3px;
+      border-left: 1px dashed hsl(var(--border));
+    }
+
+    .git-rail:last-child::before {
+      display: none;
+    }
+  }
+
+  .git-node {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border: 1px solid hsl(var(--muted-foreground));
+    background: hsl(var(--background));
+    position: relative;
+    z-index: 1;
+  }
+
+  .git-node.is-head {
+    border-color: hsl(var(--lilac));
+    background: hsl(var(--lilac));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-caret,
+    .ds-block-caret {
+      animation: none;
+    }
+
+    .ds-glitch.is-glitching::before,
+    .ds-glitch.is-glitching::after {
+      animation: none;
+      opacity: 0;
+    }
+
+    .boot-screen.is-leaving {
+      animation: none;
+      opacity: 0;
+    }
   }
 
   .ds-divider {
@@ -285,5 +501,160 @@
   .site-header__inner {
     position: relative;
     pointer-events: auto;
+  }
+}
+
+@layer components {
+  .cta-mail {
+    color: hsl(var(--foreground));
+    transition:
+      color 0.12s ease-out,
+      background-color 0.12s ease-out,
+      box-shadow 0.12s ease-out;
+  }
+
+  .cta-mail:hover,
+  .cta-mail[data-state="open"] {
+    color: hsl(var(--background));
+    background-color: hsl(var(--lilac));
+    box-shadow: 0 0 0 0.12em hsl(var(--lilac));
+  }
+
+  .cta-mail:hover .ds-prompt,
+  .cta-mail[data-state="open"] .ds-prompt {
+    color: hsl(var(--background));
+  }
+
+  .cta-mail:hover .ds-block-caret,
+  .cta-mail[data-state="open"] .ds-block-caret {
+    background: hsl(var(--background));
+  }
+
+  .mail-window {
+    transform: translate(-50%, -50%);
+  }
+
+  .mail-window[data-state="open"] {
+    animation: crt-open 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .mail-window[data-state="closed"] {
+    animation: crt-close 0.18s cubic-bezier(0.7, 0, 0.84, 0) both;
+  }
+
+  .mail-overlay[data-state="open"] {
+    animation: fade-in 0.2s ease-out both;
+  }
+
+  .mail-overlay[data-state="closed"] {
+    animation: fade-in 0.15s ease-in reverse both;
+  }
+
+  @keyframes crt-open {
+    0% { transform: translate(-50%, -50%) scale(0.6, 0.004); filter: brightness(3); opacity: 0; }
+    45% { transform: translate(-50%, -50%) scale(1, 0.004); filter: brightness(2.5); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1, 1); filter: brightness(1); }
+  }
+
+  @keyframes crt-close {
+    0% { transform: translate(-50%, -50%) scale(1, 1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1, 0.004); filter: brightness(3); opacity: 0; }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .mail-input,
+  .mail-editor {
+    color: hsl(var(--foreground));
+    caret-color: hsl(var(--lilac));
+    text-transform: none;
+    letter-spacing: 0.04em;
+    font-size: calc(1rem - 1pt);
+  }
+
+  .mail-input {
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.12s ease-out;
+  }
+
+  .mail-input:focus-visible {
+    outline: none;
+    border-bottom-color: hsl(var(--lilac));
+  }
+
+  .mail-input::placeholder,
+  .mail-editor p.is-editor-empty:first-child::before {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .mail-input[aria-invalid="true"] {
+    border-bottom-color: hsl(var(--destructive));
+  }
+
+  .mail-editor {
+    min-height: 180px;
+    outline: none;
+    line-height: 1.65;
+  }
+
+  .mail-editor p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .mail-editor > * + * {
+    margin-top: 0.6em;
+  }
+
+  .mail-editor ul,
+  .mail-editor ol {
+    padding-left: 1.6em;
+  }
+
+  .mail-editor ul {
+    list-style: square;
+  }
+
+  .mail-editor ol {
+    list-style: decimal;
+  }
+
+  .mail-editor li::marker {
+    color: hsl(var(--lilac));
+  }
+
+  .mail-editor blockquote {
+    border-left: 1px solid hsl(var(--lilac));
+    padding-left: 1em;
+    color: hsl(var(--text-secondary));
+  }
+
+  .mail-editor code {
+    background: hsl(var(--muted));
+    padding: 0.1em 0.35em;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  .mail-editor a {
+    color: hsl(var(--lilac));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .mail-editor strong {
+    font-weight: 700;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mail-window[data-state="open"],
+    .mail-window[data-state="closed"] {
+      animation: fade-in 0.12s linear both;
+    }
   }
 }
