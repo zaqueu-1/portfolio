@@ -10,67 +10,88 @@ interface BootScreenProps {
   onDone: () => void
 }
 
-const LINE_MS = 110
-const HOLD_MS = 320
-const SESSION_KEY = "zaqueu:booted"
+interface Segment {
+  text: string
+  className?: string
+}
+
+const CHAR_MS = 14
+const LINE_GAP_MS = 120
+const HOLD_MS = 580
+/** Index of the line that waits for the real profile fetch before the log continues. */
+const PROFILE_LINE = 4
 
 export function shouldBoot(): boolean {
-  if (typeof window === "undefined" || prefersReducedMotion()) return false
-  try {
-    return sessionStorage.getItem(SESSION_KEY) !== "1"
-  } catch {
-    return false
-  }
+  return typeof window !== "undefined" && !prefersReducedMotion()
 }
 
-function markBooted() {
-  try {
-    sessionStorage.setItem(SESSION_KEY, "1")
-  } catch {
-    // Storage blocked (private mode): boot simply replays next visit.
-  }
+function statusSegment(status: BootStatus): Segment {
+  if (status === "ready") return { text: "[ OK ]", className: "ds-role-label" }
+  if (status === "error") return { text: "[FAIL]", className: "text-destructive" }
+  return { text: "[ .. ]", className: "ds-muted" }
 }
 
-function statusTag(status: BootStatus) {
-  if (status === "ready") return <span className="ds-role-label">[ OK ]</span>
-  if (status === "error") return <span className="text-destructive">[FAIL]</span>
-  return <span className="ds-muted">[ .. ]</span>
+function buildLines(status: BootStatus, localeTag: string): Segment[][] {
+  const ok: Segment = { text: "[ OK ]", className: "ds-role-label" }
+  return [
+    [{ text: "> zaqueu.tech" }],
+    [ok, { text: " mounting /dev/crt0" }],
+    [ok, { text: " loading font matrix-sans-screen" }],
+    [ok, { text: ` locale ${localeTag}` }],
+    [statusSegment(status), { text: " fetching profile.json" }],
+    [{ text: "> hello, friend." }],
+  ]
 }
 
-/** First-visit boot log. Waits for the real profile fetch, then collapses like a CRT. */
+function lineLength(line: Segment[]): number {
+  return line.reduce((sum, seg) => sum + seg.text.length, 0)
+}
+
+function renderTyped(line: Segment[], chars: number) {
+  let remaining = chars
+  return line.map((seg, i) => {
+    const visible = seg.text.slice(0, Math.max(0, remaining))
+    remaining -= seg.text.length
+    return visible ? (
+      <span key={i} className={seg.className}>
+        {visible}
+      </span>
+    ) : null
+  })
+}
+
+/** Boot log typed line by line on every load; waits for the profile fetch, then collapses like a CRT. */
 export function BootScreen({ status, localeTag, onLeaveStart, onDone }: BootScreenProps) {
-  const [shown, setShown] = useState(0)
+  const [cursor, setCursor] = useState({ line: 0, chars: 0 })
   const [leaving, setLeaving] = useState(false)
   const leaveStarted = useRef(false)
 
-  const lines = [
-    <>&gt; zaqueu.tech</>,
-    <><span className="ds-role-label">[ OK ]</span> mounting /dev/crt0</>,
-    <><span className="ds-role-label">[ OK ]</span> loading font matrix-sans-screen</>,
-    <><span className="ds-role-label">[ OK ]</span> locale {localeTag}</>,
-    <>{statusTag(status)} fetching profile.json</>,
-    <>&gt; hello, friend.</>,
-  ]
-  const allShown = shown >= lines.length
-  const lastBlocking = lines.length - 1
+  const lines = buildLines(status, localeTag)
+  const current = lines[cursor.line]
+  const lineDone = cursor.chars >= lineLength(current)
+  const isLastLine = cursor.line === lines.length - 1
+  const allTyped = isLastLine && lineDone
 
   useEffect(() => {
-    if (allShown) return
-    if (shown >= lastBlocking && status === "loading") return
-    const id = window.setTimeout(() => setShown((n) => n + 1), LINE_MS)
+    if (allTyped) return
+    if (lineDone && cursor.line === PROFILE_LINE && status === "loading") return
+    const id = window.setTimeout(
+      () =>
+        setCursor((c) => (lineDone ? { line: c.line + 1, chars: 0 } : { ...c, chars: c.chars + 1 })),
+      lineDone ? LINE_GAP_MS : CHAR_MS,
+    )
     return () => window.clearTimeout(id)
-  }, [shown, allShown, lastBlocking, status])
+  }, [cursor, lineDone, allTyped, status])
 
   const leave = () => {
     if (leaveStarted.current) return
     leaveStarted.current = true
-    markBooted()
     setLeaving(true)
     onLeaveStart()
   }
 
   useEffect(() => {
-    if (!allShown || status === "loading") return
+    if (!allTyped || status === "loading") return
     const id = window.setTimeout(leave, HOLD_MS)
     return () => window.clearTimeout(id)
   })
@@ -86,21 +107,20 @@ export function BootScreen({ status, localeTag, onLeaveStart, onDone }: BootScre
   return (
     <div
       className={`boot-screen ${leaving ? "is-leaving" : ""}`}
-      role="status"
-      aria-live="polite"
       onClick={() => status !== "loading" && leave()}
       onAnimationEnd={onDone}
     >
-      <div className="layout-shell pt-[calc(var(--layout-gutter)*2.25)]">
+      <p className="sr-only" role="status">
+        {status === "error" ? "Failed to load profile" : "Loading portfolio"}
+      </p>
+      <div className="layout-shell pt-[calc(var(--layout-gutter)*2.25)]" aria-hidden>
         <ol className="ds-label space-y-2 text-foreground/85">
-          {lines.slice(0, shown).map((line, i) => (
-            <li key={i}>{line}</li>
-          ))}
-          {!allShown && (
-            <li aria-hidden>
-              <span className="ds-block-caret" />
+          {lines.slice(0, cursor.line + 1).map((line, i) => (
+            <li key={i}>
+              {i < cursor.line ? renderTyped(line, Infinity) : renderTyped(line, cursor.chars)}
+              {i === cursor.line && !leaving && <span className="ds-block-caret" />}
             </li>
-          )}
+          ))}
         </ol>
       </div>
     </div>
