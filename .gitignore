@@ -35,3 +35,10 @@ graphify-out
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.claude/.commit-authorized
+.claude/.pr-authorized
+.claude/.pr-body-draft.md
+.claude/.harness-last-update
+.cursor/
+.omc/

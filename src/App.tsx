@@ -1,11 +1,14 @@
-import { useCallback } from "react"
+import { useCallback, useState } from "react"
 import { ErrorBoundary } from "@/components/ErrorBoundary"
 import { GlassBackground } from "@/components/glass/GlassBackground"
 import { AppShell } from "@/components/layout/AppShell"
+import { BootScreen, type BootStatus, shouldBoot } from "@/components/layout/BootScreen"
 import { Footer } from "@/components/layout/Footer"
+import { WhoamiTerminal } from "@/components/layout/WhoamiTerminal"
 import { AboutSection } from "@/components/sections/AboutSection"
 import { CtaSection } from "@/components/sections/CtaSection"
 import { ExperienceSection } from "@/components/sections/ExperienceSection"
+import { ProjectSection } from "@/components/sections/ProjectSection"
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { LocaleProvider, useLocale } from "@/context/LocaleContext"
@@ -23,15 +26,30 @@ function ProfileSkeleton() {
   )
 }
 
+type BootPhase = "boot" | "leaving" | "done"
+
 function PortfolioContent() {
   const { profile, loading, error } = useProfile()
   const { locale } = useLocale()
+  const [bootPhase, setBootPhase] = useState<BootPhase>(() => (shouldBoot() ? "boot" : "done"))
   usePageMeta(profile, locale)
   useHashNav()
 
   const onNavigate = useCallback((section: string) => {
     document.getElementById(section)?.scrollIntoView({ behavior: "smooth", block: "start" })
   }, [])
+
+  const bootStatus: BootStatus = loading ? "loading" : error || !profile ? "error" : "ready"
+  const boot = bootPhase !== "done" && (
+    <BootScreen
+      status={bootStatus}
+      localeTag={locale === "pt" ? "pt-BR" : "en-US"}
+      onLeaveStart={() => setBootPhase("leaving")}
+      onDone={() => setBootPhase("done")}
+    />
+  )
+
+  if (bootPhase === "boot") return boot
 
   if (loading) {
     return (
@@ -43,21 +61,28 @@ function PortfolioContent() {
 
   if (error || !profile) {
     return (
-      <AppShell onNavigate={onNavigate} socialLinks={[]}>
-        <p className="text-destructive">{error ?? "Failed to load profile"}</p>
-      </AppShell>
+      <>
+        {boot}
+        <AppShell onNavigate={onNavigate} socialLinks={[]}>
+          <p className="text-destructive">{error ?? "Failed to load profile"}</p>
+        </AppShell>
+      </>
     )
   }
 
   return (
-    <AppShell onNavigate={onNavigate} socialLinks={profile.socialLinks}>
-      <HeroSection profile={profile} />
-      <AboutSection profile={profile} />
-      <ExperienceSection profile={profile} />
-      <TestimonialsSection profile={profile} />
-      <CtaSection />
-      <Footer socialLinks={profile.socialLinks} />
-    </AppShell>
+    <>
+      {boot}
+      <AppShell onNavigate={onNavigate} socialLinks={profile.socialLinks}>
+        <HeroSection profile={profile} />
+        <AboutSection profile={profile} />
+        <ProjectSection />
+        <ExperienceSection profile={profile} />
+        <TestimonialsSection profile={profile} />
+        <CtaSection />
+        <Footer socialLinks={profile.socialLinks} />
+      </AppShell>
+    </>
   )
 }
 
@@ -67,6 +92,8 @@ export default function App() {
       <LocaleProvider>
         <GlassBackground />
         <PortfolioContent />
+        <WhoamiTerminal />
+        <div className="crt-overlay" aria-hidden />
       </LocaleProvider>
     </ErrorBoundary>
   )

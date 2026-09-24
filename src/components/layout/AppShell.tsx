@@ -1,7 +1,9 @@
 import type { ReactNode } from "react"
 import { MobileNav } from "@/components/layout/Sidebar"
 import { LangToggle } from "@/components/layout/LangToggle"
+import { useActiveSection } from "@/hooks/useActiveSection"
 import { CONTACT_EMAIL } from "@/lib/constants"
+import { SECTION_PATHS } from "@/lib/sections"
 import type { SocialLink } from "@/types/profile"
 
 interface AppShellProps {
@@ -21,6 +23,7 @@ export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellPro
   >
 
   const visibleHeaderLinks = HEADER_LINKS.filter((l) => byType[l.type])
+  const activeSection = useActiveSection([socialLinks.length])
 
   return (
     <div className="relative min-h-screen">
@@ -38,7 +41,7 @@ export function AppShell({ children, onNavigate, socialLinks = [] }: AppShellPro
               className="ds-nav-link ds-role-label hidden cursor-pointer md:inline"
               aria-label="Home"
             >
-              ~/
+              {SECTION_PATHS[activeSection]}
             </button>
           </div>
 

@@ -2,12 +2,22 @@ import { z } from "zod"
 
 export type Locale = "pt" | "en"
 
+function joinParagraphs(value: string | string[]): string {
+  return (Array.isArray(value) ? value.join("\n\n") : value).trim()
+}
+
 const LocalizedStringSchema = z.object({
   pt: z.string(),
   en: z.string(),
 })
 
 export type LocalizedString = z.infer<typeof LocalizedStringSchema>
+
+/** Accepts a string or paragraph array (joined with blank lines on parse). */
+const LocalizedBodySchema = z.object({
+  pt: z.union([z.string(), z.array(z.string())]).transform(joinParagraphs),
+  en: z.union([z.string(), z.array(z.string())]).transform(joinParagraphs),
+})
 
 const ExperienceSchema = z.object({
   id: z.string(),
@@ -45,7 +55,8 @@ export const ProfileSchema = z.object({
   slug: z.string(),
   name: z.string(),
   headline: LocalizedStringSchema,
-  about: LocalizedStringSchema,
+  tagline: LocalizedStringSchema,
+  about: LocalizedBodySchema,
   location: LocalizedStringSchema,
   avatarUrl: z.string(),
   linkedinUrl: z.string(),

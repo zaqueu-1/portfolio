@@ -1,6 +1,7 @@
 import { useEffect } from "react"
+import { SECTION_PATHS } from "@/lib/sections"
 
-const SECTION_IDS = ["top", "about", "experiences", "testimonials", "contact"]
+const SECTION_IDS = Object.keys(SECTION_PATHS)
 
 export function useHashNav() {
   useEffect(() => {

@@ -2,12 +2,36 @@
   "slug": "zaqueu1",
   "name": "Eduardo Zaqueu",
   "headline": {
-    "pt": "Desenvolvedor Frontend | TypeScript, React.js, Vue.js",
-    "en": "Frontend Software Engineer | TypeScript, React.js, Vue.js"
+    "pt": "Desenvolvedor Frontend Sênior | TypeScript, React.js, Vue.js",
+    "en": "Senior Frontend Software Engineer | TypeScript, React.js, Vue.js"
+  },
+  "tagline": {
+    "pt": "Construo produtos onde performance e confiança não são opcionais. Elas são o produto.",
+    "en": "I build products where performance and trust aren't optional. They're the product."
   },
   "about": {
-    "pt": "Gosto de criar produtos digitais que sejam úteis e fáceis de usar. Ao longo da minha carreira, trabalhei em projetos de diferentes áreas sempre focando em entregar boas experiências, colaborar com o time e evoluir constantemente. Curto ambientes leves, pessoas abertas a trocar ideias e desafios que me façam crescer como pessoa.\n\n• Lidero desenvolvimento de plataformas para traders com visualização de dados e performance em tempo real\n• Implementei sistemas de pagamento completos (Paymid, Zoop, Stripe) para mercado de Prop Trading\n• Desenvolvi aplicações inteligentes com IA que automatizam processos e integram fluxos de trabalho\n• Criei estruturas de componentes para CRM com IA, otimizando eficiência das aplicações\n\nStack:\nFrontend: Vue 3 (Nuxt 4), React, Next.js, TypeScript, Tailwind\nBackend & Dados: Directus CMS, SQL, GraphQL, Docker\nAutomação: n8n, LangChain, GitHub Actions, AWS (ECS)\nIA & Ferramentas: Zustand, Retool, shadcn/ui\n\nPassei por empresas como Hurb, Berrytech e Speedio, sempre focado em performance, manutenibilidade e experiência do usuário. Tenho certificações em Desenvolvimento Web e experiência tanto com sistemas legados quanto tecnologias de ponta.\n\nQuando não estou codando, você me encontra jogando Magic the Gathering com minha namorada e amigos ou assistindo filmes de terror e suspense.\n\n💬 Vamos conversar sobre seu próximo projeto? Mande uma mensagem!",
-    "en": "I enjoy building digital products that are useful and easy to use. Throughout my career, I’ve worked on projects across different industries, always focused on delivering great experiences, collaborating with the team, and continuously improving. I enjoy friendly environments, people who are open to exchanging ideas, and challenges that help me grow as a person.\n\n- I lead the development of trading platforms with real-time data visualization and performance\n- I implemented full payment systems (Paymid, Zoop, Stripe) for the Prop Trading market\n- I built AI-powered smart applications that automate processes and integrate workflows\n- I created component architectures for AI-driven CRMs, boosting application efficiency\n\nStack:\nFrontend: Vue 3 (Nuxt 4), React, Next.js, TypeScript, Tailwind\nBackend & Data: Directus CMS, SQL, GraphQL, Docker\nAutomation: n8n, LangChain, GitHub Actions, AWS (ECS)\nAI & Tools: Zustand, Retool, shadcn/ui\n\nI’ve worked at companies such as Hurb, Berrytech, and Speedio, always focused on performance, maintainability, and user experience. I hold Web Development certifications and have experience with both legacy systems and cutting-edge technologies.\n\nWhen I’m not coding, you’ll find me playing Magic: The Gathering with my girlfriend and friends or watching horror and thriller movies.\n\n💬 Want to talk about your next project? Send me a message!"
+    "pt": [
+      "Nos últimos dois anos liderei o desenvolvimento frontend de plataformas de trading e fintech, transformando dados financeiros complexos em interfaces em que traders confiam e garantindo um investimento de US$ 400K no processo.",
+      "- Arquitetei e entreguei um terminal de trading white-label de dual-shell (Vue 3 + TypeScript, Vite): duas shells de UI em paralelo, alternadas via feature flags, com design exclusivo por tenant, atendendo dezenas de tenants a partir de uma única codebase.",
+      "- Construí uma camada de execução em tempo real sobre um risk engine via WebSocket (estado de ordens, cotações ao vivo, profundidade de mercado), incluindo o ciclo de vida de ordens no client (expiração GTD, coerção de brackets) junto a um OMS autoritativo no backend, em contas paper e live (assinadas por wallet, Hyperliquid).",
+      "- Entreguei a camada frontend do sistema de risco de prop trading da plataforma: gating de KYC, enforcement de breach de drawdown/perda diária (modos trailing/EOD/static) e UX de suspensão de conta, fechando o gap entre \"a mesa de risco bloqueou a conta\" e o trader realmente ver o porquê a tempo de agir.",
+      "- Mantenho o i18n em 7 locales em sync sem drift enquanto o produto lança novas features todos os dias.",
+      "Stack: Nuxt.js, React.js, Next.js, Vue.js, TypeScript, Pinia, Vite, Tailwind CSS, Vitest, WebSockets e afins.",
+      "Construí tudo isso sempre com o mesmo foco: entregar rápido, entregar certo e nunca sacrificar um pelo outro.",
+      "Fora das telas você me encontra jogando Magic: The Gathering com minha namorada e amigos ou assistindo filmes de terror.",
+      "💬 Aberto a novas oportunidades e desafios interessantes: me manda um oi."
+    ],
+    "en": [
+      "For the past two years I've led frontend engineering for trading and fintech platforms, turning complex financial data into interfaces traders rely on under pressure and helping secure a $400K investment along the way.",
+      "- Architected and shipped a dual-shell white-label trading terminal (Vue 3 + TypeScript, Vite): two parallel UI shells switched via feature flags with per-tenant design-token theming serving dozens of tenants off one codebase.",
+      "- Built a real-time execution layer on top of a WebSocket risk engine (order state, live quotes, market depth), including client-side order-lifecycle handling (GTD expiry, bracket coercion) alongside a backend-authoritative OMS across paper and live (wallet-signed, Hyperliquid) accounts.",
+      "- Shipped the frontend surface for the platform's prop-trading risk system: KYC gating, drawdown/daily-loss breach enforcement (trailing/EOD/static modes) and account-suspension UX, closing the gap between \"the risk desk blocked an account\" and the trader actually seeing why in time to act.",
+      "- Own and maintain i18n across 7 locales kept in lockstep with zero drift as the product shipped new surfaces daily.",
+      "Stack: Nuxt.js, React.js, Next.js, Vue.js, TypeScript, Pinia, Vite, Tailwind CSS, Vitest, WebSockets and so on.",
+      "I've built these always with the same focus: ship fast, ship correct and never sacrifice one for the other.",
+      "Outside of code you will see me playing Magic the Gathering with my girlfriend and friends and probably a horror movie queued up.",
+      "💬 Open to new opportunities and interesting problems, reach out."
+    ]
   },
   "location": {
     "pt": "Rio de Janeiro, Brasil",
@@ -20,8 +44,8 @@
       "id": "prophub.tech-0",
       "company": "prophub.tech",
       "title": {
-        "pt": "Desenvolvedor Frontend",
-        "en": "Frontend Software Engineer"
+        "pt": "Desenvolvedor Frontend Sênior",
+        "en": "Senior Frontend Software Engineer"
       },
       "description": {
         "pt": "• Lidero desenvolvimento de funcionalidades, integrações, fluxos de tela e componentes para aplicações web voltadas para o mercado de Prop Trading, personalizando de acordo com o cliente enquanto seguindo e mantendo uma estrutura base em Vue 3 (Nuxt 4), Tailwind, TypeScript, Directus CMS, NuxtUI e SQL;\n• Responsável pela adição de novos serviços, métodos de pagamento, gateways e suas respectivas integrações ao front como Paymid, Zoop, Stripe;\n• Manutenção e controle de fluxo de deploy via GitHub Actions e Amazon ECS (AWS), assim como o controle e segurança das respectivas variáveis de ambiente para cada cliente;\n• Atualmente realizando a migração do NuxtUI para o shadcn/ui para redefinir a arquitetura de componentes da aplicação tornando-a mais personalizável e manutenível;\n• Desenvolvimento, atualização e manutenção de Landing Pages para clientes em React.js",

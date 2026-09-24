@@ -1,3 +1,6 @@
+import { openWhoami } from "@/components/layout/WhoamiTerminal"
+import { useLocale } from "@/context/LocaleContext"
+import { copy } from "@/lib/copy"
 import type { SocialLink } from "@/types/profile"
 
 interface FooterProps {
@@ -5,6 +8,8 @@ interface FooterProps {
 }
 
 export function Footer({ socialLinks }: FooterProps) {
+  const { t } = useLocale()
+
   return (
     <footer className="border-t border-border py-10">
       <nav className="flex flex-wrap gap-x-4 gap-y-2" aria-label="Social links">
@@ -20,7 +25,12 @@ export function Footer({ socialLinks }: FooterProps) {
           </a>
         ))}
       </nav>
-      <p className="ds-label mt-6">© {new Date().getFullYear()} Eduardo Zaqueu</p>
+      <div className="mt-6 flex flex-wrap items-baseline justify-between gap-4">
+        <p className="ds-label">© {new Date().getFullYear()} Eduardo Zaqueu</p>
+        <button type="button" className="ds-label ds-link cursor-pointer" onClick={openWhoami}>
+          {t(copy.footer.hint)}
+        </button>
+      </div>
     </footer>
   )
 }
