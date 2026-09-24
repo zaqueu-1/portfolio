@@ -1,0 +1,88 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git show*)",
+      "Bash(git branch*)",
+      "Bash(git stash list*)",
+      "Bash(git add*)",
+      "Bash(ls*)",
+      "Bash(find*)",
+      "Bash(grep*)",
+      "Bash(rg*)",
+      "Bash(echo*)",
+      "Bash(cat*)",
+      "Bash(head*)",
+      "Bash(tail*)",
+      "Bash(wc*)",
+      "Bash(node*)",
+      "Bash(npm run*)",
+      "Bash(npm list*)",
+      "Bash(npx*)",
+      "Bash(bun run*)",
+      "Bash(bun x*)",
+      "Bash(bun pm*)",
+      "Bash(pnpm run*)",
+      "Bash(pnpm list*)",
+      "Bash(tsc*)",
+      "Bash(vue-tsc*)",
+      "Bash(vitest*)",
+      "Bash(jest*)",
+      "Bash(eslint*)",
+      "Bash(prettier*)",
+      "Bash(basename*)",
+      "Bash(dirname*)",
+      "Bash(pwd*)",
+      "Bash(date*)",
+      "Bash(which*)",
+      "Bash(type*)",
+      "Bash(mkdir*)",
+      "Bash(cp*)",
+      "Bash(mv*)",
+      "Bash(chmod*)",
+      "Bash(python3*)",
+      "Bash(python*)",
+      "Bash(gh*)",
+      "Bash(touch*)"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/bootstrap-check.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit *)",
+            "command": "bash .claude/hooks/bypass-check.sh commit"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(gh pr create *)",
+            "command": "bash .claude/hooks/bypass-check.sh pr"
+          }
+        ]
+      }
+    ]
+  }
+}

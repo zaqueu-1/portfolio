@@ -1,0 +1,23 @@
+{
+  "updatedAt": "2026-09-24T14:44:44.013Z",
+  "folders": [
+    "common",
+    "react",
+    "typescript",
+    "web"
+  ],
+  "scoped": [
+    "react",
+    "typescript",
+    "web"
+  ],
+  "signals": {
+    "packageName": "eduardo-zaqueu-portfolio",
+    "dependencyCount": 28,
+    "scoped": [
+      "react",
+      "typescript",
+      "web"
+    ]
+  }
+}
