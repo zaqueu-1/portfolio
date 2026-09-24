@@ -121,6 +121,7 @@ export function mergeApiWithSeed(api: Profile, seed: Profile): Profile {
 
   return {
     ...api,
+    tagline: seed.tagline ?? api.tagline ?? { pt: "", en: "" },
     about: {
       pt: api.about.pt,
       en: api.about.en,
@@ -204,6 +205,7 @@ export function mergeLocales(pt: Partial<Profile>, en: Partial<Profile>): Profil
     slug: pt.slug ?? en.slug ?? "zaqueu1",
     name: pt.name ?? en.name ?? "Eduardo Zaqueu",
     headline: mergeStr(pt.headline, en.headline),
+    tagline: mergeStr(pt.tagline, en.tagline),
     about: mergeStr(pt.about, en.about),
     location: mergeStr(pt.location, en.location),
     avatarUrl: pt.avatarUrl ?? en.avatarUrl ?? "/img/avatarzin.jpg",
