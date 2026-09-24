@@ -1,12 +1,13 @@
 import { existsSync } from "node:fs"
-import type { IncomingMessage } from "node:http"
+import type { IncomingMessage, ServerResponse } from "node:http"
 import path from "node:path"
 import type { Plugin } from "vite"
 
 type ApiHandler = (request: Request) => Response | Promise<Response>
+type NodeHandler = (req: IncomingMessage, res: ServerResponse) => unknown
 
 interface ApiModule {
-  default?: { fetch?: ApiHandler }
+  default?: NodeHandler | { fetch?: ApiHandler }
   [method: string]: unknown
 }
 
@@ -28,7 +29,8 @@ function toHeaders(req: IncomingMessage): Headers {
 }
 
 function resolveHandler(mod: ApiModule, method: string): ApiHandler | undefined {
-  if (typeof mod.default?.fetch === "function") return mod.default.fetch
+  const def = mod.default
+  if (def && typeof def === "object" && typeof def.fetch === "function") return def.fetch
   const named = mod[method]
   return typeof named === "function" ? (named as ApiHandler) : undefined
 }
@@ -52,7 +54,12 @@ export function vercelApiDev(): Plugin {
 
         try {
           const method = req.method ?? "GET"
-          const handler = resolveHandler((await server.ssrLoadModule(file)) as ApiModule, method)
+          const mod = (await server.ssrLoadModule(file)) as ApiModule
+          if (typeof mod.default === "function") {
+            await mod.default(req, res)
+            return
+          }
+          const handler = resolveHandler(mod, method)
           if (!handler) {
             res.statusCode = 405
             res.end()

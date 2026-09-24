@@ -1,3 +1,4 @@
+import type { IncomingMessage, ServerResponse } from "node:http"
 import { Resend } from "resend"
 import sanitizeHtml from "sanitize-html"
 import { z } from "zod"
@@ -127,7 +128,7 @@ function renderEmail({ name, email, subject, html }: ContactPayload): string {
   return `<div style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#888;margin-bottom:16px">from: ${meta}${subjectLine}</div><div style="font-size:15px;line-height:1.6">${sanitizeMessageHtml(html)}</div>`
 }
 
-async function handleContact(request: Request): Promise<Response> {
+export async function handleContact(request: Request): Promise<Response> {
   if (request.method !== "POST") {
     return new Response(null, { status: 405, headers: { Allow: "POST" } })
   }
@@ -179,4 +180,48 @@ async function handleContact(request: Request): Promise<Response> {
   return reply(200, { ok: true })
 }
 
-export default { fetch: handleContact }
+type NodeRequest = IncomingMessage & { body?: unknown }
+
+async function readRawBody(req: NodeRequest): Promise<string | undefined> {
+  // Vercel's Node helpers may have already parsed the body; reading it again would hang.
+  let parsed: unknown
+  try {
+    parsed = req.body
+  } catch {
+    return "{invalid"
+  }
+  if (typeof parsed === "string") return parsed
+  if (Buffer.isBuffer(parsed)) return parsed.toString("utf8")
+  if (parsed !== undefined) return JSON.stringify(parsed)
+
+  const chunks: Buffer[] = []
+  for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk))
+  return chunks.length ? Buffer.concat(chunks).toString("utf8") : undefined
+}
+
+function toWebRequest(req: NodeRequest, body: string | undefined): Request {
+  const headers = new Headers()
+  for (const [key, value] of Object.entries(req.headers)) {
+    if (Array.isArray(value)) value.forEach((v) => headers.append(key, v))
+    else if (value !== undefined) headers.set(key, value)
+  }
+  const method = req.method ?? "GET"
+  const url = new URL(req.url ?? "/api/contact", `https://${req.headers.host ?? "localhost"}`)
+  return new Request(url, { method, headers, body: method === "GET" || method === "HEAD" ? undefined : body })
+}
+
+/** Classic Node signature: the one every Vercel project type invokes. */
+export default async function handler(req: NodeRequest, res: ServerResponse): Promise<void> {
+  try {
+    const body = req.method === "POST" ? await readRawBody(req) : undefined
+    const response = await handleContact(toWebRequest(req, body))
+    res.statusCode = response.status
+    response.headers.forEach((value, key) => res.setHeader(key, value))
+    res.end(Buffer.from(await response.arrayBuffer()))
+  } catch (err: unknown) {
+    console.error("[contact] handler crashed:", err instanceof Error ? err.message : "unknown")
+    res.statusCode = 500
+    res.setHeader("Content-Type", "application/json")
+    res.end(JSON.stringify({ ok: false, error: "server" }))
+  }
+}
