@@ -73,8 +73,8 @@ export const PROJECTS: Project[] = [
       width: 1280,
       height: 800,
       label: {
-        pt: "Prévia em vídeo do NutriSpace: login com credenciais desfocadas e rolagem pelo feed.",
-        en: "Video preview of NutriSpace: login with blurred credentials, then scrolling the feed.",
+        pt: "Prévia em vídeo do NutriSpace: rolagem pela página inicial e clique em Entrar, abrindo a tela de login.",
+        en: "Video preview of NutriSpace: scrolling the home page, then clicking Entrar to open the login screen.",
       },
     },
   },
