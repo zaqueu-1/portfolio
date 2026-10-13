@@ -8,7 +8,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && npm run build:server",
+    "build:server": "vite build --ssr server/index.ts --outDir dist-server",
+    "start": "node dist-server/index.js",
     "preview": "vite preview",
     "test": "vitest",
     "linkedin:login": "tsx scripts/linkedin-login.ts",

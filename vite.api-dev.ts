@@ -35,13 +35,10 @@ function resolveHandler(mod: ApiModule, method: string): ApiHandler | undefined 
   return typeof named === "function" ? (named as ApiHandler) : undefined
 }
 
-/**
- * Serves Vercel-style web handlers from `api/*.ts` during `vite dev`, so the
- * contact form works locally without `vercel dev`. Production still uses Vercel.
- */
-export function vercelApiDev(): Plugin {
+/** Serves `api/*.ts` handlers during `vite dev`; production uses server/index.ts. */
+export function apiDev(): Plugin {
   return {
-    name: "vercel-api-dev",
+    name: "api-dev",
     apply: "serve",
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
