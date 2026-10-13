@@ -17,7 +17,7 @@ My personal portfolio. The site is a static, bilingual (PT/EN) single-page app w
 | Icons | [Lucide React](https://lucide.dev/) |
 | Tests | [Vitest](https://vitest.dev/) + Testing Library + jsdom |
 | Local data sync | [Playwright](https://playwright.dev/) (Chromium, dev-only) |
-| Deploy | [Vercel](https://vercel.com/) (Node.js 24.x, output `dist/`) |
+| Deploy | StayCloud (Node.js 24.x, `server/index.ts` serves `dist/` + `/api/contact`) |
 
 Visual and typography guidelines are documented in **[DESIGN.md](./DESIGN.md)**.
 
@@ -37,7 +37,7 @@ Visual and typography guidelines are documented in **[DESIGN.md](./DESIGN.md)**.
 
 - `@vitejs/plugin-react` — React Fast Refresh
 - `tsx` — run TypeScript scripts (`scripts/`)
-- `playwright` — LinkedIn scrape (not installed on Vercel builds)
+- `playwright` — LinkedIn scrape (Chromium installed on demand by `linkedin:login`)
 - `vitest`, `@testing-library/*`, `jsdom` — unit tests
 
 ---
@@ -173,14 +173,15 @@ Review bilingual copy after sync; machine translation may need manual edits.
 
 ## Deployment
 
-Configured for **Vercel**:
+Deployed to **StayCloud** as a Node app:
 
-- `vercel.json` — `outputDirectory: dist`, `framework: vite`
-- Node **24.x** via `package.json` `engines`
-- Playwright `postinstall` is skipped when `VERCEL` is set
+- `npm run build` — type-check, build the SPA to `dist/` and the server to `dist-server/`
+- `npm start` — `node dist-server/index.js` serves `dist/` (SPA fallback) and `POST /api/contact`
+- Node **24.x** via `package.json` `engines`; port from `PORT` (default 3000)
+- Runtime env: `RESEND_API_KEY` (set in the StayCloud panel)
 
 ```bash
-npm run build
+npx @staysdev/setup deploy
 ```
 
 ---
