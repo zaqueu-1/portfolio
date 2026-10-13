@@ -3,9 +3,9 @@ import path from "path"
 import { defineConfig, loadEnv } from "vite"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
-import { vercelApiDev } from "./vite.api-dev"
+import { apiDev } from "./vite.api-dev"
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, isSsrBuild }) => {
   // Server-only: expose .env to the local api/ handlers (e.g. RESEND_API_KEY).
   // Nothing here reaches the client bundle; only VITE_* vars do.
   for (const [key, value] of Object.entries(loadEnv(mode, process.cwd(), ""))) {
@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
   }
 
   return {
-    plugins: [react(), tailwindcss(), vercelApiDev()],
+    plugins: [react(), tailwindcss(), apiDev()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
@@ -21,6 +21,9 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 5175,
+    },
+    build: {
+      copyPublicDir: !isSsrBuild,
     },
     test: {
       environment: "jsdom",

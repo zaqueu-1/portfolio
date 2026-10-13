@@ -13,6 +13,7 @@
 # production
 /build
 /dist
+/dist-server
 
 # docs (plans locais, superpowers)
 /docs

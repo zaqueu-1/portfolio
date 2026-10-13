@@ -3,8 +3,6 @@ import { Resend } from "resend"
 import sanitizeHtml from "sanitize-html"
 import { z } from "zod"
 
-// Self-contained on purpose: no local imports, so the Vercel function bundle
-// never depends on resolving sibling .ts files at runtime.
 // Limits mirror src/lib/contact-schema.ts; a test fails if they drift.
 
 export const CONTACT_LIMITS = {
@@ -34,6 +32,7 @@ const CONTACT_TO = "bss.eduardo@yahoo.com.br"
 const CONTACT_FROM = "Portfolio <onboarding@resend.dev>"
 const RATE_LIMIT = 5
 const RATE_WINDOW_MS = 10 * 60 * 1000
+const MAX_BODY_BYTES = 64 * 1024
 
 const SAFE_FONT = /^[\w\s"',-]+$/
 const SAFE_SIZE = /^(1[0-9]|2[0-9]|3[0-2])px$/
@@ -180,26 +179,21 @@ export async function handleContact(request: Request): Promise<Response> {
   return reply(200, { ok: true })
 }
 
-type NodeRequest = IncomingMessage & { body?: unknown }
+class PayloadTooLargeError extends Error {}
 
-async function readRawBody(req: NodeRequest): Promise<string | undefined> {
-  // Vercel's Node helpers may have already parsed the body; reading it again would hang.
-  let parsed: unknown
-  try {
-    parsed = req.body
-  } catch {
-    return "{invalid"
-  }
-  if (typeof parsed === "string") return parsed
-  if (Buffer.isBuffer(parsed)) return parsed.toString("utf8")
-  if (parsed !== undefined) return JSON.stringify(parsed)
-
+async function readRawBody(req: IncomingMessage): Promise<string | undefined> {
   const chunks: Buffer[] = []
-  for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk))
+  let size = 0
+  for await (const chunk of req) {
+    const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk)
+    size += buffer.byteLength
+    if (size > MAX_BODY_BYTES) throw new PayloadTooLargeError()
+    chunks.push(buffer)
+  }
   return chunks.length ? Buffer.concat(chunks).toString("utf8") : undefined
 }
 
-function toWebRequest(req: NodeRequest, body: string | undefined): Request {
+function toWebRequest(req: IncomingMessage, body: string | undefined): Request {
   const headers = new Headers()
   for (const [key, value] of Object.entries(req.headers)) {
     if (Array.isArray(value)) value.forEach((v) => headers.append(key, v))
@@ -210,8 +204,7 @@ function toWebRequest(req: NodeRequest, body: string | undefined): Request {
   return new Request(url, { method, headers, body: method === "GET" || method === "HEAD" ? undefined : body })
 }
 
-/** Classic Node signature: the one every Vercel project type invokes. */
-export default async function handler(req: NodeRequest, res: ServerResponse): Promise<void> {
+export default async function handler(req: IncomingMessage, res: ServerResponse): Promise<void> {
   try {
     const body = req.method === "POST" ? await readRawBody(req) : undefined
     const response = await handleContact(toWebRequest(req, body))
@@ -219,9 +212,10 @@ export default async function handler(req: NodeRequest, res: ServerResponse): Pr
     response.headers.forEach((value, key) => res.setHeader(key, value))
     res.end(Buffer.from(await response.arrayBuffer()))
   } catch (err: unknown) {
-    console.error("[contact] handler crashed:", err instanceof Error ? err.message : "unknown")
-    res.statusCode = 500
+    const isTooLarge = err instanceof PayloadTooLargeError
+    if (!isTooLarge) console.error("[contact] handler crashed:", err instanceof Error ? err.message : "unknown")
+    res.statusCode = isTooLarge ? 413 : 500
     res.setHeader("Content-Type", "application/json")
-    res.end(JSON.stringify({ ok: false, error: "server" }))
+    res.end(JSON.stringify({ ok: false, error: isTooLarge ? "invalid" : "server" }))
   }
 }

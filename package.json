@@ -8,13 +8,14 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && npm run build:server",
+    "build:server": "vite build --ssr server/index.ts --outDir dist-server",
+    "start": "node dist-server/index.js",
     "preview": "vite preview",
     "test": "vitest",
-    "linkedin:login": "tsx scripts/linkedin-login.ts",
+    "linkedin:login": "playwright install chromium && tsx scripts/linkedin-login.ts",
     "sync:linkedin": "SYNC_LINKEDIN=1 tsx scripts/sync-linkedin.ts",
-    "translate:testimonials": "tsx scripts/translate-testimonials.ts",
-    "postinstall": "[ -z \"$VERCEL\" ] && playwright install chromium 2>/dev/null || true"
+    "translate:testimonials": "tsx scripts/translate-testimonials.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -24,7 +25,6 @@
     "@tiptap/pm": "^3.31.3",
     "@tiptap/react": "^3.31.3",
     "@tiptap/starter-kit": "^3.31.3",
-    "@vercel/analytics": "^2.0.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^10.0.0",
