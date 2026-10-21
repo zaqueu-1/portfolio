@@ -29,6 +29,31 @@ export function contentType(filePath: string): string {
   return CONTENT_TYPES[ext] ?? "application/octet-stream"
 }
 
+export interface ByteRange {
+  start: number
+  end: number
+}
+
+/** Single `bytes=` range only; null means serve the whole file, "unsatisfiable" means 416. */
+export function parseRange(header: string | undefined, size: number): ByteRange | "unsatisfiable" | null {
+  const match = header?.trim().match(/^bytes=(\d*)-(\d*)$/)
+  if (!match) return null
+  const [, rawStart, rawEnd] = match
+  if (!rawStart && !rawEnd) return null
+
+  if (!rawStart) {
+    const suffix = Number(rawEnd)
+    if (suffix === 0 || size === 0) return "unsatisfiable"
+    return { start: Math.max(size - suffix, 0), end: size - 1 }
+  }
+
+  const start = Number(rawStart)
+  if (rawEnd && Number(rawEnd) < start) return null
+  if (start >= size) return "unsatisfiable"
+  const end = rawEnd ? Math.min(Number(rawEnd), size - 1) : size - 1
+  return { start, end }
+}
+
 /** Maps a URL pathname to a file inside root; null when it escapes root or is malformed. */
 export function resolveStaticPath(root: string, pathname: string): string | null {
   let decoded: string
