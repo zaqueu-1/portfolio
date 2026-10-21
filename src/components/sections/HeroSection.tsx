@@ -31,7 +31,7 @@ export function HeroSection({ profile }: { profile: Profile }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center md:gap-12">
-        <div className="flex min-h-0 flex-col justify-end gap-6 pb-6 pt-10 md:gap-10 md:pb-8 md:pt-14">
+        <div className="flex min-h-0 flex-col justify-end gap-6 pb-6 pt-8 md:gap-10 md:pb-8 md:pt-14">
           {location && <p className="ds-label">{location}</p>}
 
           <div className="space-y-3 md:space-y-4">
@@ -49,11 +49,11 @@ export function HeroSection({ profile }: { profile: Profile }) {
           <TagList tags={profile.skills} label="Skills" />
         </div>
 
-        <div className="hidden md:flex md:items-center md:self-center">
+        <div className="order-first flex pt-10 md:order-none md:items-center md:self-center md:pt-0">
           <DotAvatar
             src="/img/avatar.png"
             alt={profile.name}
-            className="w-[200px] xl:w-[240px]"
+            className="w-[128px] md:w-[200px] xl:w-[240px]"
           />
         </div>
       </div>
