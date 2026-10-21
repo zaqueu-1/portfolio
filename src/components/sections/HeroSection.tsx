@@ -21,7 +21,7 @@ export function HeroSection({ profile }: { profile: Profile }) {
     <RevealSection
       as="section"
       id="top"
-      className="hero-section relative isolate grid min-h-[calc(100svh-var(--hero-offset))] min-h-[calc(100dvh-var(--hero-offset))] grid-rows-[1fr_auto]"
+      className="hero-section relative isolate grid grid-rows-[1fr_auto] md:min-h-[calc(100svh-var(--hero-offset))] md:min-h-[calc(100dvh-var(--hero-offset))]"
     >
       <div
         aria-hidden
@@ -31,7 +31,7 @@ export function HeroSection({ profile }: { profile: Profile }) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center md:gap-12">
-        <div className="flex min-h-0 flex-col justify-end gap-6 pb-6 pt-8 md:gap-10 md:pb-8 md:pt-14">
+        <div className="flex min-h-0 flex-col justify-start gap-6 pb-6 pt-10 md:justify-end md:gap-10 md:pb-8 md:pt-14">
           {location && <p className="ds-label">{location}</p>}
 
           <div className="space-y-3 md:space-y-4">
@@ -40,7 +40,14 @@ export function HeroSection({ profile }: { profile: Profile }) {
               className="ds-label text-foreground"
               text="~ $ whoami"
             />
-            <ScrambleText as="h1" className="ds-display" text={profile.name} />
+            <div className="ds-display flex items-start gap-[0.3em]">
+              <img
+                src="/img/avatar.png"
+                alt=""
+                className="mt-[0.185em] size-[0.78em] shrink-0 rounded-full object-cover md:hidden"
+              />
+              <ScrambleText as="h1" className="ds-display" text={profile.name} />
+            </div>
             <RevealText as="p" className="ds-subtitle max-w-3xl" text={t(profile.headline)} />
           </div>
 
@@ -49,11 +56,11 @@ export function HeroSection({ profile }: { profile: Profile }) {
           <TagList tags={profile.skills} label="Skills" />
         </div>
 
-        <div className="order-first flex pt-10 md:order-none md:items-center md:self-center md:pt-0">
+        <div className="hidden md:flex md:items-center md:self-center">
           <DotAvatar
             src="/img/avatar.png"
             alt={profile.name}
-            className="w-[128px] md:w-[200px] xl:w-[240px]"
+            className="w-[200px] xl:w-[240px]"
           />
         </div>
       </div>
