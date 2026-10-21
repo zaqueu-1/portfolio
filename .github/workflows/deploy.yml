@@ -1,0 +1,66 @@
+name: Deploy to StayCloud
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: staycloud-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+      - run: npm test -- --run
+      - run: npm run build
+
+  deploy:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: https://zaqueu.tech
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+
+      # The StayCloud CLI only reads its token from .staycloud/credentials.json (gitignored).
+      - name: Write StayCloud credentials
+        env:
+          STAYCLOUD_ACCESS_TOKEN: ${{ secrets.STAYCLOUD_ACCESS_TOKEN }}
+        run: |
+          if [ -z "$STAYCLOUD_ACCESS_TOKEN" ]; then
+            echo "::error::Missing STAYCLOUD_ACCESS_TOKEN repository secret."
+            exit 1
+          fi
+          umask 077
+          node -e 'require("node:fs").writeFileSync(".staycloud/credentials.json", JSON.stringify({ accessToken: process.env.STAYCLOUD_ACCESS_TOKEN }))'
+
+      - name: Deploy
+        run: npx --yes @staysdev/setup@0.1.3 deploy
+
+      - name: Remove StayCloud credentials
+        if: always()
+        run: rm -f .staycloud/credentials.json

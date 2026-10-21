@@ -17,6 +17,10 @@ export interface Project {
   preview: ProjectPreview
 }
 
+// The StayCloud deploy CLI drops video files, so previews come from the public repo via jsDelivr.
+// Pinned to the commit that added them; bump the SHA after re-recording a preview.
+const VIDEO_CDN = "https://cdn.jsdelivr.net/gh/zaqueu-1/portfolio@9f9107fc9f311e31502a9d7b6226bbd87000d230/public/showcase"
+
 export const PROJECTS: Project[] = [
   {
     id: "tron-charts",
@@ -28,7 +32,7 @@ export const PROJECTS: Project[] = [
     url: "https://app.troncharts.xyz/",
     urlLabel: "app.troncharts.xyz",
     preview: {
-      src: "/showcase/tron-charts.mp4",
+      src: `${VIDEO_CDN}/tron-charts.mp4`,
       poster: "/showcase/tron-charts-poster.jpg",
       width: 1280,
       height: 558,
@@ -48,7 +52,7 @@ export const PROJECTS: Project[] = [
     url: "https://arcadetrading.co/",
     urlLabel: "arcadetrading.co",
     preview: {
-      src: "/showcase/arcade-trading.mp4",
+      src: `${VIDEO_CDN}/arcade-trading.mp4`,
       poster: "/showcase/arcade-trading-poster.jpg",
       width: 1280,
       height: 800,
@@ -68,7 +72,7 @@ export const PROJECTS: Project[] = [
     url: "https://nutrispace.fit/",
     urlLabel: "nutrispace.fit",
     preview: {
-      src: "/showcase/nutrispace.mp4",
+      src: `${VIDEO_CDN}/nutrispace.mp4`,
       poster: "/showcase/nutrispace-poster.jpg",
       width: 1280,
       height: 800,
