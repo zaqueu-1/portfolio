@@ -28,7 +28,7 @@ export const PROJECTS: Project[] = [
     url: "https://app.troncharts.xyz/",
     urlLabel: "app.troncharts.xyz",
     preview: {
-      src: "/showcase/tron-charts.webm",
+      src: "/showcase/tron-charts.mp4",
       poster: "/showcase/tron-charts-poster.jpg",
       width: 1280,
       height: 558,
@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
     url: "https://arcadetrading.co/",
     urlLabel: "arcadetrading.co",
     preview: {
-      src: "/showcase/arcade-trading.webm",
+      src: "/showcase/arcade-trading.mp4",
       poster: "/showcase/arcade-trading-poster.jpg",
       width: 1280,
       height: 800,
@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
     url: "https://nutrispace.fit/",
     urlLabel: "nutrispace.fit",
     preview: {
-      src: "/showcase/nutrispace.webm",
+      src: "/showcase/nutrispace.mp4",
       poster: "/showcase/nutrispace-poster.jpg",
       width: 1280,
       height: 800,

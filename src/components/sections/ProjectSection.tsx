@@ -104,7 +104,7 @@ function ProjectItem({ project }: { project: Project }) {
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         >
-          <source src={preview.src} type="video/webm" />
+          <source src={preview.src} type="video/mp4" />
         </video>
       </figure>
     </RevealSection>
