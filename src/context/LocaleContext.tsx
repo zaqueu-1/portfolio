@@ -19,20 +19,8 @@ interface LocaleContextValue {
 
 const LocaleContext = createContext<LocaleContextValue | null>(null)
 
-/** PT when browser prefers Portuguese; EN-US otherwise (including unknown). */
-function detectLocale(): Locale {
-  if (typeof navigator === "undefined") return "en"
-
-  const candidates = [navigator.language, ...(navigator.languages ?? [])]
-    .filter(Boolean)
-    .map((tag) => tag.toLowerCase())
-
-  if (candidates.some((tag) => tag.startsWith("pt"))) return "pt"
-  return "en"
-}
-
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>(() => detectLocale())
+  const [locale, setLocale] = useState<Locale>("en")
 
   useEffect(() => {
     document.documentElement.lang = locale === "pt" ? "pt-BR" : "en-US"

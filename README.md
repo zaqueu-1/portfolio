@@ -101,7 +101,7 @@ public/
 
 `Profile` and nested types live in `src/types/profile.ts`. Copy fields use `LocalizedString` (`{ pt, en }`). The UI resolves strings via `useLocale().t()`.
 
-Browser language defaults to English when `navigator.language` does not start with `pt`.
+The site always opens in English; visitors switch to PT with the language toggle.
 
 ### LinkedIn pipeline (local)
 
